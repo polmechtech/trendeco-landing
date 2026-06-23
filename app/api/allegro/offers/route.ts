@@ -1,27 +1,24 @@
+import { Redis } from "@upstash/redis";
 import { NextResponse } from "next/server";
 import { mapAllegroOffers } from "@/lib/allegro";
-import fs from "fs";
-import path from "path";
 
-const tokenFile = path.join(process.cwd(), ".allegro-refresh-token");
+const redis = Redis.fromEnv();
+const REFRESH_TOKEN_KEY = "allegro:refresh_token";
 
-function getStoredRefreshToken() {
-  if (fs.existsSync(tokenFile)) {
-    return fs.readFileSync(tokenFile, "utf8").trim();
-  }
-
-  return process.env.ALLEGRO_REFRESH_TOKEN;
+async function getRefreshToken() {
+  const tokenFromRedis = await redis.get<string>(REFRESH_TOKEN_KEY);
+  return tokenFromRedis || process.env.ALLEGRO_REFRESH_TOKEN;
 }
 
-function saveRefreshToken(refreshToken: string) {
-  fs.writeFileSync(tokenFile, refreshToken, "utf8");
+async function saveRefreshToken(token: string) {
+  await redis.set(REFRESH_TOKEN_KEY, token);
 }
 
 export async function GET() {
   try {
     const clientId = process.env.ALLEGRO_CLIENT_ID;
     const clientSecret = process.env.ALLEGRO_CLIENT_SECRET;
-    const refreshToken = getStoredRefreshToken();
+    const refreshToken = await getRefreshToken();
 
     if (!clientId || !clientSecret || !refreshToken) {
       return NextResponse.json({
@@ -32,7 +29,9 @@ export async function GET() {
       });
     }
 
-    const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
+    const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString(
+      "base64"
+    );
 
     const tokenResponse = await fetch("https://allegro.pl/auth/oauth/token", {
       method: "POST",
@@ -59,7 +58,7 @@ export async function GET() {
     const tokenData = JSON.parse(tokenText);
 
     if (tokenData.refresh_token) {
-      saveRefreshToken(tokenData.refresh_token);
+      await saveRefreshToken(tokenData.refresh_token);
     }
 
     const offersResponse = await fetch(
