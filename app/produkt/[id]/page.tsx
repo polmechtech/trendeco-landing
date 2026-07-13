@@ -4,6 +4,10 @@ import type { AllegroProduct } from "@/lib/allegro";
 
 export const dynamic = "force-dynamic";
 
+const PHONE_DISPLAY = "+48 512 077 770";
+const PHONE_LINK = "+48512077770";
+const EMAIL = "info@widia.tech";
+
 async function getProduct(id: string): Promise<AllegroProduct | null> {
   try {
     const response = await fetch("https://trendeco.eu/api/allegro/offers", {
@@ -25,7 +29,7 @@ export async function generateMetadata({
   const { id } = await params;
   const product = await getProduct(id);
   if (!product) return { title: "Oferta niedostępna", robots: { index: false } };
-  const description = `${product.name}. Cena ${product.price} ${product.currency}. Aktualna dostępność: ${product.stock} szt. Zakup przez Allegro.`;
+  const description = `${product.name}. Cena ${product.price} ${product.currency}. Aktualna dostępność: ${product.stock} szt. Kup na Allegro albo skontaktuj się po indywidualną ofertę.`;
   return {
     title: product.name,
     description,
@@ -47,6 +51,11 @@ export default async function ProductPage({
   const { id } = await params;
   const product = await getProduct(id);
   if (!product) notFound();
+
+  const emailSubject = encodeURIComponent(`Zapytanie o ofertę: ${product.name}`);
+  const emailBody = encodeURIComponent(
+    `Dzień dobry, proszę o indywidualną ofertę na produkt: ${product.name}\nID oferty Allegro: ${product.id}`
+  );
 
   const productJsonLd = {
     "@context": "https://schema.org",
@@ -89,15 +98,37 @@ export default async function ProductPage({
           <h1 className="mt-3 text-3xl font-black leading-tight">{product.name}</h1>
           <p className="mt-6 text-3xl font-black text-orange-600">{product.price} {product.currency}</p>
           <p className="mt-3 text-zinc-600">Dostępność na Allegro: {product.stock > 0 ? `${product.stock} szt.` : "brak"}</p>
-          <p className="mt-6 text-zinc-600">Cena i stan magazynowy są synchronizowane z Allegro co godzinę. Zakup, płatność, dostawa i obsługa zamówienia odbywają się w serwisie Allegro.</p>
+          <p className="mt-6 text-zinc-600">Cena i stan magazynowy są synchronizowane z Allegro co godzinę.</p>
+
           <a
             href={product.url}
             target="_blank"
             rel="noopener noreferrer sponsored"
             className="mt-8 block rounded-full bg-orange-500 px-6 py-4 text-center text-lg font-black text-white hover:bg-orange-600"
           >
-            Kup na Allegro
+            Kup teraz na Allegro
           </a>
+
+          <div className="mt-6 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+            <h2 className="text-xl font-black">Chcesz lepszą ofertę niż na Allegro?</h2>
+            <p className="mt-2 text-zinc-600">
+              Zadzwoń lub napisz. Przygotujemy indywidualną ofertę dla tego produktu.
+            </p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <a
+                href={`tel:${PHONE_LINK}`}
+                className="rounded-full bg-zinc-950 px-5 py-3 text-center font-bold text-white hover:bg-zinc-800"
+              >
+                Zadzwoń: {PHONE_DISPLAY}
+              </a>
+              <a
+                href={`mailto:${EMAIL}?subject=${emailSubject}&body=${emailBody}`}
+                className="rounded-full border border-zinc-300 bg-white px-5 py-3 text-center font-bold text-zinc-950 hover:bg-zinc-100"
+              >
+                Napisz e-mail
+              </a>
+            </div>
+          </div>
         </div>
       </article>
     </main>
