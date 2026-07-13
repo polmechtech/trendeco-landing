@@ -11,6 +11,7 @@ export type AllegroProduct = {
   image: string;
   price: string;
   currency: string;
+  stock: number;
   url: string;
   category: ProductCategory;
 };
@@ -18,12 +19,7 @@ export type AllegroProduct = {
 export function classifyProduct(name: string): ProductCategory {
   const n = name.toLowerCase();
 
-  if (
-    n.includes("łupar") ||
-    n.includes("rozłupyw")
-  ) {
-    return "Łuparki";
-  }
+  if (n.includes("łupar") || n.includes("rozłupyw")) return "Łuparki";
 
   if (
     n.includes("piła pierścieniowa") ||
@@ -61,16 +57,32 @@ export function classifyProduct(name: string): ProductCategory {
   return "Inne";
 }
 
-export function mapAllegroOffers(data: any): AllegroProduct[] {
-  const offers = data.offers ?? [];
+export function getSelectedOfferIds(): Set<string> {
+  const raw = process.env.ALLEGRO_OFFER_IDS?.trim();
+  if (!raw) return new Set();
 
-  return offers.map((offer: any) => ({
-    id: offer.id,
-    name: offer.name,
-    image: offer.primaryImage?.url ?? "",
-    price: offer.sellingMode?.price?.amount ?? "",
-    currency: offer.sellingMode?.price?.currency ?? "PLN",
-    url: `https://allegro.pl/oferta/${offer.id}`,
-    category: classifyProduct(offer.name),
-  }));
+  return new Set(
+    raw
+      .split(",")
+      .map((id) => id.trim())
+      .filter(Boolean)
+  );
+}
+
+export function mapAllegroOffers(data: any): AllegroProduct[] {
+  const offers = Array.isArray(data?.offers) ? data.offers : [];
+  const selectedIds = getSelectedOfferIds();
+
+  return offers
+    .filter((offer: any) => selectedIds.size === 0 || selectedIds.has(String(offer.id)))
+    .map((offer: any) => ({
+      id: String(offer.id),
+      name: String(offer.name ?? ""),
+      image: offer.primaryImage?.url ?? "",
+      price: offer.sellingMode?.price?.amount ?? "",
+      currency: offer.sellingMode?.price?.currency ?? "PLN",
+      stock: Number(offer.stock?.available ?? 0),
+      url: `https://allegro.pl/oferta/${offer.id}`,
+      category: classifyProduct(String(offer.name ?? "")),
+    }));
 }
