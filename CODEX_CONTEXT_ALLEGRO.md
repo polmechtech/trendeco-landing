@@ -1,278 +1,226 @@
-# CODEX CONTEXT — Allegro integration project
+# CODEX CONTEXT — Allegro offer mirror
 
-## Project identity
+## Final product scope
 
-- Owner: Dmitry Nicheperovich
-- GitHub account/organization previously used: `polmechtech`
-- Main repository discussed: `polmechtech/trendeco-landing`
-- Earlier related repository: `polmechtech/polmech`
-- Stack: Next.js 16.x, TypeScript, Tailwind CSS, Vercel
-- Primary purpose: public product landing page plus internal Allegro offer management panel.
+The application has one narrow purpose:
 
-## Current critical problem
+1. Import selected offers from Allegro to the public site.
+2. Show current offer data on the public site.
+3. Synchronize price and available stock from Allegro every hour.
+4. Send every buyer to Allegro to complete the purchase.
 
-The application previously returned:
+The website is not an independent store.
 
-```text
-{"error":"Server crash","details":"Token error 400: {\"error_description\":\"Invalid refresh token: ...
-```
+## What the site must display
 
-The Allegro OAuth refresh token is invalid or expired/revoked.
+For each selected Allegro offer:
 
-The last confirmed git state from the user's Mac was:
+- title;
+- main image;
+- current price;
+- current available quantity or availability status;
+- Allegro offer URL;
+- button such as `Kup na Allegro`.
 
-```text
-f930c0e (HEAD -> main, origin/main) Add Redis lock for Allegro token refresh
-```
+The button must open the corresponding Allegro offer. No checkout, cart, payment, order creation or customer account is required on the website.
 
-The repository was pushed and local `main` matched `origin/main`.
+## Source of truth
 
-## Allegro account and OAuth
+Allegro is the only source of truth for:
 
-- Allegro account used for integration: `trendeco_eu`
-- OAuth model: Authorization Code flow with refresh token.
-- The application must not rely on a permanently hard-coded access token.
-- Refresh token rotation must be handled correctly.
-- Only one process should refresh the token at a time.
-- Redis locking was introduced to prevent concurrent token refreshes.
-- Tokens should be stored persistently and atomically.
-- A successful refresh may return a new refresh token; it must replace the old one.
-- Environment secrets must never be committed.
+- price;
+- available quantity;
+- publication status;
+- offer URL;
+- title and image unless there is already a deliberate local override.
 
-Expected environment variables may include equivalents of:
-
-```env
-ALLEGRO_CLIENT_ID=
-ALLEGRO_CLIENT_SECRET=
-ALLEGRO_REDIRECT_URI=
-ALLEGRO_ACCESS_TOKEN=
-ALLEGRO_REFRESH_TOKEN=
-REDIS_URL=
-```
-
-Codex must inspect the actual code and use the existing naming conventions rather than blindly adding duplicates.
-
-## Main required functionality
-
-### Public site
-
-A one-page site that displays selected Allegro offers.
-
-Planned domain:
+Synchronization is one-way:
 
 ```text
-trendeco.eu
+Allegro -> website
 ```
 
-Product categories discussed:
+The website must not push prices, quantities or offer edits back to Allegro.
 
-- Meblarstwo
-- Budownictwo
-- Łuparki
-- Akcesoria
+## Offer selection
 
-Examples of subcategories:
+The application should support a simple list of selected Allegro offer IDs.
 
-- Piły formatowe
-- Okleiniarki
-- Piły pierścieniowe
-- Prowadnice
-- Przecinarki 230 V / 400 V
-- Łuparki 230 V / 400 V
-- Noże
-- Płytki
-- Frezy nasadzane
-- Frezy trzpieniowe
-- Wały spiralne
-
-The public site should show only selected offers, not every Allegro listing.
-
-### Internal admin panel
-
-Previously discussed route:
-
-```text
-/admin/config
-```
-
-Required operations:
-
-- list selected Allegro offers;
-- fetch offer title, image, price, stock, publication status and URL;
-- edit price;
-- edit quantity;
-- push permitted changes to Allegro;
-- allow/disallow pushing per offer;
-- pin offers;
-- sort offers;
-- add internal notes;
-- remove an offer from the selected list;
-- add an offer by Allegro offer ID;
-- show synchronization errors clearly;
-- prevent accidental mass updates;
-- support manual synchronization;
-- later support scheduled synchronization.
-
-Previously discussed local data file:
+Existing file discussed earlier:
 
 ```text
 data/selected-offers.json
 ```
 
-Possible fields mentioned:
+A minimal valid structure is enough, for example:
 
-```ts
-type SelectedOffer = {
-  offerId: string;
-  note?: string;
-  allowPush?: boolean;
-  pinned?: boolean;
-  sortOrder?: number;
-};
+```json
+[
+  { "offerId": "123456789" }
+]
 ```
 
-Codex must inspect the repository and preserve the existing schema if it differs.
+Preserve the existing repository schema if one already exists.
 
-## Synchronization behavior
+A minimal protected admin/config screen may be retained only to:
 
-- Synchronize only selected offers.
-- Pull current data from Allegro before displaying it.
-- Never overwrite Allegro data merely because local cached data is stale.
-- Price and quantity updates must be explicit and validated.
-- Add logging for:
-  - token refresh;
-  - Allegro API errors;
-  - failed offer fetches;
-  - failed price updates;
-  - failed stock updates;
-  - Redis lock acquisition/release.
-- Do not log secrets or full tokens.
-- Add retry only for safe transient failures.
-- Do not retry invalid OAuth credentials indefinitely.
-- Use a configurable interval such as `SYNC_INTERVAL_MS` if scheduled synchronization already exists.
-- Vercel serverless execution must be considered; do not rely on an in-memory timer for durable scheduling.
+- add an Allegro offer ID;
+- remove an Allegro offer ID;
+- trigger manual refresh;
+- see last synchronization time and errors.
+
+Do not build price editing, stock editing, bulk updates, CRM, order handling, analytics, competitor monitoring or rule-based pricing.
+
+## Hourly synchronization
+
+Synchronization must run once per hour.
+
+Requirements:
+
+- use a durable scheduler suitable for Vercel/serverless deployment;
+- do not use an in-memory `setInterval` as the only scheduler;
+- a Vercel Cron endpoint or equivalent scheduled job is acceptable;
+- protect the cron endpoint with a secret;
+- fetch only selected offers;
+- update the cached public data atomically;
+- record `lastSuccessfulSyncAt`;
+- keep the last valid cached data when Allegro is temporarily unavailable;
+- log errors without exposing tokens or secrets;
+- avoid overlapping synchronization jobs with a Redis lock or equivalent lock if Redis is already used.
+
+Target frequency:
+
+```text
+0 * * * *
+```
+
+This means once at the start of every hour. Exact implementation must match the hosting platform.
+
+## Allegro OAuth
+
+Allegro account used previously:
+
+```text
+trendeco_eu
+```
+
+Current known failure:
+
+```text
+Invalid refresh token
+```
+
+The OAuth implementation must be repaired before synchronization can work.
+
+Required behavior:
+
+- Authorization Code flow;
+- persistent token storage;
+- correct refresh-token rotation;
+- one refresh operation at a time;
+- successful refresh must save the newest refresh token;
+- invalid refresh token must produce a clear action to authorize Allegro again;
+- secrets must remain server-side;
+- never log complete access or refresh tokens.
+
+The last known related commit before this context file was added:
+
+```text
+f930c0e Add Redis lock for Allegro token refresh
+```
+
+Inspect the repository instead of assuming this implementation is correct.
+
+## Public-site behavior
+
+The public product listing must:
+
+- render from safe cached data;
+- remain available during a temporary Allegro API failure;
+- show only active selected offers, or clearly mark an unavailable offer;
+- link directly to Allegro;
+- contain no local basket or checkout;
+- contain no local stock reservation;
+- contain no local order processing.
+
+A sale happens entirely on Allegro.
 
 ## Immediate Codex task
 
-1. Inspect the complete repository.
-2. Identify every Allegro OAuth and token-storage file.
-3. Trace the exact cause of `Invalid refresh token`.
-4. Check whether:
-   - the old refresh token is reused after rotation;
-   - multiple Vercel instances refresh simultaneously;
-   - Redis lock expires too early;
-   - token writes are non-atomic;
-   - development and production use different credentials;
-   - redirect URI differs from the Allegro application settings;
-   - sandbox and production Allegro endpoints are mixed;
-   - refresh errors overwrite a valid stored token;
-   - environment variables override persistent token storage.
-5. Repair the OAuth flow.
-6. Add a protected endpoint or admin action to start a fresh OAuth authorization.
-7. Add clear setup instructions to `README.md`.
-8. Add `.env.example` containing variable names only.
-9. Verify locally with:
-   - lint;
-   - typecheck;
-   - build;
-   - relevant tests.
-10. Do not deploy or change production secrets without explicit approval.
+1. Read the complete repository.
+2. Find all Allegro OAuth, token, Redis, offer-fetch and synchronization code.
+3. Identify the exact reason for `Invalid refresh token`.
+4. Repair OAuth with correct token rotation and persistent storage.
+5. Implement or repair import of selected Allegro offers.
+6. Store a safe cached representation of selected offers for the public page.
+7. Add hourly scheduled synchronization.
+8. Add a protected manual synchronization endpoint or admin button.
+9. Ensure every product button links to the Allegro offer.
+10. Remove or ignore unnecessary planned functionality outside this scope.
+11. Run lint, typecheck and production build.
+12. Do not change live Allegro data.
 
-## OAuth acceptance criteria
+## Acceptance criteria
 
-- A fresh authorization can be initiated.
-- The callback exchanges the authorization code successfully.
-- Access and refresh tokens are persisted.
-- Expired access tokens refresh automatically.
-- A rotated refresh token is saved and used on the next refresh.
-- Concurrent refresh attempts do not invalidate each other.
-- An invalid refresh token produces an actionable admin message instead of a generic server crash.
-- The public product page remains available even if Allegro temporarily fails, using safe cached data where appropriate.
-- Secrets never appear in logs, browser output or git.
+- A new Allegro authorization can be completed.
+- Tokens persist across deployments and serverless invocations.
+- Rotated refresh tokens are saved correctly.
+- Selected offers appear on the public page.
+- Price shown on the site matches Allegro after synchronization.
+- Available quantity or availability status matches Allegro after synchronization.
+- Synchronization runs automatically every hour.
+- Manual synchronization works for an authorized administrator.
+- Temporary Allegro errors do not blank the site.
+- Every purchase button sends the buyer to Allegro.
+- The site has no cart, checkout, payment or order-management system.
+- The website never modifies Allegro price or stock.
 
-## Security requirements
+## Out of scope
 
-- Protect `/admin/*` routes.
-- Protect OAuth callback/state against CSRF using a cryptographically random `state`.
-- Use secure, HTTP-only cookies when cookies are used.
-- Validate all offer IDs, prices and quantities.
-- Price must be positive and use correct decimal precision.
-- Quantity must be a non-negative integer.
-- Never expose `client_secret`, access token or refresh token to client-side JavaScript.
-- Rate-limit sensitive admin actions where practical.
-- Do not commit real customer, order, token or credential data.
+Do not implement:
 
-## Suggested repository files to inspect
+- local checkout;
+- local payments;
+- local orders;
+- customer accounts;
+- CRM;
+- warehouse management;
+- editing Allegro prices;
+- editing Allegro stock;
+- automatic repricing;
+- competitor monitoring;
+- sales statistics;
+- views statistics;
+- Telegram alerts;
+- marketplace expansion;
+- eBay, eMAG or Amazon integration;
+- large architectural rewrite.
 
-Search for:
+## Security
 
-```text
-allegro
-oauth
-refresh_token
-access_token
-client_id
-client_secret
-REDIS
-token
-selected-offers
-SYNC_INTERVAL_MS
-/admin/config
-api/allegro
-callback
-authorize
-```
+- Protect admin and manual sync routes.
+- Protect cron endpoint with a secret.
+- Validate offer IDs.
+- Keep client secret and Allegro tokens server-side.
+- Never commit real credentials.
+- Never expose tokens in browser responses or logs.
+- Use cryptographic OAuth `state` validation.
 
-Likely locations include:
+## Required Codex report
 
-```text
-app/api/
-src/app/api/
-lib/
-src/lib/
-data/
-app/admin/
-src/app/admin/
-```
+After implementation, report:
 
-These are hints only; inspect the actual tree.
+1. root cause of the OAuth failure;
+2. files changed;
+3. token storage method;
+4. hourly scheduler implementation;
+5. cache storage method;
+6. environment variables required;
+7. Allegro developer-portal actions required;
+8. Vercel actions required;
+9. exact test commands;
+10. remaining risks.
 
-## Required output from Codex
+## Starting instruction
 
-Codex should report:
-
-1. Root cause.
-2. Files changed.
-3. Security implications.
-4. Environment variables required.
-5. Exact local test commands.
-6. Any manual action required in the Allegro developer portal.
-7. Any manual action required in Vercel.
-8. Remaining risks.
-
-## Important constraints
-
-- Do not rebuild the entire application from scratch.
-- Preserve existing working UI and offer selection logic.
-- Make the smallest reliable fix first.
-- Do not invent Allegro API fields; verify against current official Allegro API documentation.
-- Do not delete Redis locking until concurrency behavior is fully understood.
-- Do not store tokens only in process memory.
-- Do not create duplicate OAuth implementations.
-- Do not modify prices or stock on the live Allegro account during testing without explicit approval.
-
-## User's expected next stage
-
-After OAuth is repaired:
-
-1. restore selected Allegro offers on the public page;
-2. finish `/admin/config`;
-3. add safe bulk price editing;
-4. add stock synchronization;
-5. add sales and views statistics;
-6. add rule-based price automation;
-7. complete deployment for `trendeco.eu`.
-
-## Starting instruction for Codex
-
-Read this file first, then inspect the repository before making changes. Do not assume the description perfectly matches the current code. Treat the repository as the source of truth and use this document as project history and acceptance criteria.
+Read this file first, then inspect the repository. Implement the smallest reliable solution that mirrors selected Allegro offers and refreshes price and stock hourly. Allegro remains the only sales channel and checkout destination.
