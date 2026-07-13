@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/allegro/offers",
+      "schedule": "0 * * * *"
+    }
+  ]
+}
