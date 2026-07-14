@@ -20,8 +20,8 @@ export async function GET() {
   const items = products.map((product) => `
     <item>
       <title>${escapeXml(product.name)}</title>
-      <link>https://trendeco.eu/produkt/${product.id}</link>
-      <guid isPermaLink="true">https://trendeco.eu/produkt/${product.id}</guid>
+      <link>${escapeXml(product.url)}</link>
+      <guid isPermaLink="true">${escapeXml(product.url)}</guid>
       <description>${escapeXml(`${product.price} ${product.currency}; dostępność: ${product.stock} szt.`)}</description>
       <category>${escapeXml(product.category)}</category>
     </item>`).join("");
