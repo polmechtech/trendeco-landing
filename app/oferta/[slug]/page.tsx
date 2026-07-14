@@ -4,6 +4,11 @@ import { extractOfferId, getOfferPath, type AllegroProduct } from "@/lib/allegro
 
 export const dynamic = "force-dynamic";
 
+type VideoLinks = {
+  youtube?: string;
+  tiktok?: string;
+};
+
 async function getProductBySlug(slug: string): Promise<AllegroProduct | null> {
   const id = extractOfferId(slug);
   if (!id) return null;
@@ -18,6 +23,37 @@ async function getProductBySlug(slug: string): Promise<AllegroProduct | null> {
   } catch {
     return null;
   }
+}
+
+async function getVideos(offerId: string): Promise<VideoLinks> {
+  try {
+    const response = await fetch(`https://trendeco.eu/api/videos?offerId=${encodeURIComponent(offerId)}`, {
+      next: { revalidate: 300 },
+    });
+    if (!response.ok) return {};
+    return (await response.json()) as VideoLinks;
+  } catch {
+    return {};
+  }
+}
+
+function getYouTubeEmbedUrl(value?: string) {
+  if (!value) return null;
+  try {
+    const url = new URL(value);
+    const id = url.hostname === "youtu.be"
+      ? url.pathname.split("/").filter(Boolean)[0]
+      : url.searchParams.get("v") ?? url.pathname.match(/\/(?:shorts|embed)\/([^/?]+)/)?.[1];
+    return id ? `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}` : null;
+  } catch {
+    return null;
+  }
+}
+
+function getTikTokEmbedUrl(value?: string) {
+  if (!value) return null;
+  const id = value.match(/\/video\/(\d+)/)?.[1];
+  return id ? `https://www.tiktok.com/player/v1/${id}` : null;
 }
 
 export async function generateMetadata({
@@ -57,6 +93,10 @@ export default async function OfferPage({
 
   const canonicalPath = getOfferPath(product);
   if (`/oferta/${slug}` !== canonicalPath) permanentRedirect(canonicalPath);
+
+  const videos = await getVideos(product.id);
+  const youtubeEmbed = getYouTubeEmbedUrl(videos.youtube);
+  const tiktokEmbed = getTikTokEmbedUrl(videos.tiktok);
 
   const mailSubject = encodeURIComponent(`Zapytanie o ofertę: ${product.name}`);
   const mailBody = encodeURIComponent(`Dzień dobry, proszę o indywidualną ofertę na produkt: ${product.name} (Allegro ID: ${product.id}).`);
@@ -102,13 +142,44 @@ export default async function OfferPage({
             <p className="mt-2 text-zinc-600">Zadzwoń lub napisz. Przygotujemy indywidualną ofertę.</p>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               <a href="tel:+48512077770" className="rounded-full bg-zinc-950 px-5 py-3 text-center font-bold text-white">Zadzwoń</a>
-              <a href={`mailto:info@widia.tech?subject=${mailSubject}&body=${mailBody}`} className="rounded-full border border-zinc-300 px-5 py-3 text-center font-bold">Napisz e-mail</a>
+              <a href={`mailto:mail@trendeco.eu?subject=${mailSubject}&body=${mailBody}`} className="rounded-full border border-zinc-300 px-5 py-3 text-center font-bold">Napisz e-mail</a>
             </div>
           </section>
 
           <p className="mt-6 text-sm text-zinc-500">Cena i dostępność są synchronizowane z Allegro co godzinę.</p>
         </div>
       </article>
+
+      {(youtubeEmbed || tiktokEmbed || videos.youtube || videos.tiktok) && (
+        <section className="mx-auto mt-8 max-w-5xl rounded-3xl bg-white p-6 shadow-sm md:p-10">
+          <h2 className="text-2xl font-black">Film produktu</h2>
+          <div className="mt-6 grid gap-6 lg:grid-cols-2">
+            {youtubeEmbed && (
+              <iframe
+                src={youtubeEmbed}
+                title={`YouTube: ${product.name}`}
+                className="aspect-video w-full rounded-2xl border-0"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            )}
+            {tiktokEmbed && (
+              <iframe
+                src={tiktokEmbed}
+                title={`TikTok: ${product.name}`}
+                className="min-h-[640px] w-full rounded-2xl border-0"
+                loading="lazy"
+                allow="fullscreen"
+              />
+            )}
+          </div>
+          <div className="mt-5 flex flex-wrap gap-3">
+            {videos.youtube && <a href={videos.youtube} target="_blank" rel="noopener noreferrer" className="rounded-full border px-5 py-3 font-bold">Otwórz w YouTube</a>}
+            {videos.tiktok && <a href={videos.tiktok} target="_blank" rel="noopener noreferrer" className="rounded-full border px-5 py-3 font-bold">Otwórz w TikTok</a>}
+          </div>
+        </section>
+      )}
     </main>
   );
 }
