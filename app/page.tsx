@@ -50,6 +50,10 @@ export default async function Home() {
           Maszyny i narzędzia dostępne w sprzedaży przez Allegro. Ceny i stany
           magazynowe są aktualizowane automatycznie co godzinę.
         </p>
+        <p className="mt-4 max-w-3xl text-base text-zinc-400">
+          Potrzebujesz indywidualnej oferty? Zadzwoń: +48 512 077 770 lub napisz:
+          info@widia.tech.
+        </p>
         <a href="/o-nas" className="mt-6 inline-block text-sm font-bold text-orange-400">
           O firmie i kontakt →
         </a>
@@ -67,7 +71,9 @@ export default async function Home() {
                 {sectionProducts.map((product) => (
                   <a
                     key={product.id}
-                    href={`/produkt/${product.id}`}
+                    href={product.url}
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
                     className="rounded-3xl border border-zinc-200 bg-zinc-50 p-4 transition hover:-translate-y-1 hover:shadow-lg"
                   >
                     <div className="flex h-48 items-center justify-center overflow-hidden rounded-2xl bg-white">
@@ -85,7 +91,7 @@ export default async function Home() {
                       {product.stock > 0 ? `Dostępne: ${product.stock} szt.` : "Chwilowo niedostępne"}
                     </p>
                     <div className="mt-4 rounded-full bg-orange-500 px-4 py-3 text-center text-sm font-bold text-white">
-                      Zobacz ofertę
+                      Kup na Allegro
                     </div>
                   </a>
                 ))}
