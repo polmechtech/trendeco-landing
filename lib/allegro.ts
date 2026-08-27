@@ -16,6 +16,8 @@ export type AllegroProduct = {
   category: ProductCategory;
 };
 
+export const TRENDECO_UI_VERSION = "pobranie-whatsapp-tiktok-v1";
+
 export function classifyProduct(name: string): ProductCategory {
   const n = name.toLowerCase();
   if (
