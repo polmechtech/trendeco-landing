@@ -65,7 +65,7 @@ export default async function Home() {
               TikTok TrendEco
             </a>
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="rounded-full bg-green-600 px-5 py-3 font-bold text-white transition hover:bg-green-500">
-              WhatsApp +48 512 077 770
+              Zadzwoń / WhatsApp +48 512 077 770
             </a>
           </div>
         </div>
