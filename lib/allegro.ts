@@ -22,9 +22,7 @@ export function classifyProduct(name: string): ProductCategory {
     n.includes("łupar") ||
     n.includes("rozłupyw") ||
     n.includes("przekładnia") ||
-    n.includes("przekladnia") ||
-    n.includes("przekładniowa") ||
-    n.includes("przekladniowa")
+    n.includes("przekladnia")
   ) return "Łuparki";
   if (
     n.includes("piła pierścieniowa") || n.includes("piła pierscieniowa") ||
