@@ -18,7 +18,14 @@ export type AllegroProduct = {
 
 export function classifyProduct(name: string): ProductCategory {
   const n = name.toLowerCase();
-  if (n.includes("łupar") || n.includes("rozłupyw")) return "Łuparki";
+  if (
+    n.includes("łupar") ||
+    n.includes("rozłupyw") ||
+    n.includes("przekładnia") ||
+    n.includes("przekladnia") ||
+    n.includes("przekładniowa") ||
+    n.includes("przekladniowa")
+  ) return "Łuparki";
   if (
     n.includes("piła pierścieniowa") || n.includes("piła pierscieniowa") ||
     n.includes("ring saw") || n.includes("przecinarka") ||
