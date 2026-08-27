@@ -8,7 +8,7 @@ const REFRESH_TOKEN_KEY = "allegro:refresh_token";
 const ACCESS_TOKEN_KEY = "allegro:access_token";
 const ACCESS_TOKEN_TTL_KEY = "allegro:access_token_ttl";
 const LOCK_KEY = "allegro:refresh_lock";
-const OFFERS_CACHE_KEY = "allegro:offers_cache:v1";
+const OFFERS_CACHE_KEY = "allegro:offers_cache:v2";
 const OFFERS_CACHE_SECONDS = 60 * 60;
 
 async function sleep(ms: number) {
