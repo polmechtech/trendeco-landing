@@ -22,7 +22,9 @@ async function getProducts(): Promise<AllegroProduct[]> {
 function getDiscountedPrice(product: AllegroProduct) {
   const price = Number.parseFloat(String(product.price).replace(",", "."));
   if (!Number.isFinite(price)) return product.price;
-  return (price * 0.95).toFixed(2);
+  const discounted = price * 0.95;
+  const roundedDownToNine = Math.floor((discounted + 1) / 10) * 10 - 1;
+  return Math.max(9, roundedDownToNine).toFixed(2);
 }
 
 function getCashOnDeliveryLink(product: AllegroProduct) {
@@ -30,7 +32,7 @@ function getCashOnDeliveryLink(product: AllegroProduct) {
   const message = [
     "Dzień dobry, chcę zamówić za pobraniem:",
     product.name,
-    `Cena po rabacie 5%: ${discountedPrice} ${product.currency}`,
+    `Cena TrendEco: ${discountedPrice} ${product.currency}`,
     `Allegro ID: ${product.id}`,
     "Proszę o potwierdzenie dostępności oraz kosztu dostawy.",
   ].join("\n");
