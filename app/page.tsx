@@ -107,7 +107,7 @@ export default async function Home() {
                       <p className="mt-2 text-sm text-zinc-600">{product.stock > 0 ? `Dostępne: ${product.stock} szt.` : "Chwilowo niedostępne"}</p>
                       <div className="mt-4 grid gap-2">
                         <a href={getCashOnDeliveryLink(product)} target="_blank" rel="noopener noreferrer" className="rounded-full bg-green-600 px-4 py-3 text-center text-sm font-black text-white transition hover:bg-green-500">
-                          Zamów za pobraniem — cena niższa o 5%
+                          Zamów za pobraniem — niższa cena
                         </a>
                         <a href={getOfferPath(product)} className="rounded-full bg-orange-500 px-4 py-3 text-center text-sm font-bold text-white">
                           Zobacz ofertę
