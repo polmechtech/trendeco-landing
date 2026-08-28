@@ -62,7 +62,7 @@ export default async function Home() {
           <div>
             <h1 className="text-5xl font-black md:text-7xl">TrendEco</h1>
             <p className="mt-6 max-w-3xl text-xl text-zinc-300">
-              Maszyny i narzędzia dostępne w sprzedaży przez Allegro. Na TrendEco cena jest automatycznie obniżona o 5% względem aktualnej ceny Allegro.
+              Maszyny i narzędzia dostępne w sprzedaży przez Allegro oraz bezpośrednio w TrendEco.
             </p>
             <p className="mt-4 max-w-3xl text-base text-zinc-400">
               Zamówienie za pobraniem ustalamy przez WhatsApp. Koszt dostawy potwierdzamy przed wysyłką.
@@ -102,7 +102,7 @@ export default async function Home() {
                       </a>
                       <div className="mt-3">
                         <p className="text-sm text-zinc-400 line-through">Allegro: {product.price} {product.currency}</p>
-                        <p className="text-xl font-black text-green-700">TrendEco -5%: {discountedPrice} {product.currency}</p>
+                        <p className="text-xl font-black text-green-700">Cena TrendEco: {discountedPrice} {product.currency}</p>
                       </div>
                       <p className="mt-2 text-sm text-zinc-600">{product.stock > 0 ? `Dostępne: ${product.stock} szt.` : "Chwilowo niedostępne"}</p>
                       <div className="mt-4 grid gap-2">
