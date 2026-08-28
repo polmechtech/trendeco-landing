@@ -19,20 +19,27 @@ async function getProducts(): Promise<AllegroProduct[]> {
   }
 }
 
+function getDiscountedPrice(product: AllegroProduct) {
+  const price = Number.parseFloat(String(product.price).replace(",", "."));
+  if (!Number.isFinite(price)) return product.price;
+  return (price * 0.95).toFixed(2);
+}
+
 function getCashOnDeliveryLink(product: AllegroProduct) {
+  const discountedPrice = getDiscountedPrice(product);
   const message = [
-    "Dzień dobry, chcę zamówić za pobraniem z darmową dostawą:",
+    "Dzień dobry, chcę zamówić za pobraniem:",
     product.name,
-    `Cena: ${product.price} ${product.currency}`,
+    `Cena po rabacie 5%: ${discountedPrice} ${product.currency}`,
     `Allegro ID: ${product.id}`,
-    "Proszę o potwierdzenie dostępności i danych potrzebnych do wysyłki.",
+    "Proszę o potwierdzenie dostępności oraz kosztu dostawy.",
   ].join("\n");
 
   return `https://wa.me/48512077770?text=${encodeURIComponent(message)}`;
 }
 
 const sections: ProductCategory[] = ["Łuparki", "Budownictwo", "Meblarstwo", "Akcesoria", "Inne"];
-const whatsappLink = "https://wa.me/48512077770";
+const whatsappLink = "https://wa.me/48512077770?text=Dzień%20dobry%2C%20mam%20pytanie%20o%20ofertę%20TrendEco.";
 const tiktokLink = "https://www.tiktok.com/@trendeco4";
 
 export default async function Home() {
@@ -53,10 +60,10 @@ export default async function Home() {
           <div>
             <h1 className="text-5xl font-black md:text-7xl">TrendEco</h1>
             <p className="mt-6 max-w-3xl text-xl text-zinc-300">
-              Maszyny i narzędzia dostępne w sprzedaży przez Allegro. Ceny i stany magazynowe są aktualizowane automatycznie co godzinę.
+              Maszyny i narzędzia dostępne w sprzedaży przez Allegro. Na TrendEco cena jest automatycznie obniżona o 5% względem aktualnej ceny Allegro.
             </p>
             <p className="mt-4 max-w-3xl text-base text-zinc-400">
-              Potrzebujesz indywidualnej oferty? Zadzwoń: +48 512 077 770 lub napisz: info@widia.tech.
+              Zamówienie za pobraniem ustalamy przez WhatsApp. Koszt dostawy potwierdzamy przed wysyłką.
             </p>
           </div>
 
@@ -81,26 +88,32 @@ export default async function Home() {
             <div className="mx-auto max-w-7xl">
               <h2 className="text-4xl font-black">{section}</h2>
               <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {sectionProducts.map((product) => (
-                  <article key={product.id} className="rounded-3xl border border-zinc-200 bg-zinc-50 p-4 transition hover:-translate-y-1 hover:shadow-lg">
-                    <a href={getOfferPath(product)}>
-                      <div className="flex h-48 items-center justify-center overflow-hidden rounded-2xl bg-white">
-                        {product.image ? <img src={product.image} alt={product.name} className="max-h-full max-w-full object-contain" /> : <span className="text-zinc-400">Brak zdjęcia</span>}
+                {sectionProducts.map((product) => {
+                  const discountedPrice = getDiscountedPrice(product);
+                  return (
+                    <article key={product.id} className="rounded-3xl border border-zinc-200 bg-zinc-50 p-4 transition hover:-translate-y-1 hover:shadow-lg">
+                      <a href={getOfferPath(product)}>
+                        <div className="flex h-48 items-center justify-center overflow-hidden rounded-2xl bg-white">
+                          {product.image ? <img src={product.image} alt={product.name} className="max-h-full max-w-full object-contain" /> : <span className="text-zinc-400">Brak zdjęcia</span>}
+                        </div>
+                        <h3 className="mt-4 text-base font-bold">{product.name}</h3>
+                      </a>
+                      <div className="mt-3">
+                        <p className="text-sm text-zinc-400 line-through">Allegro: {product.price} {product.currency}</p>
+                        <p className="text-xl font-black text-green-700">TrendEco -5%: {discountedPrice} {product.currency}</p>
                       </div>
-                      <h3 className="mt-4 text-base font-bold">{product.name}</h3>
-                    </a>
-                    <p className="mt-3 text-xl font-black text-orange-600">{product.price} {product.currency}</p>
-                    <p className="mt-2 text-sm text-zinc-600">{product.stock > 0 ? `Dostępne: ${product.stock} szt.` : "Chwilowo niedostępne"}</p>
-                    <div className="mt-4 grid gap-2">
-                      <a href={getCashOnDeliveryLink(product)} target="_blank" rel="noopener noreferrer" className="rounded-full bg-green-600 px-4 py-3 text-center text-sm font-black text-white transition hover:bg-green-500">
-                        Zamów za pobraniem z darmową dostawą
-                      </a>
-                      <a href={getOfferPath(product)} className="rounded-full bg-orange-500 px-4 py-3 text-center text-sm font-bold text-white">
-                        Zobacz ofertę
-                      </a>
-                    </div>
-                  </article>
-                ))}
+                      <p className="mt-2 text-sm text-zinc-600">{product.stock > 0 ? `Dostępne: ${product.stock} szt.` : "Chwilowo niedostępne"}</p>
+                      <div className="mt-4 grid gap-2">
+                        <a href={getCashOnDeliveryLink(product)} target="_blank" rel="noopener noreferrer" className="rounded-full bg-green-600 px-4 py-3 text-center text-sm font-black text-white transition hover:bg-green-500">
+                          Zamów za pobraniem — cena niższa o 5%
+                        </a>
+                        <a href={getOfferPath(product)} className="rounded-full bg-orange-500 px-4 py-3 text-center text-sm font-bold text-white">
+                          Zobacz ofertę
+                        </a>
+                      </div>
+                    </article>
+                  );
+                })}
               </div>
             </div>
           </section>
