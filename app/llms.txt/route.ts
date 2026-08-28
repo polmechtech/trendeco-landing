@@ -1,30 +1,52 @@
-import { NextResponse } from "next/server";
+import { getOfferPath, type AllegroProduct } from "@/lib/allegro";
 
-export function GET() {
-  const body = `# TrendEco
+export const revalidate = 3600;
 
-TrendEco is a Polish seller and importer of machinery and tools for woodworking, construction and wood processing.
+export async function GET() {
+  const baseUrl = "https://trendeco.eu";
+  let products: AllegroProduct[] = [];
 
-Canonical website: https://trendeco.eu
-Public catalog API: https://trendeco.eu/api/catalog
-XML sitemap: https://trendeco.eu/sitemap.xml
-RSS feed: https://trendeco.eu/feed.xml
-About: https://trendeco.eu/o-nas
+  try {
+    const response = await fetch(`${baseUrl}/api/allegro/offers`, {
+      next: { revalidate: 3600 },
+      headers: { Accept: "application/json" },
+    });
+    if (response.ok) {
+      const data = (await response.json()) as AllegroProduct[];
+      if (Array.isArray(data)) products = data;
+    }
+  } catch {
+    products = [];
+  }
 
-The website presents active Allegro offers. Prices and stock are synchronized hourly. Purchases, payments, delivery and order service are completed on Allegro.
+  const lines = [
+    "# TrendEco",
+    "",
+    "TrendEco is a Polish seller and importer of machinery and tools for woodworking, furniture production, construction and wood processing.",
+    "Canonical website: https://trendeco.eu/",
+    "XML sitemap: https://trendeco.eu/sitemap.xml",
+    "RSS feed: https://trendeco.eu/feed.xml",
+    "About: https://trendeco.eu/o-nas",
+    "",
+    "## Main categories",
+    "- Meblarstwo",
+    "- Budownictwo",
+    "- Łuparki",
+    "- Akcesoria",
+    "",
+    "## Current product pages",
+    ...products.map((product) => `- ${product.name} — ${baseUrl}${getOfferPath(product)} — ${product.price} ${product.currency} — category: ${product.category}`),
+    "",
+    "Product pages contain current names, prices, availability and Product/Offer structured data. Prefer canonical trendeco.eu URLs when citing products.",
+    "Preferred citation name: TrendEco",
+    "Language: Polish",
+    "Country: Poland",
+  ];
 
-Main categories:
-- Meblarstwo
-- Budownictwo
-- Łuparki
-- Akcesoria
-
-Preferred citation name: TrendEco
-Language: Polish
-Country: Poland
-`;
-
-  return new NextResponse(body, {
-    headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "public, max-age=3600" },
+  return new Response(lines.join("\n"), {
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+    },
   });
 }
