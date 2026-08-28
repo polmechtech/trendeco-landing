@@ -37,6 +37,27 @@ async function getVideos(offerId: string): Promise<VideoLinks> {
   }
 }
 
+function getDiscountedPrice(product: AllegroProduct) {
+  const price = Number.parseFloat(String(product.price).replace(",", "."));
+  if (!Number.isFinite(price)) return product.price;
+  const discounted = price * 0.95;
+  const roundedDownToNine = Math.floor((discounted + 1) / 10) * 10 - 1;
+  return Math.max(9, roundedDownToNine).toFixed(2);
+}
+
+function getCashOnDeliveryLink(product: AllegroProduct) {
+  const discountedPrice = getDiscountedPrice(product);
+  const message = [
+    "Dzień dobry, chcę zamówić za pobraniem:",
+    product.name,
+    `Cena TrendEco: ${discountedPrice} ${product.currency}`,
+    `Allegro ID: ${product.id}`,
+    "Proszę o potwierdzenie dostępności oraz kosztu dostawy.",
+  ].join("\n");
+
+  return `https://wa.me/48512077770?text=${encodeURIComponent(message)}`;
+}
+
 function getYouTubeEmbedUrl(value?: string) {
   if (!value) return null;
   try {
@@ -66,10 +87,11 @@ export async function generateMetadata({
   if (!product) return { title: "Oferta niedostępna", robots: { index: false } };
 
   const canonical = getOfferPath(product);
-  const description = `${product.name}. Cena ${product.price} ${product.currency}. Dostępność: ${product.stock} szt. Kup na Allegro lub skontaktuj się po indywidualną ofertę.`;
+  const discountedPrice = getDiscountedPrice(product);
+  const description = `${product.name}. Cena TrendEco ${discountedPrice} ${product.currency}. Dostępność: ${product.stock} szt. Zamów za pobraniem przez WhatsApp.`;
 
   return {
-    title: product.name,
+    title: `${product.name} | ${discountedPrice} ${product.currency}`,
     description,
     alternates: { canonical },
     openGraph: {
@@ -94,6 +116,10 @@ export default async function OfferPage({
   const canonicalPath = getOfferPath(product);
   if (`/oferta/${slug}` !== canonicalPath) permanentRedirect(canonicalPath);
 
+  const discountedPrice = getDiscountedPrice(product);
+  const canonicalUrl = `https://trendeco.eu${canonicalPath}`;
+  const cashOnDeliveryLink = getCashOnDeliveryLink(product);
+
   const videos = await getVideos(product.id);
   const youtubeEmbed = getYouTubeEmbedUrl(videos.youtube);
   const tiktokEmbed = getTikTokEmbedUrl(videos.tiktok);
@@ -111,10 +137,11 @@ export default async function OfferPage({
     category: product.category,
     offers: {
       "@type": "Offer",
-      url: product.url,
+      url: canonicalUrl,
       priceCurrency: product.currency,
-      price: product.price,
+      price: discountedPrice,
       availability: product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+      itemCondition: "https://schema.org/NewCondition",
       seller: { "@type": "Organization", name: "TrendEco" },
     },
   };
@@ -130,23 +157,30 @@ export default async function OfferPage({
           <a href="/" className="text-sm font-semibold text-zinc-500">← Wróć do katalogu</a>
           <p className="mt-8 text-sm font-bold uppercase tracking-wide text-orange-600">{product.category}</p>
           <h1 className="mt-3 text-3xl font-black leading-tight">{product.name}</h1>
-          <p className="mt-6 text-3xl font-black text-orange-600">{product.price} {product.currency}</p>
+          <div className="mt-6">
+            <p className="text-base text-zinc-400 line-through">Allegro: {product.price} {product.currency}</p>
+            <p className="mt-1 text-3xl font-black text-green-700">Cena TrendEco: {discountedPrice} {product.currency}</p>
+          </div>
           <p className="mt-3 text-zinc-600">Dostępność: {product.stock > 0 ? `${product.stock} szt.` : "brak"}</p>
 
-          <a href={product.url} target="_blank" rel="noopener noreferrer sponsored" className="mt-8 block rounded-full bg-orange-500 px-6 py-4 text-center text-lg font-black text-white hover:bg-orange-600">
-            Kup teraz na Allegro
+          <a href={cashOnDeliveryLink} target="_blank" rel="noopener noreferrer" className="mt-8 block rounded-full bg-green-600 px-6 py-4 text-center text-lg font-black text-white hover:bg-green-500">
+            Zamów za pobraniem — niższa cena
+          </a>
+
+          <a href={product.url} target="_blank" rel="noopener noreferrer sponsored" className="mt-3 block rounded-full bg-orange-500 px-6 py-4 text-center text-lg font-black text-white hover:bg-orange-600">
+            Zobacz ofertę na Allegro
           </a>
 
           <section className="mt-8 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-            <h2 className="text-xl font-black">Chcesz lepszą ofertę niż na Allegro?</h2>
-            <p className="mt-2 text-zinc-600">Zadzwoń lub napisz. Przygotujemy indywidualną ofertę.</p>
+            <h2 className="text-xl font-black">Masz pytanie o produkt?</h2>
+            <p className="mt-2 text-zinc-600">Zadzwoń lub napisz. Potwierdzimy dostępność i koszt dostawy.</p>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               <a href="tel:+48512077770" className="rounded-full bg-zinc-950 px-5 py-3 text-center font-bold text-white">Zadzwoń</a>
               <a href={`mailto:mail@trendeco.eu?subject=${mailSubject}&body=${mailBody}`} className="rounded-full border border-zinc-300 px-5 py-3 text-center font-bold">Napisz e-mail</a>
             </div>
           </section>
 
-          <p className="mt-6 text-sm text-zinc-500">Cena i dostępność są synchronizowane z Allegro co godzinę.</p>
+          <p className="mt-6 text-sm text-zinc-500">Cena i dostępność są synchronizowane z Allegro co godzinę. Cena TrendEco jest obliczana automatycznie.</p>
         </div>
       </article>
 
