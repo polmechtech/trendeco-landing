@@ -9,7 +9,7 @@ async function getProducts(): Promise<AllegroProduct[]> {
     if (!host) return [];
 
     const res = await fetch(`${protocol}://${host}/api/allegro/offers`, {
-      next: { revalidate: 3600 },
+      cache: "no-store",
     });
     if (!res.ok) return [];
     const data = await res.json();
