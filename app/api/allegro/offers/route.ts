@@ -8,7 +8,7 @@ const REFRESH_TOKEN_KEY = "allegro:refresh_token";
 const ACCESS_TOKEN_KEY = "allegro:access_token";
 const ACCESS_TOKEN_TTL_KEY = "allegro:access_token_ttl";
 const LOCK_KEY = "allegro:refresh_lock";
-const OFFERS_CACHE_KEY = "allegro:offers_cache:v1";
+const OFFERS_CACHE_KEY = "allegro:offers_cache:v2";
 const OFFERS_CACHE_SECONDS = 60 * 60;
 
 async function sleep(ms: number) {
@@ -185,7 +185,7 @@ export async function GET() {
 
     return NextResponse.json(products, {
       headers: {
-        "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+        "Cache-Control": "no-store, max-age=0",
       },
     });
   } catch (error) {
@@ -195,7 +195,7 @@ export async function GET() {
       return NextResponse.json(applyCurrentCategories(cached), {
         headers: {
           "X-Allegro-Cache": "stale",
-          "Cache-Control": "public, s-maxage=300, stale-while-revalidate=86400",
+          "Cache-Control": "no-store, max-age=0",
         },
       });
     }
