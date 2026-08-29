@@ -68,40 +68,30 @@ export default async function Home() {
           </div>
 
           <div className="grid w-full grid-cols-2 gap-2 sm:flex sm:w-auto sm:flex-wrap sm:gap-3">
-            <a href={tiktokLink} target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-3 py-3 text-center text-sm font-bold transition hover:bg-white/20 sm:rounded-full sm:px-5">
-              TikTok
-            </a>
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center justify-center rounded-2xl bg-green-600 px-3 py-3 text-center text-sm font-bold text-white transition hover:bg-green-500 sm:rounded-full sm:px-5">
-              WhatsApp
-              <span className="hidden sm:inline"> +48 512 077 770</span>
-            </a>
+            <a href={tiktokLink} target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-3 py-3 text-center text-sm font-bold transition hover:bg-white/20 sm:rounded-full sm:px-5">TikTok</a>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center justify-center rounded-2xl bg-green-600 px-3 py-3 text-center text-sm font-bold text-white transition hover:bg-green-500 sm:rounded-full sm:px-5">WhatsApp<span className="hidden sm:inline"> +48 512 077 770</span></a>
           </div>
         </div>
 
         <nav aria-label="Najczęściej szukane produkty" className="mt-5 flex gap-2 overflow-x-auto pb-2 [-webkit-overflow-scrolling:touch] sm:mt-7 sm:flex-wrap sm:overflow-visible">
           {seoCategories.map((category) => (
-            <a
-              key={category.slug}
-              href={`/kategoria/${category.slug}`}
-              className="min-w-max rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-2 text-sm font-black text-orange-300 transition hover:bg-orange-500 hover:text-white"
-            >
-              {category.keyword}
-            </a>
+            <a key={category.slug} href={`/kategoria/${category.slug}`} className="min-w-max rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-2 text-sm font-black text-orange-300 transition hover:bg-orange-500 hover:text-white">{category.keyword}</a>
           ))}
         </nav>
 
-        <a href="/o-nas" className="mt-3 inline-flex min-h-11 items-center text-sm font-bold text-orange-400 sm:mt-4">
-          O firmie i kontakt →
-        </a>
+        <a href="/o-nas" className="mt-3 inline-flex min-h-11 items-center text-sm font-bold text-orange-400 sm:mt-4">O firmie i kontakt →</a>
       </section>
 
-      {products.length > 0 ? (
-        <ProductCatalog products={products} erliPrices={erliPrices} />
-      ) : (
-        <section className="bg-white px-4 py-16 text-center text-zinc-600 sm:px-6 sm:py-20">
-          Nie udało się obecnie pobrać aktywnych ofert Allegro.
-        </section>
-      )}
+      {products.length > 0 ? <ProductCatalog products={products} erliPrices={erliPrices} /> : <section className="bg-white px-4 py-16 text-center text-zinc-600 sm:px-6 sm:py-20">Nie udało się obecnie pobrać aktywnych ofert Allegro.</section>}
+
+      <footer className="border-t border-white/10 bg-zinc-950 px-4 py-8 text-sm text-zinc-400 sm:px-6">
+        <div className="mx-auto flex max-w-7xl flex-wrap gap-x-6 gap-y-3">
+          <a href="/o-nas" className="hover:text-white">O firmie i kontakt</a>
+          <a href="/dostawa" className="hover:text-white">Dostawa</a>
+          <a href="/zwroty-i-reklamacje" className="hover:text-white">Zwroty i reklamacje</a>
+          <a href="/google-merchant.xml" className="hover:text-white">Katalog produktów XML</a>
+        </div>
+      </footer>
     </main>
   );
 }
