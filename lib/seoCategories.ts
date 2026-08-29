@@ -39,6 +39,15 @@ export const seoCategories: SeoCategory[] = [
     terms: ["piła do betonu", "pila do betonu", "piła pierścieniowa", "pila pierscieniowa", "beton", "żelbet", "zelbet", "ring saw"],
   },
   {
+    slug: "pila-pierscieniowa",
+    keyword: "piła pierścieniowa",
+    title: "Piła pierścieniowa do betonu i żelbetu — TrendEco",
+    description: "Piły pierścieniowe TrendEco do głębokiego cięcia betonu, żelbetu i kamienia. Sprawdź aktualne modele, ceny, dostępność, prowadnice, tarcze i części.",
+    heading: "Piła pierścieniowa do betonu, żelbetu i kamienia",
+    intro: "Piła pierścieniowa umożliwia głębokie cięcie betonu, żelbetu, kamienia i innych materiałów budowlanych. Zobacz aktualnie dostępne piły pierścieniowe TrendEco, prowadnice, tarcze oraz powiązany osprzęt do cięcia na mokro.",
+    terms: ["piła pierścieniowa", "pila pierscieniowa", "pierścieniowa", "pierscieniowa", "ring saw"],
+  },
+  {
     slug: "przecinarka-do-plytek",
     keyword: "przecinarka do płytek",
     title: "Przecinarka do płytek — przecinarki TrendEco",
