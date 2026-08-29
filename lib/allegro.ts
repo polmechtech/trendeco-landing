@@ -2,8 +2,7 @@ export type ProductCategory =
   | "Łuparki"
   | "Budownictwo"
   | "Meblarstwo"
-  | "Akcesoria"
-  | "Inne";
+  | "Akcesoria";
 
 export type AllegroProduct = {
   id: string;
@@ -35,9 +34,9 @@ export function classifyProduct(name: string): ProductCategory {
   if (n.includes("piła formatowa") || n.includes("formatowa") || n.includes("okleiniarka")) return "Meblarstwo";
   if (
     n.includes("wał spiralny") || n.includes("wal spiralny") ||
-    n.includes("nóż") || n.includes("noże") || n.includes("płytka") || n.includes("frez")
+    n.includes("nóż") || n.includes("noże") || n.includes("płytka") || n.includes("frez") ||
+    n.includes("przymiar") || n.includes("osłona") || n.includes("oslona")
   ) return "Akcesoria";
-  if (n.includes("przymiar") || n.includes("osłona") || n.includes("oslona")) return "Inne";
   return "Meblarstwo";
 }
 
