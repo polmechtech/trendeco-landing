@@ -56,6 +56,15 @@ export const seoCategories: SeoCategory[] = [
     intro: "Przecinarka do płytek pozwala wykonywać precyzyjne cięcia płytek ceramicznych, gresu i podobnych materiałów. Poniżej prezentujemy aktualnie dostępne przecinarki TrendEco i powiązane akcesoria.",
     terms: ["przecinarka do płytek", "przecinarka do plytek", "przecinarka", "płytki", "plytki", "gres"],
   },
+  {
+    slug: "okleiniarka",
+    keyword: "okleiniarka",
+    title: "Okleiniarka do płyt i mebli — okleiniarki TrendEco",
+    description: "Okleiniarki TrendEco do obrzeży meblowych i płyt. Sprawdź okleiniarki ręczne i automatyczne, aktualne ceny, dostępność oraz wyposażenie.",
+    heading: "Okleiniarka do płyt meblowych i obrzeży",
+    intro: "Okleiniarka służy do szybkiego i dokładnego nakładania obrzeży na płyty meblowe. Zobacz aktualnie dostępne okleiniarki TrendEco do warsztatu, stolarni i produkcji mebli, w tym modele z automatycznym podawaniem i obcinaniem taśmy.",
+    terms: ["okleiniarka", "okleiniarki", "oklejarka", "oklejanie obrzeży", "obrzeża meblowe"],
+  },
 ];
 
 export function getSeoCategory(slug: string) {
