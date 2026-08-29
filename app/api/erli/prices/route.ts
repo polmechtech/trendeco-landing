@@ -1,17 +1,17 @@
 import { Redis } from "@upstash/redis";
 import { NextRequest, NextResponse } from "next/server";
+import erliPriceRatios from "@/lib/erli-price-ratios.json";
 
 const redis = Redis.fromEnv();
 const CACHE_SECONDS = 60 * 60;
 
-// Automatic coefficient for estimating the public ERLI buyer price
-// from the seller/base price returned by ERLI Shop API.
-const ERLI_BUYER_PRICE_RATIO = 0.975491481;
-
 type ErliInfo = { price: string; currency: string; url: string } | null;
+type RatioMap = Record<string, number>;
+
+const priceRatios = erliPriceRatios as RatioMap;
 
 async function getErliProduct(externalId: string): Promise<ErliInfo> {
-  const cacheKey = `erli:product:${externalId}:v4`;
+  const cacheKey = `erli:product:${externalId}:v5`;
   const cached = await redis.get<ErliInfo>(cacheKey);
   if (cached) return cached;
 
@@ -36,7 +36,10 @@ async function getErliProduct(externalId: string): Promise<ErliInfo> {
     if (!Number.isFinite(rawPrice) || !marketplaceId || !slug) return null;
 
     const basePrice = rawPrice / 100;
-    const buyerPrice = Math.round(basePrice * ERLI_BUYER_PRICE_RATIO * 100) / 100;
+    const ratio = priceRatios[externalId];
+    const buyerPrice = Number.isFinite(ratio)
+      ? Math.round(basePrice * ratio * 100) / 100
+      : basePrice;
     const url = `https://erli.pl/produkt/${encodeURIComponent(String(slug))}%2C${encodeURIComponent(String(marketplaceId))}`;
 
     const info = {
