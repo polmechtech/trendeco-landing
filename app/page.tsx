@@ -73,9 +73,9 @@ export default async function Home() {
           </div>
         </div>
 
-        <nav aria-label="Najczęściej szukane produkty" className="mt-5 flex gap-2 overflow-x-auto pb-2 [-webkit-overflow-scrolling:touch] sm:mt-7 sm:flex-wrap sm:overflow-visible">
+        <nav aria-label="Najczęściej szukane produkty" className="mt-5 grid grid-cols-3 gap-2 sm:mt-7">
           {seoCategories.map((category) => (
-            <a key={category.slug} href={`/kategoria/${category.slug}`} className="min-w-max rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-2 text-sm font-black text-orange-300 transition hover:bg-orange-500 hover:text-white">{category.keyword}</a>
+            <a key={category.slug} href={`/kategoria/${category.slug}`} className="flex min-h-12 items-center justify-center rounded-2xl border border-orange-500/40 bg-orange-500/10 px-2 py-2 text-center text-xs font-black leading-tight text-orange-300 transition hover:bg-orange-500 hover:text-white sm:px-4 sm:text-sm">{category.keyword}</a>
           ))}
         </nav>
 
