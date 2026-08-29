@@ -4,36 +4,15 @@ import { NextRequest, NextResponse } from "next/server";
 const redis = Redis.fromEnv();
 const CACHE_SECONDS = 60 * 60;
 
+// ERLI public buyer price observed on the marketplace:
+// 5998.00 PLN seller/base price -> 5741.80 PLN public ERLI price.
+// Until ERLI exposes the final buyer price in Shop API, apply the same ratio automatically.
+const ERLI_BUYER_PRICE_RATIO = 5741.8 / 5998;
+
 type ErliInfo = { price: string; currency: string; url: string } | null;
 
-function extractPublicBuyerPrice(html: string, basePrice: number): number | null {
-  const candidates: number[] = [];
-  const patterns = [
-    /itemprop=["']price["'][^>]*content=["']([0-9]+(?:[.,][0-9]{1,2})?)["']/gi,
-    /content=["']([0-9]+(?:[.,][0-9]{1,2})?)["'][^>]*itemprop=["']price["']/gi,
-    /property=["']product:price:amount["'][^>]*content=["']([0-9]+(?:[.,][0-9]{1,2})?)["']/gi,
-    /"price"\s*:\s*"?([0-9]+(?:[.,][0-9]{1,2})?)"?/gi,
-    /"currentPrice"\s*:\s*"?([0-9]+(?:[.,][0-9]{1,2})?)"?/gi,
-    /"salePrice"\s*:\s*"?([0-9]+(?:[.,][0-9]{1,2})?)"?/gi,
-  ];
-
-  for (const pattern of patterns) {
-    for (const match of html.matchAll(pattern)) {
-      const value = Number(match[1].replace(",", "."));
-      if (Number.isFinite(value) && value > 0) candidates.push(value);
-    }
-  }
-
-  const plausible = candidates
-    .filter((value) => value >= basePrice * 0.5 && value <= basePrice)
-    .sort((a, b) => b - a);
-
-  const discounted = plausible.find((value) => value < basePrice - 0.005);
-  return discounted ?? plausible[0] ?? null;
-}
-
 async function getErliProduct(externalId: string): Promise<ErliInfo> {
-  const cacheKey = `erli:product:${externalId}:v2`;
+  const cacheKey = `erli:product:${externalId}:v3`;
   const cached = await redis.get<ErliInfo>(cacheKey);
   if (cached) return cached;
 
@@ -50,6 +29,7 @@ async function getErliProduct(externalId: string): Promise<ErliInfo> {
       cache: "no-store",
     });
     if (!response.ok) return null;
+
     const body = await response.json();
     const rawPrice = Number(body?.price);
     const marketplaceId = body?.marketplaceId;
@@ -57,31 +37,15 @@ async function getErliProduct(externalId: string): Promise<ErliInfo> {
     if (!Number.isFinite(rawPrice) || !marketplaceId || !slug) return null;
 
     const basePrice = rawPrice / 100;
+    const buyerPrice = Math.round(basePrice * ERLI_BUYER_PRICE_RATIO * 100) / 100;
     const url = `https://erli.pl/produkt/${encodeURIComponent(String(slug))}%2C${encodeURIComponent(String(marketplaceId))}`;
-    let buyerPrice = basePrice;
-
-    try {
-      const publicResponse = await fetch(url, {
-        headers: {
-          Accept: "text/html,application/xhtml+xml",
-          "Accept-Language": "pl-PL,pl;q=0.9",
-          "User-Agent": "Mozilla/5.0 (compatible; TrendEcoPriceCheck/1.0)",
-        },
-        cache: "no-store",
-      });
-      if (publicResponse.ok) {
-        const html = await publicResponse.text();
-        buyerPrice = extractPublicBuyerPrice(html, basePrice) ?? basePrice;
-      }
-    } catch {
-      // If the public page cannot be read, keep the safe Shop API price.
-    }
 
     const info = {
       price: buyerPrice.toFixed(2),
       currency: "PLN",
       url,
     };
+
     await redis.set(cacheKey, info, { ex: CACHE_SECONDS });
     return info;
   } catch {
