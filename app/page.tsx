@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 import type { AllegroProduct } from "@/lib/allegro";
+import { seoCategories } from "@/lib/seoCategories";
 import ProductCatalog from "@/components/ProductCatalog";
 
 type ErliInfo = { price: string; currency: string; url: string };
@@ -62,7 +63,7 @@ export default async function Home() {
               Maszyny i narzędzia dostępne w sprzedaży przez Allegro, ERLI oraz bezpośrednio w TrendEco.
             </p>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-zinc-400 sm:mt-4 sm:text-base">
-              Zamówienie za pobraniem ustalamy przez WhatsApp. Koszt dostawy potwierdzamy przed wysyłką.
+              Piły formatowe i stołowe, piły do betonu, przecinarki, maszyny stolarskie, łuparki i akcesoria.
             </p>
           </div>
 
@@ -77,7 +78,19 @@ export default async function Home() {
           </div>
         </div>
 
-        <a href="/o-nas" className="mt-5 inline-flex min-h-11 items-center text-sm font-bold text-orange-400 sm:mt-6">
+        <nav aria-label="Najczęściej szukane produkty" className="mt-5 flex gap-2 overflow-x-auto pb-2 [-webkit-overflow-scrolling:touch] sm:mt-7 sm:flex-wrap sm:overflow-visible">
+          {seoCategories.map((category) => (
+            <a
+              key={category.slug}
+              href={`/kategoria/${category.slug}`}
+              className="min-w-max rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-2 text-sm font-black text-orange-300 transition hover:bg-orange-500 hover:text-white"
+            >
+              {category.keyword}
+            </a>
+          ))}
+        </nav>
+
+        <a href="/o-nas" className="mt-3 inline-flex min-h-11 items-center text-sm font-bold text-orange-400 sm:mt-4">
           O firmie i kontakt →
         </a>
       </section>
