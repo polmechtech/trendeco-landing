@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getOfferPath, type AllegroProduct } from "@/lib/allegro";
+import { seoCategories } from "@/lib/seoCategories";
 
 export const dynamic = "force-dynamic";
 
@@ -9,6 +10,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: now, changeFrequency: "hourly", priority: 1 },
     { url: `${baseUrl}/o-nas`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    ...seoCategories.map((category) => ({
+      url: `${baseUrl}/kategoria/${category.slug}`,
+      lastModified: now,
+      changeFrequency: "daily" as const,
+      priority: 0.95,
+    })),
   ];
 
   try {
