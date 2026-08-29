@@ -63,14 +63,20 @@ export function extractOfferId(slug: string): string | null {
 
 export function mapAllegroOffers(data: any): AllegroProduct[] {
   const offers = Array.isArray(data?.offers) ? data.offers : [];
-  return offers.map((offer: any) => ({
-    id: String(offer.id),
-    name: String(offer.name ?? ""),
-    image: offer.primaryImage?.url ?? "",
-    price: offer.sellingMode?.price?.amount ?? "",
-    currency: offer.sellingMode?.price?.currency ?? "PLN",
-    stock: Number(offer.stock?.available ?? 0),
-    url: `https://allegro.pl/oferta/${offer.id}`,
-    category: classifyProduct(String(offer.name ?? "")),
-  }));
+  return offers
+    .map((offer: any) => ({
+      id: String(offer.id),
+      name: String(offer.name ?? ""),
+      image: offer.primaryImage?.url ?? "",
+      price: offer.sellingMode?.price?.amount ?? "",
+      currency: offer.sellingMode?.price?.currency ?? "PLN",
+      stock: Number(offer.stock?.available ?? 0),
+      url: `https://allegro.pl/oferta/${offer.id}`,
+      category: classifyProduct(String(offer.name ?? "")),
+    }))
+    .filter((product: AllegroProduct) => {
+      if (product.category !== "Inne") return true;
+      const n = product.name.toLowerCase();
+      return n.includes("przymiar") || n.includes("osłona") || n.includes("oslona");
+    });
 }
