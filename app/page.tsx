@@ -40,7 +40,7 @@ function getCashOnDeliveryLink(product: AllegroProduct) {
   return `https://wa.me/48512077770?text=${encodeURIComponent(message)}`;
 }
 
-const sections: ProductCategory[] = ["Łuparki", "Budownictwo", "Meblarstwo", "Akcesoria", "Inne"];
+const sections: ProductCategory[] = ["Łuparki", "Budownictwo", "Meblarstwo", "Akcesoria"];
 const whatsappLink = "https://wa.me/48512077770?text=Dzień%20dobry%2C%20mam%20pytanie%20o%20ofertę%20TrendEco.";
 const tiktokLink = "https://www.tiktok.com/@trendeco4";
 
