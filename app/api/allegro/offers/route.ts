@@ -1,6 +1,6 @@
 import { Redis } from "@upstash/redis";
 import { NextResponse } from "next/server";
-import { mapAllegroOffers, type AllegroProduct } from "@/lib/allegro";
+import { classifyProduct, mapAllegroOffers, type AllegroProduct } from "@/lib/allegro";
 
 const redis = Redis.fromEnv();
 
@@ -160,9 +160,16 @@ async function fetchAllActiveOffers(accessToken: string) {
   return { offers: allOffers };
 }
 
+function applyCurrentCategories(products: AllegroProduct[]): AllegroProduct[] {
+  return products.map((product) => ({
+    ...product,
+    category: classifyProduct(product.name),
+  }));
+}
+
 async function loadProducts(): Promise<AllegroProduct[]> {
   const cached = await redis.get<AllegroProduct[]>(OFFERS_CACHE_KEY);
-  if (cached) return cached;
+  if (cached) return applyCurrentCategories(cached);
 
   const accessToken = await getAccessToken();
   const offersData = await fetchAllActiveOffers(accessToken);
@@ -185,7 +192,7 @@ export async function GET() {
     const cached = await redis.get<AllegroProduct[]>(OFFERS_CACHE_KEY).catch(() => null);
 
     if (cached) {
-      return NextResponse.json(cached, {
+      return NextResponse.json(applyCurrentCategories(cached), {
         headers: {
           "X-Allegro-Cache": "stale",
           "Cache-Control": "public, s-maxage=300, stale-while-revalidate=86400",
