@@ -89,7 +89,6 @@ export default async function Home() {
           <a href="/o-nas" className="hover:text-white">O firmie i kontakt</a>
           <a href="/dostawa" className="hover:text-white">Dostawa</a>
           <a href="/zwroty-i-reklamacje" className="hover:text-white">Zwroty i reklamacje</a>
-          <a href="/google-merchant.xml" className="hover:text-white">Katalog produktów XML</a>
         </div>
       </footer>
     </main>
