@@ -4,15 +4,14 @@ import { NextRequest, NextResponse } from "next/server";
 const redis = Redis.fromEnv();
 const CACHE_SECONDS = 60 * 60;
 
-// ERLI public buyer price observed on the marketplace:
-// 5998.00 PLN seller/base price -> 5741.80 PLN public ERLI price.
-// Until ERLI exposes the final buyer price in Shop API, apply the same ratio automatically.
-const ERLI_BUYER_PRICE_RATIO = 5741.8 / 5998;
+// Automatic coefficient for estimating the public ERLI buyer price
+// from the seller/base price returned by ERLI Shop API.
+const ERLI_BUYER_PRICE_RATIO = 0.975491481;
 
 type ErliInfo = { price: string; currency: string; url: string } | null;
 
 async function getErliProduct(externalId: string): Promise<ErliInfo> {
-  const cacheKey = `erli:product:${externalId}:v3`;
+  const cacheKey = `erli:product:${externalId}:v4`;
   const cached = await redis.get<ErliInfo>(cacheKey);
   if (cached) return cached;
 
