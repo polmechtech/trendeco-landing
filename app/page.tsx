@@ -54,29 +54,30 @@ export default async function Home() {
     <main className="min-h-screen bg-zinc-950 text-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
 
-      <section className="mx-auto max-w-7xl px-6 py-10">
-        <div className="flex flex-wrap items-start justify-between gap-5">
+      <section className="mx-auto max-w-7xl px-4 pb-7 pt-6 sm:px-6 sm:py-10">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <div>
-            <h1 className="text-5xl font-black md:text-7xl">TrendEco</h1>
-            <p className="mt-6 max-w-3xl text-xl text-zinc-300">
+            <h1 className="text-4xl font-black tracking-tight sm:text-5xl md:text-7xl">TrendEco</h1>
+            <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-300 sm:mt-6 sm:text-xl">
               Maszyny i narzędzia dostępne w sprzedaży przez Allegro, ERLI oraz bezpośrednio w TrendEco.
             </p>
-            <p className="mt-4 max-w-3xl text-base text-zinc-400">
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-zinc-400 sm:mt-4 sm:text-base">
               Zamówienie za pobraniem ustalamy przez WhatsApp. Koszt dostawy potwierdzamy przed wysyłką.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-3">
-            <a href={tiktokLink} target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/20 bg-white/10 px-5 py-3 font-bold transition hover:bg-white/20">
-              TikTok TrendEco
+          <div className="grid w-full grid-cols-2 gap-2 sm:flex sm:w-auto sm:flex-wrap sm:gap-3">
+            <a href={tiktokLink} target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-3 py-3 text-center text-sm font-bold transition hover:bg-white/20 sm:rounded-full sm:px-5">
+              TikTok
             </a>
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="rounded-full bg-green-600 px-5 py-3 font-bold text-white transition hover:bg-green-500">
-              Zadzwoń / WhatsApp +48 512 077 770
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center justify-center rounded-2xl bg-green-600 px-3 py-3 text-center text-sm font-bold text-white transition hover:bg-green-500 sm:rounded-full sm:px-5">
+              WhatsApp
+              <span className="hidden sm:inline"> +48 512 077 770</span>
             </a>
           </div>
         </div>
 
-        <a href="/o-nas" className="mt-6 inline-block text-sm font-bold text-orange-400">
+        <a href="/o-nas" className="mt-5 inline-flex min-h-11 items-center text-sm font-bold text-orange-400 sm:mt-6">
           O firmie i kontakt →
         </a>
       </section>
@@ -84,7 +85,7 @@ export default async function Home() {
       {products.length > 0 ? (
         <ProductCatalog products={products} erliPrices={erliPrices} />
       ) : (
-        <section className="bg-white px-6 py-20 text-center text-zinc-600">
+        <section className="bg-white px-4 py-16 text-center text-zinc-600 sm:px-6 sm:py-20">
           Nie udało się obecnie pobrać aktywnych ofert Allegro.
         </section>
       )}
