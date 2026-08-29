@@ -10,8 +10,15 @@ type RatioMap = Record<string, number>;
 
 const priceRatios = erliPriceRatios as RatioMap;
 
-async function getErliProduct(externalId: string): Promise<ErliInfo> {
-  const cacheKey = `erli:product:${externalId}:v5`;
+// Some Allegro offers were relisted after the ERLI export was created.
+// Map the current Allegro offer ID to the ERLI externalId from that export.
+const erliExternalIdAliases: Record<string, string> = {
+  "18878600668": "18795916941",
+};
+
+async function getErliProduct(requestedId: string): Promise<ErliInfo> {
+  const erliExternalId = erliExternalIdAliases[requestedId] ?? requestedId;
+  const cacheKey = `erli:product:${requestedId}:v6`;
   const cached = await redis.get<ErliInfo>(cacheKey);
   if (cached) return cached;
 
@@ -19,7 +26,7 @@ async function getErliProduct(externalId: string): Promise<ErliInfo> {
   if (!apiKey) return null;
 
   try {
-    const response = await fetch(`https://erli.pl/svc/shop-api/products/${encodeURIComponent(externalId)}`, {
+    const response = await fetch(`https://erli.pl/svc/shop-api/products/${encodeURIComponent(erliExternalId)}`, {
       headers: {
         Authorization: `Bearer ${apiKey}`,
         Accept: "application/json",
@@ -36,7 +43,7 @@ async function getErliProduct(externalId: string): Promise<ErliInfo> {
     if (!Number.isFinite(rawPrice) || !marketplaceId || !slug) return null;
 
     const basePrice = rawPrice / 100;
-    const ratio = priceRatios[externalId];
+    const ratio = priceRatios[erliExternalId];
     const buyerPrice = Number.isFinite(ratio)
       ? Math.round(basePrice * ratio * 100) / 100
       : basePrice;
