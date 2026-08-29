@@ -91,7 +91,7 @@ export default async function Home() {
                       </a>
                       <div className="mt-3">
                         <p className="text-sm text-zinc-400 line-through">Allegro: {product.price} {product.currency}</p>
-                        {erli && <p className="text-base font-bold text-blue-700">ERLI: {erli.price} {erli.currency}</p>}
+                        {erli && <p className="text-sm text-zinc-400 line-through">ERLI: {erli.price} {erli.currency}</p>}
                         <p className="text-xl font-black text-green-700">Cena TrendEco: {discountedPrice} {product.currency}</p>
                       </div>
                       <p className="mt-2 text-sm text-zinc-600">{product.stock > 0 ? `Dostępne: ${product.stock} szt.` : "Chwilowo niedostępne"}</p>
