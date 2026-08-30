@@ -37,23 +37,18 @@ function safeReason(value: unknown) {
 async function sendEmail(to: string[], subject: string, html: string): Promise<EmailResult> {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return { ok: false, reason: "Brak RESEND_API_KEY w Vercel." };
-
   try {
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
       body: JSON.stringify({ from: "TrendEco <mail@trendeco.eu>", to, subject, html }),
     });
-
     if (response.ok) return { ok: true };
-
     let reason = `Resend HTTP ${response.status}`;
     try {
-      const payload = await response.json() as { message?: string; name?: string; statusCode?: number };
+      const payload = await response.json() as { message?: string; name?: string };
       reason = payload.message || payload.name || reason;
-    } catch {
-      try { reason = await response.text() || reason; } catch {}
-    }
+    } catch {}
     console.error("Resend delivery failed", { status: response.status, reason, to });
     return { ok: false, reason: safeReason(reason) };
   } catch (error) {
@@ -98,9 +93,7 @@ export async function POST(request: Request) {
         await redis.set(`order:${number}`, order);
         await redis.lpush("orders:trendeco", number);
         stored = true;
-      } catch (error) {
-        console.error("Order Redis storage failed", error);
-      }
+      } catch (error) { console.error("Order Redis storage failed", error); }
     }
 
     const rows = orderItems.map((item) => `<tr><td style="padding:8px;border-bottom:1px solid #ddd">${esc(item.name)}</td><td style="padding:8px;border-bottom:1px solid #ddd;text-align:center">${item.quantity}</td><td style="padding:8px;border-bottom:1px solid #ddd;text-align:right">${item.unitPrice.toFixed(2)} ${esc(item.currency)}</td></tr>`).join("");
@@ -114,11 +107,8 @@ export async function POST(request: Request) {
     ]);
 
     if (!customerResult.ok || !adminResult.ok) {
-      const details = [
-        !customerResult.ok ? `Klient: ${customerResult.reason}` : "",
-        !adminResult.ok ? `TrendEco: ${adminResult.reason}` : "",
-      ].filter(Boolean).join(" | ");
-      return NextResponse.json({ error: `Resend: ${details}` }, { status: 503 });
+      console.error("Order confirmation email failed", { customerResult, adminResult, orderNumber: number });
+      return NextResponse.json({ error: "Nie udało się wysłać potwierdzenia zamówienia. Sprawdź konfigurację poczty lub skontaktuj się z nami telefonicznie." }, { status: 503 });
     }
 
     return NextResponse.json({ ok: true, orderNumber: number, emailSent: true, stored });
