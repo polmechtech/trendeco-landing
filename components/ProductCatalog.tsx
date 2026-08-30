@@ -73,7 +73,7 @@ export default function ProductCatalog({ products, erliPrices }: { products: All
                 <input id="product-search" type="search" inputMode="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Szukaj produktu..." className="min-h-12 w-full rounded-2xl border border-zinc-300 bg-white py-3 pl-11 pr-4 text-base shadow-sm outline-none transition placeholder:text-zinc-400 focus:border-orange-500 focus:ring-4 focus:ring-orange-100 sm:min-h-14 sm:py-4 sm:pl-12" />
               </div>
             </div>
-            <a href="/" aria-label="TrendEco — strona główna" className="ml-auto hidden shrink-0 sm:block"><img src="/trendeco-logo.svg" alt="TrendEco" className="h-20 w-auto object-contain lg:h-24" /></a>
+            <a href="/" aria-label="TrendEco — strona główna" className="ml-auto hidden shrink-0 sm:block"><img src="/trendeco-logo-official.svg?v=20260830-4" alt="TrendEco" className="h-20 w-auto object-contain lg:h-24" /></a>
           </div>
           <nav className="mt-3 grid grid-cols-2 gap-2 lg:hidden">{sections.map((section) => <a key={section} href={`#${categoryId(section)}`} className="flex min-h-11 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 px-3 text-center text-sm font-bold active:scale-[0.98]">{section}</a>)}</nav>
           {normalizedQuery && <p className="mt-2 text-xs text-zinc-500 sm:mt-3 sm:text-sm">Znaleziono: <strong className="text-zinc-900">{filteredProducts.length}</strong></p>}
