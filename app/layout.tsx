@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   title: { default: "TrendEco — maszyny i narzędzia", template: "%s | TrendEco" },
   description: "Maszyny i narzędzia dla meblarstwa, budownictwa i obróbki drewna. Aktualne ceny i dostępność z ofert TrendEco na Allegro.",
   alternates: { canonical: "/" },
+  icons: {
+    icon: [{ url: "/trendeco-favicon.svg?v=20260830", type: "image/svg+xml" }],
+    shortcut: "/trendeco-favicon.svg?v=20260830",
+  },
   openGraph: { type: "website", locale: "pl_PL", url: siteUrl, siteName: "TrendEco", title: "TrendEco — maszyny i narzędzia", description: "Aktualny katalog maszyn i narzędzi TrendEco. Zakup, płatność i dostawa realizowane przez Allegro." },
   twitter: { card: "summary_large_image", title: "TrendEco — maszyny i narzędzia", description: "Aktualny katalog ofert TrendEco dostępnych na Allegro." },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
