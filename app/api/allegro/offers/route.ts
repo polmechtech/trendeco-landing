@@ -10,6 +10,8 @@ const ACCESS_TOKEN_TTL_KEY = "allegro:access_token_ttl";
 const LOCK_KEY = "allegro:refresh_lock";
 const OFFERS_CACHE_KEY = "allegro:offers_cache:v2";
 const OFFERS_CACHE_SECONDS = 60 * 60;
+const TRANSLATION_CACHE_SECONDS = 60 * 60;
+const SUPPORTED_TRANSLATION_LANGUAGES = new Set(["cs-CZ", "sk-SK", "hu-HU"]);
 
 async function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -179,14 +181,70 @@ async function loadProducts(): Promise<AllegroProduct[]> {
   return products;
 }
 
-export async function GET() {
+async function fetchTranslatedTitle(accessToken: string, offerId: string, language: string): Promise<string | null> {
+  const url = new URL(`https://api.allegro.pl/sale/offers/${encodeURIComponent(offerId)}/translations`);
+  url.searchParams.set("language", language);
+
+  const response = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      Accept: "application/vnd.allegro.public.v1+json",
+      "Accept-Language": language,
+    },
+    cache: "no-store",
+  });
+
+  if (!response.ok) return null;
+  const body = await response.json().catch(() => null);
+  const translations = Array.isArray(body?.translations) ? body.translations : [];
+  const item = translations.find((translation: any) => translation?.language === language) ?? translations[0];
+  const title = item?.title?.translation;
+  return typeof title === "string" && title.trim() ? title.trim() : null;
+}
+
+async function loadTranslatedTitles(products: AllegroProduct[], language: string): Promise<Record<string, string>> {
+  const cacheKey = `allegro:offer_titles:${language}:v1`;
+  const cached = await redis.get<Record<string, string>>(cacheKey).catch(() => null);
+  if (cached) return cached;
+
+  const accessToken = await getAccessToken();
+  const titles: Record<string, string> = {};
+  const concurrency = 6;
+
+  for (let i = 0; i < products.length; i += concurrency) {
+    const batch = products.slice(i, i + concurrency);
+    const results = await Promise.all(batch.map(async (product) => ({
+      id: product.id,
+      title: await fetchTranslatedTitle(accessToken, product.id, language),
+    })));
+    for (const result of results) {
+      if (result.title) titles[result.id] = result.title;
+    }
+  }
+
+  await redis.set(cacheKey, titles, { ex: TRANSLATION_CACHE_SECONDS });
+  return titles;
+}
+
+export async function GET(request: Request) {
   try {
     const products = await loadProducts();
+    const language = new URL(request.url).searchParams.get("language");
 
-    return NextResponse.json(products, {
-      headers: {
-        "Cache-Control": "no-store, max-age=0",
-      },
+    if (!language || !SUPPORTED_TRANSLATION_LANGUAGES.has(language)) {
+      return NextResponse.json(products, {
+        headers: { "Cache-Control": "no-store, max-age=0" },
+      });
+    }
+
+    const translatedTitles = await loadTranslatedTitles(products, language);
+    const localizedProducts = products.map((product) => ({
+      ...product,
+      name: translatedTitles[product.id] ?? product.name,
+    }));
+
+    return NextResponse.json(localizedProducts, {
+      headers: { "Cache-Control": "no-store, max-age=0" },
     });
   } catch (error) {
     const cached = await redis.get<AllegroProduct[]>(OFFERS_CACHE_KEY).catch(() => null);
