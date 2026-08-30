@@ -7,13 +7,21 @@ import LocalizedProductCatalog from "@/components/LocalizedProductCatalog";
 
 export const dynamic = "force-dynamic";
 
-async function getProducts(): Promise<AllegroProduct[]> {
+const allegroLanguages: Partial<Record<SiteLocale, string>> = {
+  cs: "cs-CZ",
+  sk: "sk-SK",
+  hu: "hu-HU",
+};
+
+async function getProducts(locale: SiteLocale): Promise<AllegroProduct[]> {
   try {
     const requestHeaders = await headers();
     const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host");
     const protocol = requestHeaders.get("x-forwarded-proto") ?? "https";
     if (!host) return [];
-    const response = await fetch(`${protocol}://${host}/api/allegro/offers`, { cache: "no-store" });
+    const language = allegroLanguages[locale];
+    const query = language ? `?language=${encodeURIComponent(language)}` : "";
+    const response = await fetch(`${protocol}://${host}/api/allegro/offers${query}`, { cache: "no-store" });
     if (!response.ok) return [];
     const data = await response.json();
     return Array.isArray(data) ? data : [];
@@ -52,7 +60,7 @@ export default async function LocalizedHome({ params }: { params: Promise<{ loca
   if (!isSiteLocale(rawLocale)) notFound();
   const locale: SiteLocale = rawLocale;
   const t = texts[locale];
-  const products = await getProducts();
+  const products = await getProducts(locale);
 
   return <main className="min-h-screen bg-zinc-950 text-white">
     <section className="mx-auto max-w-7xl px-4 pb-7 pt-6 sm:px-6 sm:py-10">
