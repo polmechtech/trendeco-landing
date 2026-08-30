@@ -64,12 +64,19 @@ export async function POST(request: Request) {
     const createdAt = new Date().toISOString();
     const order = { orderNumber: number, createdAt, payment: "cash_on_delivery", status: "new", customer: c, items: orderItems, total, currency, shippingCost: null };
 
+    let stored = false;
     const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
     const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
-    if (!redisUrl || !redisToken) return NextResponse.json({ error: "System zamówień jest chwilowo niedostępny." }, { status: 503 });
-    const redis = new Redis({ url: redisUrl, token: redisToken });
-    await redis.set(`order:${number}`, order);
-    await redis.lpush("orders:trendeco", number);
+    if (redisUrl && redisToken) {
+      try {
+        const redis = new Redis({ url: redisUrl, token: redisToken });
+        await redis.set(`order:${number}`, order);
+        await redis.lpush("orders:trendeco", number);
+        stored = true;
+      } catch (error) {
+        console.error("Order Redis storage failed", error);
+      }
+    }
 
     const rows = orderItems.map((item) => `<tr><td style="padding:8px;border-bottom:1px solid #ddd">${esc(item.name)}</td><td style="padding:8px;border-bottom:1px solid #ddd;text-align:center">${item.quantity}</td><td style="padding:8px;border-bottom:1px solid #ddd;text-align:right">${item.unitPrice.toFixed(2)} ${esc(item.currency)}</td></tr>`).join("");
     const common = `<h2>Zamówienie ${esc(number)}</h2><table style="border-collapse:collapse;width:100%"><tr><th align="left">Produkt</th><th>Ilość</th><th align="right">Cena</th></tr>${rows}</table><p><strong>Razem: ${total.toFixed(2)} ${esc(currency)}</strong></p><p>Płatność: za pobraniem.<br>Koszt dostawy zostanie potwierdzony przed realizacją.</p>`;
@@ -81,8 +88,13 @@ export async function POST(request: Request) {
       sendEmail(["mail@trendeco.eu"], `NOWE ZAMÓWIENIE ${number}`, adminHtml),
     ]);
 
-    return NextResponse.json({ ok: true, orderNumber: number, emailSent: customerSent && adminSent });
-  } catch {
+    if (!customerSent || !adminSent) {
+      return NextResponse.json({ error: "Nie udało się wysłać potwierdzenia zamówienia. Sprawdź konfigurację poczty lub skontaktuj się z nami telefonicznie." }, { status: 503 });
+    }
+
+    return NextResponse.json({ ok: true, orderNumber: number, emailSent: true, stored });
+  } catch (error) {
+    console.error("Order creation failed", error);
     return NextResponse.json({ error: "Nie udało się złożyć zamówienia. Spróbuj ponownie lub skontaktuj się z nami." }, { status: 500 });
   }
 }
