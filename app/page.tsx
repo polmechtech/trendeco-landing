@@ -1,6 +1,8 @@
 import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 import type { AllegroProduct } from "@/lib/allegro";
 import { seoCategories } from "@/lib/seoCategories";
+import { countryToLocale } from "@/lib/locales";
 import ProductCatalog from "@/components/ProductCatalog";
 
 type ErliInfo = { price: string; currency: string; url: string };
@@ -12,6 +14,10 @@ const whatsappLink = "https://wa.me/48512077770?text=Dzień%20dobry%2C%20mam%20p
 const tiktokLink = "https://www.tiktok.com/@trendeco4";
 
 export default async function Home() {
+  const requestHeaders = await headers();
+  const country = (requestHeaders.get("x-vercel-ip-country") ?? "PL").toUpperCase();
+  if (country !== "PL") redirect(`/${countryToLocale[country] ?? "en"}`);
+
   const products = await getProducts(); const erliPrices = await getErliPrices(products);
   const websiteJsonLd = { "@context": "https://schema.org", "@type": "WebSite", name: "TrendEco", url: "https://trendeco.eu", inLanguage: "pl-PL" };
   return <main className="min-h-screen bg-zinc-950 text-white"><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
