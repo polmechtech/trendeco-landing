@@ -108,9 +108,8 @@ export default function ProductCatalog({ products, erliPrices }: { products: All
 
               return (
                 <section key={section} id={categoryId(section)} className="scroll-mt-32 pb-9 last:pb-0 sm:scroll-mt-6 sm:pb-14">
-                  <div className="mb-4 flex items-end justify-between gap-3 border-b border-zinc-200 pb-3 sm:mb-6 sm:pb-4">
+                  <div className="mb-4 border-b border-zinc-200 pb-3 sm:mb-6 sm:pb-4">
                     <h2 className="text-2xl font-black sm:text-4xl">{section}</h2>
-                    <span className="shrink-0 text-xs font-semibold text-zinc-500 sm:text-sm">{sectionProducts.length} produktów</span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3 sm:gap-6 xl:grid-cols-2">
