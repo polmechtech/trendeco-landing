@@ -18,9 +18,9 @@ export default function ShippingPage() {
         <h2 className="mt-8 text-2xl font-black">Termin</h2>
         <p className="mt-3 leading-7 text-zinc-700">Termin zależy od rodzaju produktu i przewoźnika. Dostępność widoczna na stronie jest synchronizowana z bieżącym katalogiem. W przypadku dużych maszyn i przesyłek paletowych termin uzgadniamy indywidualnie.</p>
         <h2 className="mt-8 text-2xl font-black">Kontakt w sprawie dostawy</h2>
-        <p className="mt-3 leading-7 text-zinc-700">tel. +48 512 077 770 · e-mail: info@widia.tech</p>
+        <p className="mt-3 leading-7 text-zinc-700">tel. +48 512 077 770 · e-mail: mail@trendeco.eu</p>
         <nav className="mt-10 flex flex-wrap gap-4 border-t pt-6 text-sm font-bold">
-          <a href="/zwroty-i-reklamacje" className="text-orange-600">Zwroty i reklamacje →</a>
+          <a href="/zwroty-i-reklamacje" className="text-orange-600">Zwroty, reklamacja, gwarancja →</a>
           <a href="/o-nas" className="text-zinc-600">O firmie</a>
         </nav>
       </article>
