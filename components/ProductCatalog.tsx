@@ -65,10 +65,15 @@ export default function ProductCatalog({ products, erliPrices }: { products: All
     <section className="bg-white px-3 py-5 text-zinc-950 sm:px-6 sm:py-12">
       <div className="mx-auto max-w-7xl">
         <div className="sticky top-0 z-20 -mx-3 mb-5 border-b border-zinc-200 bg-white/95 px-3 pb-3 pt-3 backdrop-blur sm:static sm:mx-0 sm:mb-8 sm:border-0 sm:bg-transparent sm:px-0 sm:pb-0 sm:pt-0 sm:backdrop-blur-none">
-          <label htmlFor="product-search" className="sr-only">Szukaj produktu</label>
-          <div className="relative w-full sm:max-w-3xl">
-            <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-lg text-zinc-400">⌕</span>
-            <input id="product-search" type="search" inputMode="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Szukaj produktu..." className="min-h-12 w-full rounded-2xl border border-zinc-300 bg-white py-3 pl-11 pr-4 text-base shadow-sm outline-none transition placeholder:text-zinc-400 focus:border-orange-500 focus:ring-4 focus:ring-orange-100 sm:min-h-14 sm:py-4 sm:pl-12" />
+          <div className="flex items-center gap-4">
+            <div className="min-w-0 flex-1">
+              <label htmlFor="product-search" className="sr-only">Szukaj produktu</label>
+              <div className="relative w-full sm:max-w-3xl">
+                <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-lg text-zinc-400">⌕</span>
+                <input id="product-search" type="search" inputMode="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Szukaj produktu..." className="min-h-12 w-full rounded-2xl border border-zinc-300 bg-white py-3 pl-11 pr-4 text-base shadow-sm outline-none transition placeholder:text-zinc-400 focus:border-orange-500 focus:ring-4 focus:ring-orange-100 sm:min-h-14 sm:py-4 sm:pl-12" />
+              </div>
+            </div>
+            <a href="/" aria-label="TrendEco — strona główna" className="ml-auto hidden shrink-0 sm:block"><img src="/trendeco-logo.svg" alt="TrendEco" className="h-20 w-auto object-contain lg:h-24" /></a>
           </div>
           <nav className="mt-3 grid grid-cols-2 gap-2 lg:hidden">{sections.map((section) => <a key={section} href={`#${categoryId(section)}`} className="flex min-h-11 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 px-3 text-center text-sm font-bold active:scale-[0.98]">{section}</a>)}</nav>
           {normalizedQuery && <p className="mt-2 text-xs text-zinc-500 sm:mt-3 sm:text-sm">Znaleziono: <strong className="text-zinc-900">{filteredProducts.length}</strong></p>}
