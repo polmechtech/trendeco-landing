@@ -10,6 +10,8 @@ type OrderRequest = {
   payment: "cash_on_delivery";
 };
 
+type EmailResult = { ok: true } | { ok: false; reason: string };
+
 function discountedPrice(product: AllegroProduct) {
   const price = Number.parseFloat(String(product.price).replace(",", "."));
   if (!Number.isFinite(price)) return 0;
@@ -27,15 +29,38 @@ function orderNumber() {
   return `TE-${date}-${crypto.randomUUID().slice(0, 6).toUpperCase()}`;
 }
 
-async function sendEmail(to: string[], subject: string, html: string) {
+function safeReason(value: unknown) {
+  const text = String(value ?? "Nieznany błąd Resend").replace(/\s+/g, " ").trim();
+  return text.slice(0, 350);
+}
+
+async function sendEmail(to: string[], subject: string, html: string): Promise<EmailResult> {
   const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) return false;
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: "TrendEco <mail@trendeco.eu>", to, subject, html }),
-  });
-  return response.ok;
+  if (!apiKey) return { ok: false, reason: "Brak RESEND_API_KEY w Vercel." };
+
+  try {
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ from: "TrendEco <mail@trendeco.eu>", to, subject, html }),
+    });
+
+    if (response.ok) return { ok: true };
+
+    let reason = `Resend HTTP ${response.status}`;
+    try {
+      const payload = await response.json() as { message?: string; name?: string; statusCode?: number };
+      reason = payload.message || payload.name || reason;
+    } catch {
+      try { reason = await response.text() || reason; } catch {}
+    }
+    console.error("Resend delivery failed", { status: response.status, reason, to });
+    return { ok: false, reason: safeReason(reason) };
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : "Błąd połączenia z Resend.";
+    console.error("Resend request failed", error);
+    return { ok: false, reason: safeReason(reason) };
+  }
 }
 
 export async function POST(request: Request) {
@@ -83,13 +108,17 @@ export async function POST(request: Request) {
     const customerHtml = `<p>Dzień dobry ${esc(c.name)},</p><p>otrzymaliśmy Twoje zamówienie. Poniżej znajduje się jego podsumowanie.</p>${common}<p>Dostawa: ${esc(c.street)}, ${esc(c.postalCode)} ${esc(c.city)}</p><p>Skontaktujemy się w celu potwierdzenia dostępności i kosztu dostawy.</p><p>TrendEco<br>tel. +48 512 077 770<br>mail@trendeco.eu</p>`;
     const adminHtml = `<p><strong>NOWE ZAMÓWIENIE ZA POBRANIEM</strong></p>${common}<p><strong>Klient:</strong> ${esc(c.name)}<br><strong>Telefon:</strong> ${esc(c.phone)}<br><strong>E-mail:</strong> ${esc(c.email)}<br><strong>Adres:</strong> ${esc(c.street)}, ${esc(c.postalCode)} ${esc(c.city)}${c.invoice ? `<br><strong>Firma:</strong> ${esc(c.company)}<br><strong>NIP:</strong> ${esc(c.nip)}` : ""}${c.notes ? `<br><strong>Uwagi:</strong> ${esc(c.notes)}` : ""}</p>`;
 
-    const [customerSent, adminSent] = await Promise.all([
+    const [customerResult, adminResult] = await Promise.all([
       sendEmail([c.email], `TrendEco — potwierdzenie zamówienia ${number}`, customerHtml),
       sendEmail(["mail@trendeco.eu"], `NOWE ZAMÓWIENIE ${number}`, adminHtml),
     ]);
 
-    if (!customerSent || !adminSent) {
-      return NextResponse.json({ error: "Nie udało się wysłać potwierdzenia zamówienia. Sprawdź konfigurację poczty lub skontaktuj się z nami telefonicznie." }, { status: 503 });
+    if (!customerResult.ok || !adminResult.ok) {
+      const details = [
+        !customerResult.ok ? `Klient: ${customerResult.reason}` : "",
+        !adminResult.ok ? `TrendEco: ${adminResult.reason}` : "",
+      ].filter(Boolean).join(" | ");
+      return NextResponse.json({ error: `Resend: ${details}` }, { status: 503 });
     }
 
     return NextResponse.json({ ok: true, orderNumber: number, emailSent: true, stored });
