@@ -1,0 +1,1 @@
+favicon source synchronized with app/favicon.ico
