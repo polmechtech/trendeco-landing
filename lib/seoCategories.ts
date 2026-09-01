@@ -48,6 +48,15 @@ export const seoCategories: SeoCategory[] = [
     terms: ["piła pierścieniowa", "pila pierscieniowa", "pierścieniowa", "pierscieniowa", "ring saw"],
   },
   {
+    slug: "luparka-przekladniowa",
+    keyword: "łuparka przekładniowa",
+    title: "Łuparka przekładniowa do drewna — TrendEco",
+    description: "Łuparki przekładniowe TrendEco do drewna opałowego, wersje 230 V i 400 V. Sprawdź aktualne modele, ceny, wyposażenie, dostępność i serwis w Polsce.",
+    heading: "Łuparka przekładniowa do drewna opałowego",
+    intro: "Łuparka przekładniowa wykorzystuje silnik, przekładnię redukcyjną i klin do mechanicznego rozłupywania drewna opałowego. Zobacz aktualne łuparki TrendEco 230 V i 400 V, kompletne maszyny oraz moduły do samodzielnej zabudowy.",
+    terms: ["łuparka", "luparka", "przekładnia", "przekladnia", "rozłupyw", "rozlupyw"],
+  },
+  {
     slug: "przecinarka-do-plytek",
     keyword: "przecinarka do płytek",
     title: "Przecinarka do płytek — przecinarki TrendEco",
