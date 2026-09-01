@@ -13,6 +13,42 @@ export type AllegroProduct = {
   stock: number;
   url: string;
   category: ProductCategory;
+  gpsr?: ProductGpsr;
+};
+
+export type GpsrAddress = {
+  street?: string;
+  postalCode?: string;
+  city?: string;
+  countryCode?: string;
+};
+
+export type GpsrContact = {
+  email?: string;
+  phoneNumber?: string;
+  formUrl?: string;
+};
+
+export type GpsrParty = {
+  name: string;
+  address?: GpsrAddress;
+  contact?: GpsrContact;
+};
+
+export type GpsrAttachment = {
+  id: string;
+  name?: string;
+  url?: string;
+};
+
+export type ProductGpsr = {
+  manufacturer?: GpsrParty;
+  responsiblePerson?: GpsrParty;
+  safetyInformation?: {
+    type: "TEXT" | "ATTACHMENTS" | "NO_SAFETY_INFORMATION" | string;
+    description?: string;
+    attachments?: GpsrAttachment[];
+  };
 };
 
 export const TRENDECO_UI_VERSION = "pobranie-whatsapp-tiktok-v1";
