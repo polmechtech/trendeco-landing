@@ -3,7 +3,7 @@ import { getOfferPath, type AllegroProduct } from "@/lib/allegro";
 import { seoCategories } from "@/lib/seoCategories";
 export const dynamic = "force-dynamic";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
- const baseUrl="https://trendeco.eu"; const now=new Date();
+ const baseUrl="https://www.trendeco.eu"; const now=new Date();
  const staticPages:MetadataRoute.Sitemap=[
   {url:baseUrl,lastModified:now,changeFrequency:"hourly",priority:1},
   {url:`${baseUrl}/o-nas`,lastModified:now,changeFrequency:"monthly",priority:.6},
