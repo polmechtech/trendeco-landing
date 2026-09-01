@@ -1,6 +1,6 @@
 import { Redis } from "@upstash/redis";
 import { NextResponse } from "next/server";
-import { classifyProduct, mapAllegroOffers, type AllegroProduct } from "@/lib/allegro";
+import { classifyProduct, mapAllegroOffers, type AllegroProduct, type GpsrParty, type ProductGpsr } from "@/lib/allegro";
 
 const redis = Redis.fromEnv();
 
@@ -8,7 +8,7 @@ const REFRESH_TOKEN_KEY = "allegro:refresh_token";
 const ACCESS_TOKEN_KEY = "allegro:access_token";
 const ACCESS_TOKEN_TTL_KEY = "allegro:access_token_ttl";
 const LOCK_KEY = "allegro:refresh_lock";
-const OFFERS_CACHE_KEY = "allegro:offers_cache:v2";
+const OFFERS_CACHE_KEY = "allegro:offers_cache:v3";
 const OFFERS_CACHE_SECONDS = 60 * 60;
 const TRANSLATION_CACHE_SECONDS = 60 * 60;
 const SUPPORTED_TRANSLATION_LANGUAGES = new Set(["cs-CZ", "sk-SK", "hu-HU"]);
@@ -162,6 +162,81 @@ async function fetchAllActiveOffers(accessToken: string) {
   return { offers: allOffers };
 }
 
+const allegroHeaders = (accessToken: string) => ({
+  Authorization: `Bearer ${accessToken}`,
+  Accept: "application/vnd.allegro.public.v1+json",
+});
+
+async function fetchAllegroJson(accessToken: string, path: string) {
+  const response = await fetch(`https://api.allegro.pl${path}`, {
+    headers: allegroHeaders(accessToken),
+    cache: "no-store",
+  });
+  if (!response.ok) return null;
+  return response.json().catch(() => null);
+}
+
+function partyFromRecord(record: any, dataKey: "producerData" | "personalData"): GpsrParty | undefined {
+  const data = record?.[dataKey];
+  const name = data?.tradeName ?? data?.name ?? record?.name;
+  if (!name) return undefined;
+  return {
+    name: String(name),
+    address: data?.address ?? undefined,
+    contact: data?.contact ?? undefined,
+  };
+}
+
+function findReferencedRecord(reference: any, records: any[]) {
+  if (!reference) return null;
+  return records.find((record) =>
+    (reference.id && record?.id === reference.id) ||
+    (reference.name && record?.name === reference.name)
+  ) ?? null;
+}
+
+async function enrichProductsWithGpsr(accessToken: string, products: AllegroProduct[]) {
+  const [producerResponse, personResponse] = await Promise.all([
+    fetchAllegroJson(accessToken, "/sale/responsible-producers?limit=1000"),
+    fetchAllegroJson(accessToken, "/sale/responsible-persons?limit=1000"),
+  ]);
+  const producers = Array.isArray(producerResponse?.responsibleProducers) ? producerResponse.responsibleProducers : [];
+  const persons = Array.isArray(personResponse?.responsiblePersons) ? personResponse.responsiblePersons : [];
+  const concurrency = 6;
+
+  for (let i = 0; i < products.length; i += concurrency) {
+    const batch = products.slice(i, i + concurrency);
+    await Promise.all(batch.map(async (product) => {
+      const offer = await fetchAllegroJson(accessToken, `/sale/product-offers/${encodeURIComponent(product.id)}`);
+      const item = Array.isArray(offer?.productSet) ? offer.productSet[0] : null;
+      if (!item) return;
+
+      const producerRecord = findReferencedRecord(item.responsibleProducer, producers);
+      const personRecord = findReferencedRecord(item.responsiblePerson, persons);
+      const safety = item.safetyInformation;
+      const attachmentRefs = Array.isArray(safety?.attachments) ? safety.attachments : [];
+      const attachments = await Promise.all(attachmentRefs.map(async (attachment: any) => {
+        const id = String(attachment?.id ?? "");
+        if (!id) return null;
+        const details = await fetchAllegroJson(accessToken, `/sale/offer-attachments/${encodeURIComponent(id)}`);
+        return { id, name: details?.file?.name, url: details?.file?.url };
+      }));
+
+      const gpsr: ProductGpsr = {
+        manufacturer: partyFromRecord(producerRecord, "producerData"),
+        responsiblePerson: partyFromRecord(personRecord, "personalData"),
+        safetyInformation: safety ? {
+          type: String(safety.type ?? ""),
+          description: typeof safety.description === "string" ? safety.description : undefined,
+          attachments: attachments.filter(Boolean) as NonNullable<(typeof attachments)[number]>[],
+        } : undefined,
+      };
+      if (gpsr.manufacturer || gpsr.responsiblePerson || gpsr.safetyInformation) product.gpsr = gpsr;
+    }));
+  }
+  return products;
+}
+
 function applyCurrentCategories(products: AllegroProduct[]): AllegroProduct[] {
   return products.map((product) => ({
     ...product,
@@ -175,7 +250,7 @@ async function loadProducts(): Promise<AllegroProduct[]> {
 
   const accessToken = await getAccessToken();
   const offersData = await fetchAllActiveOffers(accessToken);
-  const products = mapAllegroOffers(offersData);
+  const products = await enrichProductsWithGpsr(accessToken, mapAllegroOffers(offersData));
 
   await redis.set(OFFERS_CACHE_KEY, products, { ex: OFFERS_CACHE_SECONDS });
   return products;
