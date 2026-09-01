@@ -7,7 +7,7 @@ export const revalidate = 3600;
 
 async function getProducts(): Promise<AllegroProduct[]> {
   try {
-    const response = await fetch("https://trendeco.eu/api/allegro/offers", {
+    const response = await fetch("https://www.trendeco.eu/api/allegro/offers", {
       next: { revalidate: 3600 },
     });
     if (!response.ok) return [];
@@ -66,7 +66,7 @@ export default async function SeoCategoryPage({ params }: { params: Promise<{ sl
   if (!category) notFound();
 
   const products = (await getProducts()).filter((product) => matchesSeoCategory(product, category));
-  const url = `https://trendeco.eu/kategoria/${category.slug}`;
+  const url = `https://www.trendeco.eu/kategoria/${category.slug}`;
 
   const itemListJsonLd = {
     "@context": "https://schema.org",
@@ -79,15 +79,24 @@ export default async function SeoCategoryPage({ params }: { params: Promise<{ sl
       itemListElement: products.map((product, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: `https://trendeco.eu${getOfferPath(product)}`,
+        url: `https://www.trendeco.eu${getOfferPath(product)}`,
         name: product.name,
       })),
     },
   };
 
+  const sawFaq = category.slug === "pila-formatowa" ? [
+    { question: "Jak wybrać piłę formatową do płyt meblowych?", answer: "Najważniejsze są: obecność podcinaka, maksymalny format cięcia, stabilność stołu, możliwość regulacji prowadnic oraz dostępność części i serwisu. Do płyt laminowanych podcinak ogranicza wykruszanie dolnej warstwy dekoracyjnej." },
+    { question: "Czy przenośna piła formatowa nadaje się do małej stolarni?", answer: "Tak, jeśli zakres pracy odpowiada jej wymiarom i głębokości cięcia. Konstrukcja składana lub mobilna zajmuje mniej miejsca i pozwala wykonywać cięcie formatowe bez inwestowania w dużą przemysłową formatówkę." },
+    { question: "Czym różni się piła formatowa od zwykłej piły stołowej?", answer: "Piła formatowa jest przygotowana do dokładnego prowadzenia większych elementów i płyt. Zwykle ma stół przesuwny, prowadnice oraz podcinak, dzięki czemu łatwiej uzyskać prostą krawędź bez odprysków." },
+    { question: "Czy podcinak jest potrzebny do MDF i płyt laminowanych?", answer: "Przy cięciu płyt laminowanych podcinak jest bardzo przydatny, ponieważ nacina dolną warstwę przed wejściem tarczy głównej. Przy surowym MDF jego znaczenie jest mniejsze, ale nadal pomaga utrzymać czystą krawędź." },
+  ] : [];
+  const faqJsonLd = sawFaq.length ? { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: sawFaq.map(item => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) } : null;
+
   return (
     <main className="min-h-screen bg-white text-zinc-950">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
+      {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
 
       <header className="bg-zinc-950 px-4 py-8 text-white sm:px-6 sm:py-14">
         <div className="mx-auto max-w-7xl">
@@ -141,6 +150,26 @@ export default async function SeoCategoryPage({ params }: { params: Promise<{ sl
             <p className="mt-4 leading-7 text-zinc-700">{category.intro}</p>
             <p className="mt-4 leading-7 text-zinc-700">TrendEco prowadzi sprzedaż maszyn i narzędzi w Polsce. Aktualne produkty możesz sprawdzić bezpośrednio na stronie, przez Allegro i ERLI. Przy wybranych produktach dostępne jest również zamówienie bezpośrednie.</p>
           </section>
+
+          {category.slug === "pila-formatowa" && products.length > 0 && <section className="mt-12 border-t border-zinc-200 pt-10">
+            <h2 className="text-2xl font-black sm:text-3xl">Porównanie dostępnych pił formatowych TrendEco</h2>
+            <p className="mt-4 max-w-4xl leading-7 text-zinc-700">Poniższe zestawienie jest tworzone automatycznie z aktualnych ofert. Kliknij nazwę modelu, aby sprawdzić opis, dane techniczne, producenta, informacje GPSR i możliwość zakupu.</p>
+            <div className="mt-6 overflow-x-auto rounded-2xl border border-zinc-200">
+              <table className="w-full min-w-[680px] text-left text-sm"><thead className="bg-zinc-950 text-white"><tr><th className="p-4">Model</th><th className="p-4">Cena</th><th className="p-4">Dostępność</th><th className="p-4">Szczegóły</th></tr></thead><tbody>{products.map((product)=><tr key={product.id} className="border-t border-zinc-200"><td className="p-4 font-bold">{product.name}</td><td className="p-4 whitespace-nowrap font-black text-orange-600">{product.price} {product.currency}</td><td className="p-4 whitespace-nowrap">{product.stock>0?`${product.stock} szt.`:"Brak"}</td><td className="p-4"><a className="font-bold underline" href={getOfferPath(product)}>Zobacz model</a></td></tr>)}</tbody></table>
+            </div>
+          </section>}
+
+          {category.slug === "pila-formatowa" && <section className="mt-12 max-w-5xl border-t border-zinc-200 pt-10">
+            <h2 className="text-2xl font-black sm:text-3xl">Jak dobrać piłę formatową do rodzaju pracy?</h2>
+            <div className="mt-5 space-y-5 leading-7 text-zinc-700">
+              <p>Do sporadycznego cięcia płyt i pracy montażowej najważniejsze są mobilność, szybkie składanie oraz możliwość zasilania z instalacji 230 V. W małym warsztacie liczy się również powierzchnia zajmowana po zakończeniu pracy. Przenośna piła formatowa może być rozsądnym rozwiązaniem, gdy duża maszyna przemysłowa byłaby wykorzystywana tylko częściowo.</p>
+              <p>Przy obróbce płyt laminowanych warto wybierać model z osobnym podcinakiem. Podcinak wykonuje płytkie nacięcie od spodu materiału przed tarczą główną, ograniczając wyrywanie laminatu. Dla jakości cięcia znaczenie mają również prawidłowe ustawienie obu tarcz, odpowiedni dobór ich grubości oraz stabilne prowadzenie płyty.</p>
+              <p>Stół przesuwny lub wahadłowy ułatwia pracę z większymi formatami, ale przed zakupem trzeba porównać realny zakres przesuwu z najczęściej obrabianymi elementami. Sama duża powierzchnia stołu nie zastępuje sztywnej konstrukcji, poprawnie ustawionej prowadnicy równoległej i możliwości dokładnej regulacji kąta.</p>
+              <p>W ofercie TrendEco znajdują się kompletne zestawy oraz osobne stoły i zespoły tnące. Dzięki temu można dobrać konfigurację do miejsca pracy i planowanych operacji, zamiast kupować rozbudowany zestaw z elementami, które nie będą używane. Dostępność modeli, ceny i stany magazynowe w tabeli są aktualizowane automatycznie.</p>
+            </div>
+            <h2 className="mt-10 text-2xl font-black">Najczęstsze pytania</h2>
+            <div className="mt-5 grid gap-4">{sawFaq.map(item=><details key={item.question} className="rounded-2xl border border-zinc-200 bg-zinc-50 p-5"><summary className="cursor-pointer font-black">{item.question}</summary><p className="mt-3 leading-7 text-zinc-700">{item.answer}</p></details>)}</div>
+          </section>}
         </div>
       </section>
     </main>
