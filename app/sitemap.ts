@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getOfferPath, type AllegroProduct } from "@/lib/allegro";
 import { seoCategories } from "@/lib/seoCategories";
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
  const baseUrl="https://www.trendeco.eu"; const now=new Date();
  const staticPages:MetadataRoute.Sitemap=[
