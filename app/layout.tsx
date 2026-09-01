@@ -18,10 +18,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   icons: {
     icon: [
-      { url: "/icon.svg?v=20260830-6", type: "image/svg+xml" },
-      { url: "/trendeco-favicon-20260830.ico?v=20260830-6", type: "image/x-icon", sizes: "32x32" },
+      { url: "/trendeco-favicon-20260901.png", type: "image/png", sizes: "96x96" },
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "48x48" },
     ],
-    shortcut: "/trendeco-favicon-20260830.ico?v=20260830-6",
+    shortcut: "/trendeco-favicon-20260901.png",
+    apple: [{ url: "/apple-touch-icon-trendeco-20260901.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: { type: "website", locale: "pl_PL", url: siteUrl, siteName: "TrendEco", title: "TrendEco — maszyny i narzędzia", description: "Aktualny katalog maszyn i narzędzi TrendEco. Zakup, płatność i dostawa realizowane przez Allegro." },
   twitter: { card: "summary_large_image", title: "TrendEco — maszyny i narzędzia", description: "Aktualny katalog ofert TrendEco dostępnych na Allegro." },
