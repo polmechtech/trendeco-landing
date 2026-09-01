@@ -8,7 +8,7 @@ const REFRESH_TOKEN_KEY = "allegro:refresh_token";
 const ACCESS_TOKEN_KEY = "allegro:access_token";
 const ACCESS_TOKEN_TTL_KEY = "allegro:access_token_ttl";
 const LOCK_KEY = "allegro:refresh_lock";
-const OFFERS_CACHE_KEY = "allegro:offers_cache:v3";
+const OFFERS_CACHE_KEY = "allegro:offers_cache:v4";
 const OFFERS_CACHE_SECONDS = 60 * 60;
 const TRANSLATION_CACHE_SECONDS = 60 * 60;
 const SUPPORTED_TRANSLATION_LANGUAGES = new Set(["cs-CZ", "sk-SK", "hu-HU"]);
@@ -195,6 +195,28 @@ function findReferencedRecord(reference: any, records: any[]) {
   ) ?? null;
 }
 
+function descriptionToText(description: any) {
+  const sections = Array.isArray(description?.sections) ? description.sections : [];
+  return sections.flatMap((section: any) => Array.isArray(section?.items) ? section.items : [])
+    .filter((item: any) => item?.type === "TEXT" && typeof item?.content === "string")
+    .map((item: any) => item.content
+      .replace(/<br\s*\/?>/gi, "\n")
+      .replace(/<\/p>/gi, "\n\n")
+      .replace(/<\/li>/gi, "\n")
+      .replace(/<[^>]+>/g, "")
+      .replace(/&nbsp;/g, " ")
+      .replace(/&amp;/g, "&")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&quot;/g, "\"")
+      .replace(/&#39;/g, "'")
+      .trim())
+    .filter(Boolean)
+    .join("\n\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .slice(0, 12000);
+}
+
 async function enrichProductsWithGpsr(accessToken: string, products: AllegroProduct[]) {
   const [producerResponse, personResponse] = await Promise.all([
     fetchAllegroJson(accessToken, "/sale/responsible-producers?limit=1000"),
@@ -210,6 +232,8 @@ async function enrichProductsWithGpsr(accessToken: string, products: AllegroProd
       const offer = await fetchAllegroJson(accessToken, `/sale/product-offers/${encodeURIComponent(product.id)}`);
       const item = Array.isArray(offer?.productSet) ? offer.productSet[0] : null;
       if (!item) return;
+      const description = descriptionToText(offer?.description);
+      if (description) product.description = description;
 
       const producerRecord = findReferencedRecord(item.responsibleProducer, producers);
       const personRecord = findReferencedRecord(item.responsiblePerson, persons);
