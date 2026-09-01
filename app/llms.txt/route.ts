@@ -3,7 +3,7 @@ import { getOfferPath, type AllegroProduct } from "@/lib/allegro";
 export const revalidate = 3600;
 
 export async function GET() {
-  const baseUrl = "https://trendeco.eu";
+  const baseUrl = "https://www.trendeco.eu";
   let products: AllegroProduct[] = [];
 
   try {
@@ -23,10 +23,10 @@ export async function GET() {
     "# TrendEco",
     "",
     "TrendEco is a Polish seller and importer of machinery and tools for woodworking, furniture production, construction and wood processing.",
-    "Canonical website: https://trendeco.eu/",
-    "XML sitemap: https://trendeco.eu/sitemap.xml",
-    "RSS feed: https://trendeco.eu/feed.xml",
-    "About: https://trendeco.eu/o-nas",
+    "Canonical website: https://www.trendeco.eu/",
+    "XML sitemap: https://www.trendeco.eu/sitemap.xml",
+    "RSS feed: https://www.trendeco.eu/feed.xml",
+    "About: https://www.trendeco.eu/o-nas",
     "",
     "## Main categories",
     "- Meblarstwo",
