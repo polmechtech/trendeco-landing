@@ -13,6 +13,7 @@ export type AllegroProduct = {
   stock: number;
   url: string;
   category: ProductCategory;
+  description?: string;
   gpsr?: ProductGpsr;
 };
 
