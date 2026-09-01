@@ -13,7 +13,7 @@ function escapeXml(value: string) {
 export async function GET() {
   let products: AllegroProduct[] = [];
   try {
-    const response = await fetch("https://trendeco.eu/api/allegro/offers", { next: { revalidate: 3600 } });
+    const response = await fetch("https://www.trendeco.eu/api/allegro/offers", { next: { revalidate: 3600 } });
     if (response.ok) products = await response.json();
   } catch {}
 
@@ -29,7 +29,7 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
   <rss version="2.0"><channel>
     <title>TrendEco — aktualne oferty</title>
-    <link>https://trendeco.eu</link>
+    <link>https://www.trendeco.eu</link>
     <description>Aktualne produkty TrendEco dostępne na Allegro.</description>
     <language>pl-PL</language>${items}
   </channel></rss>`;
