@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { getOfferPath, type AllegroProduct, type ProductCategory } from "@/lib/allegro";
 import { seoCategories } from "@/lib/seoCategories";
 import FreeShippingBadge from "@/components/FreeShippingBadge";
@@ -57,16 +57,28 @@ function constructionRank(product: AllegroProduct) {
 
 export default function ProductCatalog({ products, erliPrices }: { products: AllegroProduct[]; erliPrices: ErliMap }) {
   const [query, setQuery] = useState("");
+  const stickyHeaderRef = useRef<HTMLDivElement>(null);
+  const [stickyHeaderHeight, setStickyHeaderHeight] = useState(0);
   const normalizedQuery = query.trim().toLocaleLowerCase("pl-PL");
   const filteredProducts = useMemo(() => {
     if (!normalizedQuery) return products;
     return products.filter((product) => `${product.name} ${product.category}`.toLocaleLowerCase("pl-PL").includes(normalizedQuery));
   }, [products, normalizedQuery]);
 
+  useEffect(() => {
+    const header = stickyHeaderRef.current;
+    if (!header) return;
+    const updateHeight = () => setStickyHeaderHeight(header.getBoundingClientRect().height);
+    updateHeight();
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="bg-white px-3 py-5 text-zinc-950 sm:px-6 sm:py-12">
       <div className="mx-auto max-w-7xl">
-        <div className="sticky top-0 z-40 -mx-3 mb-5 space-y-2 border-b border-zinc-200 bg-white/95 px-3 py-2.5 shadow-md backdrop-blur sm:-mx-6 sm:mb-8 sm:px-6 sm:py-3">
+        <div ref={stickyHeaderRef} className="sticky top-0 z-40 -mx-3 mb-5 space-y-2 border-b border-zinc-200 bg-white/95 px-3 py-2.5 shadow-md backdrop-blur sm:-mx-6 sm:mb-8 sm:px-6 sm:py-3">
           <div className="rounded-2xl border border-zinc-200 bg-white p-2.5 shadow-sm sm:flex sm:flex-wrap sm:items-center sm:gap-4 sm:p-3">
             <div className="mb-2 flex items-center justify-between gap-2 sm:mb-0 sm:shrink-0 sm:justify-start sm:gap-3">
               <a href="/" aria-label="TrendEco — strona główna" className="shrink-0"><img src="/trendeco-logo-official.svg?v=20260830-4" alt="TrendEco" className="h-11 w-auto object-contain sm:h-14 lg:h-16" /></a>
@@ -87,7 +99,7 @@ export default function ProductCatalog({ products, erliPrices }: { products: All
           {normalizedQuery && <p className="px-1 text-xs text-zinc-500 sm:text-sm">Znaleziono: <strong className="text-zinc-900">{filteredProducts.length}</strong></p>}
         </div>
         <div className="grid gap-8 lg:grid-cols-[230px_minmax(0,1fr)]">
-          <aside className="hidden lg:block"><div className="sticky top-28"><h2 className="mb-4 text-xl font-black">Kategorie</h2><nav className="grid grid-cols-2 gap-2">{sections.map((section) => <a key={section} href={`#${categoryId(section)}`} className="flex min-h-12 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 px-2 text-center text-xs font-bold transition hover:border-orange-400 hover:bg-orange-50 hover:text-orange-700">{section}</a>)}</nav></div></aside>
+          <aside className="hidden lg:block"><div className="sticky" style={{ top: stickyHeaderHeight ? stickyHeaderHeight + 32 : 32 }}><h2 className="mb-4 text-xl font-black">Kategorie</h2><nav className="grid grid-cols-2 gap-2">{sections.map((section) => <a key={section} href={`#${categoryId(section)}`} className="flex min-h-12 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 px-2 text-center text-xs font-bold transition hover:border-orange-400 hover:bg-orange-50 hover:text-orange-700">{section}</a>)}</nav></div></aside>
           <div className="min-w-0">
             {sections.map((section) => {
               const sectionProducts = filteredProducts.filter((product) => product.category === section).sort((a, b) => section === "Budownictwo" ? constructionRank(a) - constructionRank(b) : 0);
