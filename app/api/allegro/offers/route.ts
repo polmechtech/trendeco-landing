@@ -12,6 +12,18 @@ const OFFERS_CACHE_KEY = "allegro:offers_cache:v4";
 const OFFERS_CACHE_SECONDS = 60 * 60;
 const TRANSLATION_CACHE_SECONDS = 60 * 60;
 const SUPPORTED_TRANSLATION_LANGUAGES = new Set(["cs-CZ", "sk-SK", "hu-HU"]);
+const API_RATE_WINDOW_SECONDS = 60;
+const API_RATE_LIMIT = 90;
+
+async function isRateLimited(request: Request) {
+  const forwarded = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
+  const ip = forwarded || request.headers.get("x-real-ip")?.trim();
+  if (!ip) return false;
+  const key = `allegro:api_rate:${encodeURIComponent(ip)}`;
+  const count = await redis.incr(key);
+  if (count === 1) await redis.expire(key, API_RATE_WINDOW_SECONDS);
+  return count > API_RATE_LIMIT;
+}
 
 async function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -326,13 +338,20 @@ async function loadTranslatedTitles(products: AllegroProduct[], language: string
 }
 
 export async function GET(request: Request) {
+  if (await isRateLimited(request)) {
+    return NextResponse.json(
+      { error: "Too many requests" },
+      { status: 429, headers: { "Retry-After": String(API_RATE_WINDOW_SECONDS), "Cache-Control": "no-store" } }
+    );
+  }
+
   try {
     const products = await loadProducts();
     const language = new URL(request.url).searchParams.get("language");
 
     if (!language || !SUPPORTED_TRANSLATION_LANGUAGES.has(language)) {
       return NextResponse.json(products, {
-        headers: { "Cache-Control": "no-store, max-age=0" },
+        headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400" },
       });
     }
 
@@ -343,7 +362,7 @@ export async function GET(request: Request) {
     }));
 
     return NextResponse.json(localizedProducts, {
-      headers: { "Cache-Control": "no-store, max-age=0" },
+      headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400" },
     });
   } catch (error) {
     const cached = await redis.get<AllegroProduct[]>(OFFERS_CACHE_KEY).catch(() => null);
@@ -352,7 +371,7 @@ export async function GET(request: Request) {
       return NextResponse.json(applyCurrentCategories(cached), {
         headers: {
           "X-Allegro-Cache": "stale",
-          "Cache-Control": "no-store, max-age=0",
+          "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
         },
       });
     }
