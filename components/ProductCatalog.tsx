@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { getOfferPath, type AllegroProduct, type ProductCategory } from "@/lib/allegro";
+import { seoCategories } from "@/lib/seoCategories";
 import FreeShippingBadge from "@/components/FreeShippingBadge";
 
 type ErliInfo = { price: string; currency: string; url: string };
@@ -66,7 +67,7 @@ export default function ProductCatalog({ products, erliPrices }: { products: All
     <section className="bg-white px-3 py-5 text-zinc-950 sm:px-6 sm:py-12">
       <div className="mx-auto max-w-7xl">
         <div className="sticky top-0 z-40 -mx-3 mb-5 space-y-2 border-b border-zinc-200 bg-white/95 px-3 py-2.5 shadow-md backdrop-blur sm:-mx-6 sm:mb-8 sm:px-6 sm:py-3">
-          <div className="rounded-2xl border border-zinc-200 bg-white p-2.5 shadow-sm sm:flex sm:items-center sm:gap-4 sm:p-3">
+          <div className="rounded-2xl border border-zinc-200 bg-white p-2.5 shadow-sm sm:flex sm:flex-wrap sm:items-center sm:gap-4 sm:p-3">
             <div className="mb-2 flex items-center justify-between gap-2 sm:mb-0 sm:shrink-0 sm:justify-start sm:gap-3">
               <a href="/" aria-label="TrendEco — strona główna" className="shrink-0"><img src="/trendeco-logo-official.svg?v=20260830-4" alt="TrendEco" className="h-11 w-auto object-contain sm:h-14 lg:h-16" /></a>
               <FreeShippingBadge compact />
@@ -78,6 +79,9 @@ export default function ProductCatalog({ products, erliPrices }: { products: All
                 <input id="product-search" type="search" inputMode="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Szukaj produktu..." className="min-h-11 w-full rounded-xl border border-zinc-300 bg-white py-2.5 pl-11 pr-4 text-base outline-none transition placeholder:text-zinc-400 focus:border-orange-500 focus:ring-4 focus:ring-orange-100 sm:min-h-14 sm:rounded-2xl sm:py-4 sm:pl-12" />
               </div>
             </div>
+            <nav aria-label="Najczęściej szukane produkty" className="mt-2 flex gap-2 overflow-x-auto pb-1 sm:mt-3 sm:w-full sm:basis-full">
+              {seoCategories.map((category) => <a key={category.slug} href={`/kategoria/${category.slug}`} className="flex min-h-9 shrink-0 items-center justify-center rounded-full border border-orange-300 bg-orange-50 px-4 py-2 text-center text-xs font-black leading-tight text-orange-700 transition hover:border-orange-500 hover:bg-orange-500 hover:text-white sm:text-sm">{category.keyword}</a>)}
+            </nav>
           </div>
           <nav aria-label="Kategorie produktów" className="grid grid-cols-2 gap-2 rounded-2xl border border-zinc-200 bg-white p-2 shadow-sm lg:hidden">{sections.map((section) => <a key={section} href={`#${categoryId(section)}`} className="flex min-h-10 items-center justify-center rounded-xl bg-zinc-100 px-3 text-center text-sm font-bold active:scale-[0.98]">{section}</a>)}</nav>
           {normalizedQuery && <p className="px-1 text-xs text-zinc-500 sm:text-sm">Znaleziono: <strong className="text-zinc-900">{filteredProducts.length}</strong></p>}
