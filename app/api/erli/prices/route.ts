@@ -18,7 +18,7 @@ const erliExternalIdAliases: Record<string, string> = {
 
 async function getErliProduct(requestedId: string): Promise<ErliInfo> {
   const erliExternalId = erliExternalIdAliases[requestedId] ?? requestedId;
-  const cacheKey = `erli:product:${requestedId}:v6`;
+  const cacheKey = `erli:product:${requestedId}:v7`;
   const cached = await redis.get<ErliInfo>(cacheKey);
   if (cached) return cached;
 
