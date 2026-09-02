@@ -32,6 +32,11 @@ const organizationJsonLd = {
   "@context": "https://schema.org", "@type": "Organization", name: "TrendEco", url: siteUrl,
   email: "mail@trendeco.eu", telephone: "+48512077770",
   address: { "@type": "PostalAddress", streetAddress: "Jagielska 25/27", postalCode: "02-886", addressLocality: "Warszawa", addressCountry: "PL" },
+  brand: [
+    { "@type": "Brand", name: "TrendEco", url: "https://trendeco.eu" },
+    { "@type": "Brand", name: "POLMECH.TECH", url: "https://polmech.tech" },
+    { "@type": "Brand", name: "WIDIA.TECH", url: "https://widia.tech" },
+  ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
