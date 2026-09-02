@@ -22,7 +22,7 @@ function getDiscountedPrice(product: AllegroProduct) {
 }
 
 function descriptionFor(product: AllegroProduct) {
-  return product.description?.slice(0, 5000) || `${product.name}. Nowy produkt dostępny w TrendEco. Kategoria: ${product.category}. Aktualna cena i dostępność na trendeco.eu. Możliwość zamówienia z dostawą na terenie Polski.`;
+  return product.description?.slice(0, 5000) || `${product.name}. Nowy produkt dostępny w TrendEco. Kategoria: ${product.category}. Aktualna cena i dostępność na trendeco.eu. Darmowa dostawa na terenie Polski.`;
 }
 
 async function getProducts(): Promise<AllegroProduct[]> {
@@ -61,6 +61,11 @@ export async function GET() {
       <g:brand>${escapeXml(product.gpsr?.manufacturer?.name || "TrendEco")}</g:brand>
       <g:product_type>${escapeXml(product.category)}</g:product_type>
       <g:identifier_exists>no</g:identifier_exists>
+      <g:shipping>
+        <g:country>PL</g:country>
+        <g:service>Darmowa dostawa TrendEco</g:service>
+        <g:price>0 PLN</g:price>
+      </g:shipping>
     </item>`;
     })
     .join("");

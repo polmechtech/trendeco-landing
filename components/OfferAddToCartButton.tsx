@@ -34,7 +34,7 @@ export default function OfferAddToCartButton({ product }: { product: ProductForC
       onClick={addToCart}
       className="mt-8 block w-full rounded-full bg-green-600 px-6 py-4 text-center text-lg font-black text-white hover:bg-green-500 disabled:cursor-not-allowed disabled:bg-zinc-400"
     >
-      {product.stock > 0 ? "Dodaj do koszyka — zakup za pobraniem" : "Chwilowo niedostępne"}
+      {product.stock > 0 ? "Dodaj do koszyka — darmowa dostawa" : "Chwilowo niedostępne"}
     </button>
   );
 }
