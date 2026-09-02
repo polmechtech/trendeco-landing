@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 type Consent = "accepted" | "rejected" | null;
 const KEY = "trendeco-cookie-consent";
+const GA_ID = "G-B2Z2BZS60S";
 
 declare global { interface Window { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void; } }
 
@@ -24,7 +26,6 @@ export default function CookieConsent() {
     const saved = localStorage.getItem(KEY) as Consent;
     if (saved === "accepted" || saved === "rejected") {
       setConsent(saved);
-      updateGoogle(saved === "accepted");
     }
     setReady(true);
   }, []);
@@ -37,13 +38,17 @@ export default function CookieConsent() {
 
   function reset() {
     localStorage.removeItem(KEY);
-    setConsent(null);
     updateGoogle(false);
+    window.location.reload();
   }
 
   if (!ready) return null;
 
   return <>
+    {consent === "accepted" && <>
+      <Script id="google-analytics-init" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('consent','default',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});`}</Script>
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+    </>}
     {consent === null && <div role="dialog" aria-label="Ustawienia plików cookies" className="fixed inset-x-3 bottom-3 z-[100] mx-auto max-w-3xl rounded-2xl border border-zinc-200 bg-white p-5 text-zinc-950 shadow-2xl sm:bottom-5 sm:p-6">
       <h2 className="text-lg font-black">Pliki cookies i prywatność</h2>
       <p className="mt-2 text-sm leading-6 text-zinc-600">Używamy niezbędnych mechanizmów do działania sklepu. Za Twoją zgodą używamy również Google Analytics, aby mierzyć ruch i ulepszać serwis. Możesz zaakceptować lub odrzucić analitykę. Odrzucenie nie ogranicza możliwości korzystania ze sklepu ani złożenia zamówienia.</p>
