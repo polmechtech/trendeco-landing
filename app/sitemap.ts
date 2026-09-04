@@ -3,7 +3,7 @@ import { Redis } from "@upstash/redis";
 import { getOfferPath, type AllegroProduct } from "@/lib/allegro";
 import { seoCategories } from "@/lib/seoCategories";
 import { seoGuides } from "@/lib/seoGuides";
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 const OFFERS_CACHE_KEY = "allegro:offers_cache:v4";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
  const baseUrl="https://www.trendeco.eu"; const now=new Date();
