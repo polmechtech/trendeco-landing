@@ -8,7 +8,7 @@ const REFRESH_TOKEN_KEY = "allegro:refresh_token";
 const ACCESS_TOKEN_KEY = "allegro:access_token";
 const ACCESS_TOKEN_TTL_KEY = "allegro:access_token_ttl";
 const LOCK_KEY = "allegro:refresh_lock";
-const OFFERS_CACHE_KEY = "allegro:offers_cache:v5";
+const OFFERS_CACHE_KEY = "allegro:offers_cache:v6";
 const OFFERS_CACHE_SECONDS = 60 * 60;
 const TRANSLATION_CACHE_SECONDS = 60 * 60;
 const SUPPORTED_TRANSLATION_LANGUAGES = new Set(["cs-CZ", "sk-SK", "hu-HU"]);
@@ -275,7 +275,10 @@ async function enrichProductsWithGpsr(accessToken: string, products: AllegroProd
       product.sku = offer?.external?.id ? String(offer.external.id) : product.sku;
       const images = Array.isArray(offer?.images) ? offer.images : [];
       product.images = images
-        .map((image: any, index: number) => ({ url: String(image?.url ?? ""), order: index + 1 }))
+        .map((image: any, index: number) => ({
+          url: String(typeof image === "string" ? image : image?.url ?? ""),
+          order: index + 1,
+        }))
         .filter((image: { url: string }) => Boolean(image.url));
       if (!product.images.length && product.image) product.images = [{ url: product.image, order: 1 }];
       product.image = product.images[0]?.url ?? product.image;
