@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getOfferPath, type AllegroProduct } from "@/lib/allegro";
 import { seoCategories } from "@/lib/seoCategories";
+import { seoGuides } from "@/lib/seoGuides";
 export const revalidate = 3600;
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
  const baseUrl="https://www.trendeco.eu"; const now=new Date();
@@ -11,6 +12,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   {url:`${baseUrl}/zwroty-i-reklamacje`,lastModified:now,changeFrequency:"monthly",priority:.7},
   {url:`${baseUrl}/regulamin`,lastModified:now,changeFrequency:"monthly",priority:.5},
   {url:`${baseUrl}/polityka-prywatnosci`,lastModified:now,changeFrequency:"monthly",priority:.5},
+  {url:`${baseUrl}/poradnik`,lastModified:now,changeFrequency:"weekly",priority:.85},
+  ...seoGuides.map(guide=>({url:`${baseUrl}/poradnik/${guide.slug}`,lastModified:now,changeFrequency:"monthly" as const,priority:.8})),
   ...seoCategories.map(category=>({url:`${baseUrl}/kategoria/${category.slug}`,lastModified:now,changeFrequency:"daily" as const,priority:.95}))
  ];
  try{const response=await fetch(`${baseUrl}/api/allegro/offers`,{next:{revalidate:3600}});if(!response.ok)return staticPages;const products=(await response.json()) as AllegroProduct[];return [...staticPages,...products.map(product=>({url:`${baseUrl}${getOfferPath(product)}`,lastModified:now,changeFrequency:"hourly" as const,priority:.8,images:product.image?[product.image]:undefined}))];}catch{return staticPages;}

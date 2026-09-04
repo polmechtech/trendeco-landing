@@ -58,6 +58,6 @@ export default function CookieConsent() {
         <button type="button" onClick={() => choose("accepted")} className="min-h-12 rounded-xl bg-green-600 px-4 py-3 text-sm font-black text-white">Akceptuję analityczne</button>
       </div>
     </div>}
-    {consent !== null && <button type="button" onClick={reset} className="fixed bottom-3 right-24 z-40 rounded-full border border-zinc-300 bg-white px-3 py-2 text-[11px] font-bold text-zinc-700 shadow-md sm:bottom-5 sm:right-24" aria-label="Zmień ustawienia cookies">Ustawienia cookies</button>}
+    {consent !== null && <button type="button" onClick={reset} className="fixed bottom-3 left-3 z-40 rounded-full border border-zinc-300 bg-white px-3 py-2 text-[11px] font-bold text-zinc-700 shadow-md sm:bottom-5 sm:left-5" aria-label="Zmień ustawienia cookies">Ustawienia cookies</button>}
   </>;
 }

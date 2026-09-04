@@ -1,4 +1,5 @@
 import { getOfferPath, type AllegroProduct } from "@/lib/allegro";
+import { seoGuides } from "@/lib/seoGuides";
 
 export const revalidate = 3600;
 
@@ -27,6 +28,8 @@ export async function GET() {
     "XML sitemap: https://www.trendeco.eu/sitemap.xml",
     "RSS feed: https://www.trendeco.eu/feed.xml",
     "About: https://www.trendeco.eu/o-nas",
+    "Buying guides: https://www.trendeco.eu/poradnik",
+    ...seoGuides.map((guide) => `- ${guide.heading}: https://www.trendeco.eu/poradnik/${guide.slug}`),
     "",
     "## Main categories",
     "- Meblarstwo",

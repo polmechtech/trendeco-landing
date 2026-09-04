@@ -13,14 +13,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: "TrendEco — maszyny i narzędzia", template: "%s | TrendEco" },
   description: "Maszyny i narzędzia dla meblarstwa, budownictwa i obróbki drewna. Aktualne ceny i dostępność z ofert TrendEco na Allegro.",
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", types: { "application/rss+xml": "/feed.xml" } },
   icons: {
     icon: [
-      { url: "/trendeco-favicon-20260901.png?v=20260902", type: "image/png", sizes: "96x96" },
-      { url: "/favicon.ico?v=20260902", type: "image/x-icon", sizes: "48x48" },
+      { url: "/trendeco-favicon-20260901.png", type: "image/png", sizes: "96x96" },
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "48x48" },
     ],
-    shortcut: "/trendeco-favicon-20260901.png?v=20260902",
-    apple: [{ url: "/apple-touch-icon-trendeco-20260901.png?v=20260902", sizes: "180x180", type: "image/png" }],
+    shortcut: "/trendeco-favicon-20260901.png",
+    apple: [{ url: "/apple-touch-icon-trendeco-20260901.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: { type: "website", locale: "pl_PL", url: siteUrl, siteName: "TrendEco", title: "TrendEco — maszyny i narzędzia", description: "Aktualny katalog maszyn i narzędzi TrendEco. Zakup, płatność i dostawa realizowane przez Allegro." },
   twitter: { card: "summary_large_image", title: "TrendEco — maszyny i narzędzia", description: "Aktualny katalog ofert TrendEco dostępnych na Allegro." },
@@ -29,9 +29,13 @@ export const metadata: Metadata = {
 };
 
 const organizationJsonLd = {
-  "@context": "https://schema.org", "@type": "Organization", name: "TrendEco", url: siteUrl,
+  "@context": "https://schema.org", "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "TrendEco", url: siteUrl,
   email: "mail@trendeco.eu", telephone: "+48512077770",
   address: { "@type": "PostalAddress", streetAddress: "Jagielska 25/27", postalCode: "02-886", addressLocality: "Warszawa", addressCountry: "PL" },
+  areaServed: { "@type": "Country", name: "Poland" },
+  knowsAbout: ["piły formatowe", "piły pierścieniowe", "łuparki przekładniowe", "okleiniarki", "obróbka drewna", "maszyny stolarskie"],
+  contactPoint: { "@type": "ContactPoint", telephone: "+48512077770", email: "mail@trendeco.eu", contactType: "customer service", areaServed: "PL", availableLanguage: ["pl", "en"] },
+  sameAs: ["https://www.tiktok.com/@trendeco4"],
   brand: [
     { "@type": "Brand", name: "TrendEco", url: "https://trendeco.eu" },
     { "@type": "Brand", name: "POLMECH.TECH", url: "https://polmech.tech" },

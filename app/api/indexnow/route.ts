@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getOfferPath, type AllegroProduct } from "@/lib/allegro";
 import { seoCategories } from "@/lib/seoCategories";
+import { seoGuides } from "@/lib/seoGuides";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +18,8 @@ export async function GET() {
       `${baseUrl}/o-nas`,
       `${baseUrl}/dostawa`,
       `${baseUrl}/zwroty-i-reklamacje`,
+      `${baseUrl}/poradnik`,
+      ...seoGuides.map((guide) => `${baseUrl}/poradnik/${guide.slug}`),
       ...seoCategories.map((category) => `${baseUrl}/kategoria/${category.slug}`),
       ...products.map((product) => `${baseUrl}${getOfferPath(product)}`),
     ].slice(0, 10000);

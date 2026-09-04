@@ -1,0 +1,31 @@
+export type SeoGuide = { slug: string; title: string; description: string; heading: string; sections: { heading: string; text: string }[]; links: { label: string; href: string }[] };
+
+export const seoGuides: SeoGuide[] = [
+  { slug: "jak-wybrac-pile-formatowa", title: "Jak wybrać piłę formatową do warsztatu?", description: "Podcinak, stół, zasilanie, zakres cięcia i serwis — kryteria wyboru piły formatowej.", heading: "Jak wybrać piłę formatową do warsztatu i produkcji mebli", sections: [
+    { heading: "Materiał i format", text: "Najpierw określ największy format płyty, który obrabiasz. Liczy się realny przesuw stołu, zakres prowadnicy, głębokość cięcia oraz miejsce potrzebne do bezpiecznego podawania materiału. Do płyt laminowanych i lakierowanych potrzebny jest stabilny stół i prawidłowo ustawiony podcinak." },
+    { heading: "Napęd i dokładność", text: "W małym warsztacie praktyczne może być zasilanie 230 V, natomiast przy długiej pracy pod obciążeniem warto rozważyć 400 V. Dokładność zależy od sztywności konstrukcji, ustawienia prowadnic i możliwości ich kalibracji — nie tylko od średnicy tarczy." },
+    { heading: "Serwis przed ceną", text: "Dobra oferta powinna jasno podawać wymiary, wyposażenie, instrukcję, gwarancję i dostępność części. Na kartach TrendEco publikujemy aktualne ceny, stany, opisy oraz informacje producenta i bezpieczeństwa GPSR." }
+  ], links: [{ label: "Piły formatowe", href: "/kategoria/pila-formatowa" }, { label: "Piły stołowe", href: "/kategoria/pila-stolowa" }] },
+  { slug: "pila-pierscieniowa-do-betonu", title: "Piła pierścieniowa do betonu — jak dobrać?", description: "Głębokość cięcia, chłodzenie, prowadnica i części do piły pierścieniowej.", heading: "Piła pierścieniowa do betonu i żelbetu — poradnik wyboru", sections: [
+    { heading: "Głębokość i materiał", text: "Piła pierścieniowa służy do głębokiego cięcia betonu, żelbetu, cegły i kamienia. Maksymalną głębokość porównaj z grubością elementów wykonywanych najczęściej. Do żelbetu potrzebny jest pierścień przeznaczony do kruszywa i zbrojenia." },
+    { heading: "Woda i prędkość", text: "Stałe chłodzenie wodą odbiera ciepło, wypłukuje urobek i ogranicza pylenie. Praca bez właściwego przepływu szybko zużywa pierścień, prowadnicę i napęd. Równomierny posuw jest bezpieczniejszy niż wymuszanie cięcia naciskiem." },
+    { heading: "Części i bezpieczeństwo", text: "Przed zakupem sprawdź dostępność pierścieni, prowadnic, rolek, łożysk i zębatek. Operator powinien stosować ochronę wzroku, słuchu i dróg oddechowych oraz zabezpieczyć strefę cięcia." }
+  ], links: [{ label: "Piły pierścieniowe", href: "/kategoria/pila-pierscieniowa" }, { label: "Piły do betonu", href: "/kategoria/pila-do-betonu" }] },
+  { slug: "luparka-przekladniowa-230v-czy-400v", title: "Łuparka przekładniowa 230 V czy 400 V?", description: "Porównanie zasilania 230 V i 400 V w łuparce przekładniowej.", heading: "Łuparka przekładniowa 230 V czy 400 V — co wybrać", sections: [
+    { heading: "Kiedy 230 V", text: "Wersja 230 V jest praktyczna tam, gdzie nie ma instalacji trójfazowej. Trzeba sprawdzić zabezpieczenie obwodu, przekrój przewodu, prąd rozruchowy i zalecenia producenta. Przy seryjnej pracy silnik jednofazowy może wymagać przerw." },
+    { heading: "Zalety 400 V", text: "Zasilanie 400 V pasuje do częstej pracy w gospodarstwie lub firmie. Silnik trójfazowy zwykle stabilniej pracuje pod obciążeniem, jeśli instalacja jest właściwie wykonana. Samo napięcie nie zastępuje oceny przełożenia, ramy, osłon i sterowania." },
+    { heading: "Dobór do polan", text: "Zmierz typową średnicę i długość polan. Dla drewna sękatego ważna jest możliwość bezpiecznego wycofania mechanizmu, sterowanie oburęczne i czytelna procedura postępowania przy zakleszczeniu." }
+  ], links: [{ label: "Łuparki przekładniowe", href: "/kategoria/luparka-przekladniowa" }, { label: "POLMECH.TECH", href: "https://polmech.tech" }] },
+  { slug: "okleiniarka-do-plyt-meblowych", title: "Okleiniarka do płyt meblowych — poradnik", description: "Obrzeże, klej, temperatura, posuw, frezowanie i serwis okleiniarki.", heading: "Okleiniarka do płyt meblowych — jak dopasować maszynę", sections: [
+    { heading: "Obrzeże i element", text: "Określ zakres grubości obrzeża i płyty. ABS, PVC, melamina oraz fornir wymagają właściwej temperatury, docisku i prowadzenia. Do elementów prostych wystarczy inny układ niż do łuków i małych promieni." },
+    { heading: "Klej i posuw", text: "Zbyt niska temperatura pogarsza przyczepność, a zbyt wysoka może uszkodzić obrzeże. Stabilny posuw i równy docisk rolek są ważniejsze niż sama maksymalna prędkość. Przy pracy seryjnej liczy się też łatwe czyszczenie układu klejowego." },
+    { heading: "Warunki pracy", text: "Zapewnij odciąg, sprężone powietrze zgodne z instrukcją i przestrzeń na podawanie płyt. Przed zakupem sprawdź zasilanie, części eksploatacyjne, instrukcję oraz serwis w Polsce." }
+  ], links: [{ label: "Okleiniarki", href: "/kategoria/okleiniarka" }, { label: "Kontakt", href: "/o-nas" }] },
+  { slug: "frez-i-wal-spiralny-do-drewna", title: "Frez i wał spiralny do drewna", description: "Różnice między frezem, głowicą i wałem spiralnym oraz zasady bezpiecznego doboru.", heading: "Frez i wał spiralny do drewna — czym różnią się zastosowania", sections: [
+    { heading: "Najpierw wymiary", text: "Frez trzpieniowy, nasadzany i głowica na płytki wymienne są dobierane do konkretnej operacji i maszyny. Sprawdź średnicę, długość roboczą, trzpień lub otwór, kierunek obrotów i maksymalne obroty." },
+    { heading: "Wał spiralny", text: "Wał spiralny do strugarki lub grubościówki ocenia się według wymiarów, liczby i układu płytek oraz zgodności z łożyskami i napędem. Czyste gniazda i równomierne dokręcenie płytek ograniczają bicie." },
+    { heading: "Bezpieczny montaż", text: "Przed pracą odłącz maszynę od zasilania. Nie używaj narzędzia po upadku, z pęknięciem, wyszczerbioną płytką albo bez wymaganych osłon. Po montażu wykonaj próbę bez materiału." }
+  ], links: [{ label: "Narzędzia WIDIA.TECH", href: "https://widia.tech" }, { label: "Oferta TrendEco", href: "/" }] }
+];
+
+export const getSeoGuide = (slug: string) => seoGuides.find((guide) => guide.slug === slug);
