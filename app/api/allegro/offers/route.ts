@@ -8,7 +8,7 @@ const REFRESH_TOKEN_KEY = "allegro:refresh_token";
 const ACCESS_TOKEN_KEY = "allegro:access_token";
 const ACCESS_TOKEN_TTL_KEY = "allegro:access_token_ttl";
 const LOCK_KEY = "allegro:refresh_lock";
-const OFFERS_CACHE_KEY = "allegro:offers_cache:v4";
+const OFFERS_CACHE_KEY = "allegro:offers_cache:v5";
 const OFFERS_CACHE_SECONDS = 60 * 60;
 const TRANSLATION_CACHE_SECONDS = 60 * 60;
 const SUPPORTED_TRANSLATION_LANGUAGES = new Set(["cs-CZ", "sk-SK", "hu-HU"]);
@@ -225,8 +225,31 @@ function descriptionToText(description: any) {
       .trim())
     .filter(Boolean)
     .join("\n\n")
-    .replace(/\n{3,}/g, "\n\n")
-    .slice(0, 12000);
+    .replace(/\n{3,}/g, "\n\n");
+}
+
+function normalizeParameters(offer: any) {
+  const offerParameters = Array.isArray(offer?.parameters) ? offer.parameters : [];
+  const productParameters = Array.isArray(offer?.productSet)
+    ? offer.productSet.flatMap((item: any) => Array.isArray(item?.product?.parameters) ? item.product.parameters : [])
+    : [];
+  const byKey = new Map<string, any>();
+  for (const parameter of [...productParameters, ...offerParameters]) {
+    const key = String(parameter?.id ?? parameter?.name ?? JSON.stringify(parameter));
+    byKey.set(key, {
+      id: parameter?.id ? String(parameter.id) : undefined,
+      name: parameter?.name ? String(parameter.name) : undefined,
+      values: Array.isArray(parameter?.values) ? parameter.values.map(String) : undefined,
+      valuesIds: Array.isArray(parameter?.valuesIds) ? parameter.valuesIds.map(String) : undefined,
+      rangeValue: parameter?.rangeValue ?? undefined,
+    });
+  }
+  return [...byKey.values()];
+}
+
+function findGtin(parameters: ReturnType<typeof normalizeParameters>) {
+  const gtin = parameters.find((parameter) => /(^|\s)(ean|gtin|isbn)(\s|$|\()/i.test(parameter.name ?? ""));
+  return gtin?.values?.find(Boolean);
 }
 
 async function enrichProductsWithGpsr(accessToken: string, products: AllegroProduct[]) {
@@ -246,6 +269,16 @@ async function enrichProductsWithGpsr(accessToken: string, products: AllegroProd
       if (!item) return;
       const description = descriptionToText(offer?.description);
       if (description) product.description = description;
+      product.descriptionSections = offer?.description?.sections ?? [];
+      product.parameters = normalizeParameters(offer);
+      product.gtin = findGtin(product.parameters);
+      product.sku = offer?.external?.id ? String(offer.external.id) : product.sku;
+      const images = Array.isArray(offer?.images) ? offer.images : [];
+      product.images = images
+        .map((image: any, index: number) => ({ url: String(image?.url ?? ""), order: index + 1 }))
+        .filter((image: { url: string }) => Boolean(image.url));
+      if (!product.images.length && product.image) product.images = [{ url: product.image, order: 1 }];
+      product.image = product.images[0]?.url ?? product.image;
 
       const producerRecord = findReferencedRecord(item.responsibleProducer, producers);
       const personRecord = findReferencedRecord(item.responsiblePerson, persons);

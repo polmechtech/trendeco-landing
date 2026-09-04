@@ -8,13 +8,26 @@ export type AllegroProduct = {
   id: string;
   name: string;
   image: string;
+  images: Array<{ url: string; order: number }>;
   price: string;
   currency: string;
   stock: number;
   url: string;
   category: ProductCategory;
   description?: string;
+  descriptionSections?: unknown;
+  parameters: AllegroParameter[];
+  gtin?: string;
+  sku?: string;
   gpsr?: ProductGpsr;
+};
+
+export type AllegroParameter = {
+  id?: string;
+  name?: string;
+  values?: string[];
+  valuesIds?: string[];
+  rangeValue?: { from?: string; to?: string };
 };
 
 export type GpsrAddress = {
@@ -112,10 +125,13 @@ export function mapAllegroOffers(data: any): AllegroProduct[] {
     id: String(offer.id),
     name: String(offer.name ?? ""),
     image: offer.primaryImage?.url ?? "",
+    images: offer.primaryImage?.url ? [{ url: offer.primaryImage.url, order: 1 }] : [],
     price: offer.sellingMode?.price?.amount ?? "",
     currency: offer.sellingMode?.price?.currency ?? "PLN",
     stock: Number(offer.stock?.available ?? 0),
     url: `https://allegro.pl/oferta/${offer.id}`,
     category: classifyProduct(String(offer.name ?? "")),
+    parameters: [],
+    sku: offer.external?.id ? String(offer.external.id) : undefined,
   }));
 }
