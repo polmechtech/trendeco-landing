@@ -5,7 +5,7 @@ import { seoGuides } from "@/lib/seoGuides";
 
 export const dynamic = "force-dynamic";
 
-const host = "trendeco.eu";
+const host = "www.trendeco.eu";
 const baseUrl = `https://${host}`;
 const key = "6f92c1d8e4a7430b9d1f8c27a56e4b13";
 
