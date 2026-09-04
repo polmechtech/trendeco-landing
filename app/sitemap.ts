@@ -19,7 +19,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ...seoCategories.map(category=>({url:`${baseUrl}/kategoria/${category.slug}`,lastModified:now,changeFrequency:"daily" as const,priority:.95}))
  ];
  try {
-  if (!process.env.UPSTASH_REDIS_REST_URL || !process.env.UPSTASH_REDIS_REST_TOKEN) return staticPages;
+  const hasRedis = Boolean(
+   (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) ||
+   (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN)
+  );
+  if (!hasRedis) return staticPages;
   const products = await Redis.fromEnv().get<AllegroProduct[]>(OFFERS_CACHE_KEY);
   if (!Array.isArray(products) || products.length === 0) return staticPages;
   return [...staticPages,...products.map(product=>({url:`${baseUrl}${getOfferPath(product)}`,lastModified:now,changeFrequency:"hourly" as const,priority:.8,images:product.image?[product.image]:undefined}))];
