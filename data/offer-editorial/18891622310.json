@@ -1,0 +1,83 @@
+{
+  "offerId": "18891622310",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Wstępne frezowanie krawędzi przed oklejaniem",
+      "paragraphs": [
+        "Zestaw TrendEco przygotowuje krawędź płyty przed nałożeniem obrzeża. Frezowanie usuwa nierówności po cięciu, aby powierzchnia była gotowa do kolejnego etapu oklejania.",
+        "Płyta montażowa jest dopasowana do otworów w stołach formatowych TrendEco. Zestaw może pracować jako osobny moduł tam, gdzie okleiniarka nie ma własnego zespołu wstępnego frezowania."
+      ],
+      "images": [
+        {
+          "alt": "Zestaw do wstępnego frezowania krawędzi TrendEco",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/1184de/db24f7744db1b2cbdf599f043290"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Frezarka, płyta z rolkami i odciąg wiórów",
+      "paragraphs": [
+        "Zestaw obejmuje frezarkę górnowrzecionową 1600 W, 23000 obr./min, płytę ze stali nierdzewnej, sprężynowe rolki dociskowe, przyłącze odciągu i frez trzpieniowy z chwytem 12,7 mm. Potwierdzona maksymalna wysokość frezowania wynosi 40 mm.",
+        "Frezarka ma tuleje 6, 10 i 12,7 mm, zasilanie 220/230 V oraz częstotliwość 50/60 Hz. W źródle potwierdzono również prowadnicę równoległą i zacisk do obróbki krawędzi."
+      ],
+      "images": [
+        {
+          "alt": "Rolki dociskowe i zespół frezowania krawędzi",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/115526/8c3b7e9941b6ba555f56f772e71d"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Przygotowanie płyty do stabilnego prowadzenia obrzeża",
+      "paragraphs": [
+        "Moduł jest przeznaczony do frezowania krawędzi płyt meblowych przed oklejaniem. Daje możliwość korekty krawędzi również w krótkich seriach i przy pojedynczych elementach.",
+        "Do dłuższych płyt zapewnij dodatkowe podparcie na wejściu i wyjściu. Dwie regulowane rolki nie zapewniają pełnego prowadzenia długiego elementu poza zespołem frezującym."
+      ],
+      "images": [
+        {
+          "alt": "Płyta z frezowaną krawędzią i prowadzeniem",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/11adb9/4fa8bec44968841dc35bb88dace7"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Ustaw prowadzenie i odciąg przed rozpoczęciem frezowania",
+      "paragraphs": [
+        "Przed pracą pewnie zamocuj moduł w stole, ustaw wysokość frezowania, rolki oraz prowadnicę na materiale próbnym. Podłącz odciąg do przyłącza wiórów i dobierz frez do materiału.",
+        "Nie przekraczaj 23000 obr./min frezarki. Przed zmianą frezu, regulacją albo czyszczeniem odłącz zasilanie; przy długich płytach zastosuj dodatkowe podpory."
+      ],
+      "images": [
+        {
+          "alt": "Szczegół zespołu mocowania frezarki",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/1153af/a74332b8471a8774fbcf4c0c539a"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry robocze",
+      "paragraphs": [],
+      "bullets": [
+        "Frezarka: 1600 W, 23000 obr./min, 220/230 V, 50/60 Hz.",
+        "Tuleje wrzeciona: 6, 10 i 12,7 mm; frez w zestawie: chwyt 12,7 mm.",
+        "Maksymalna wysokość frezowania: 40 mm.",
+        "Kod producenta: WJF; GTIN: 9399452651382."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Elementy potwierdzone w zestawie",
+      "paragraphs": [
+        "Zestaw zawiera frezarkę, płytę montażową z rolkami i sprężynami, przyłącze odciągu, frez trzpieniowy, prowadnicę równoległą oraz zacisk do obróbki krawędzi. Mobilny odciąg TrendEco DC100 jest wskazany jako osobna oferta, poza zestawem."
+      ]
+    }
+  ]
+}

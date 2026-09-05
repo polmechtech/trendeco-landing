@@ -1,0 +1,84 @@
+{
+  "offerId": "18891603535",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Okleiniarka Mini na mobilnym stole WJ108",
+      "paragraphs": [
+        "Zestaw łączy okleiniarkę TrendEco Mini z przenośnym, składanym stołem WJ108. Służy do oklejania prostych i zaokrąglonych krawędzi na oddzielnym stanowisku roboczym.",
+        "Stół ma również otwory do montażu zespołu tnącego lub frezarki, ale oferta potwierdza w zestawie tylko okleiniarkę Mini i stół."
+      ],
+      "images": [
+        {
+          "alt": "Okleiniarka Mini i mobilny stół WJ108",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/11be35/f0023e284ba183d3d63bd5e0d78b"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Okleiniarka z regulacją kleju oraz składany stół",
+      "paragraphs": [
+        "Okleiniarka ma zbiornik kleju 1000 ml, temperaturę do 170 °C i posuw 0–8 m/min. Potwierdzona moc grzałki wynosi 825 W, a zasilanie 230 V.",
+        "Stół po rozłożeniu ma maksymalnie 980 + 450 × 800 × 760 mm, otwór montażowy 500 × 300 mm i masę 14 kg. Prowadnica oraz grawerowana podziałka służą do ustawiania pracy na blacie."
+      ],
+      "images": [
+        {
+          "alt": "Okleiniarka Mini na blacie montażowym",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/11503b/52caec0f4a18b0c1b5a1469ca8c0"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Obrzeża 0,5–2 mm i mobilne stanowisko",
+      "paragraphs": [
+        "Potwierdzony zakres obrzeża wynosi 0,5–2 mm, a elementów 7–60 mm. Składana konstrukcja stołu ułatwia ustawienie stanowiska tam, gdzie jest potrzebne.",
+        "Frezarka lub zespół tnący mogą być montowane w przewidzianych miejscach stołu, jeśli są dostępne osobno i ich montaż jest zgodny z instrukcją."
+      ],
+      "images": [
+        {
+          "alt": "Składany stół WJ108",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/11fb81/d847be004dc2903f328aba1030ae"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Próba klejenia i wymagania odcinania pneumatycznego",
+      "paragraphs": [
+        "Przed pracą ustaw temperaturę i posuw na próbce; opis podaje nagrzewanie 5–8 minut oraz maksymalnie 10 godzin pracy bez przerwy.",
+        "Pneumatyczne odcinanie wymaga sprężarki. Przed regulacją, uzupełnieniem kleju lub zmianą konfiguracji stołu odłącz zasilanie."
+      ],
+      "images": [
+        {
+          "alt": "Okleiniarka Mini — szczegół mechanizmu",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/113549/08d4a9ee4e7f80f5813dbb9390f6"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry robocze",
+      "paragraphs": [],
+      "bullets": [
+        "Grzałka: 825 W; zasilanie: 230 V.",
+        "Temperatura do 170 °C; posuw 0–8 m/min; zbiornik 1000 ml.",
+        "Obrzeże 0,5–2 mm; element 7–60 mm.",
+        "Stół: maks. 980 + 450 × 800 × 760 mm; otwór 500 × 300 mm.",
+        "Kod: MiniWJ108; GTIN: 5908102310049."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zawartość zestawu",
+      "paragraphs": [
+        "Zestaw zawiera okleiniarkę Mini i mobilny stół WJ108. Sprężarka, frezarka oraz zespół tnący nie są wskazane jako elementy zestawu."
+      ]
+    }
+  ]
+}

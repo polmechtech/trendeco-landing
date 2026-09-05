@@ -1,0 +1,84 @@
+{
+  "offerId": "18891593931",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Mobilna piła formatowa z podcinakiem",
+      "paragraphs": [
+        "WJ100 łączy przenośny stół, piłę główną, podcinak i odciąg. Służy do formatowania płyt oraz elementów drewnopochodnych tam, gdzie stanowisko ma być rozkładane na miejscu pracy.",
+        "Podcinak wykonuje wstępne nacięcie przy laminatach. Dla ograniczenia wyszczerbień trzeba ustawić go względem tarczy głównej na próbce."
+      ],
+      "images": [
+        {
+          "alt": "Mobilna piła formatowa WJ100",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/11d936/f8ea853a482a840eb30dbfb3e097"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Piła, podcinak i teleskopowy stół",
+      "paragraphs": [
+        "Piła główna ma 2600 W, 4500 obr./min, tarczę 200 mm z otworem 25,4 mm i maksymalną wysokość cięcia 45 mm. Podcinak ma 1600 W, 13000 obr./min, tarczę 110 mm z otworem 20 mm. Odciąg ma 1200 W.",
+        "Stół po rozłożeniu ma maks. 2150 × 1480 × 750 mm. Teleskopowa konstrukcja i tylny ogranicznik pozwalają prowadzić cięcie do 1220 mm; ogranicznik można opuścić."
+      ],
+      "images": [
+        {
+          "alt": "Blat i prowadnica mobilnej piły",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/1157d4/7b1f2f36475694e4b4ed83071c54"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Cięcie wzdłużne, poprzeczne i pod kątem",
+      "paragraphs": [
+        "Prowadnica równoległa z podziałką oraz regulacja kąta 0–45° pomagają ustawić cięcia płyt wiórowych, MDF, sklejki i innych materiałów drewnopochodnych.",
+        "Wkładka blatu umożliwia montaż frezarki górnowrzecionowej, jeśli jest dostępna osobno i poprawnie zamocowana."
+      ],
+      "images": [
+        {
+          "alt": "Rozłożony stół mobilnej piły",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/113458/2867625b465ca65f60f06dffeb7d"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Stabilne rozstawienie i ponowne uruchomienie",
+      "paragraphs": [
+        "Przed pracą stabilnie rozstaw stół, sprawdź osłony, tarcze i prowadnice. Nie przekraczaj 4500 obr./min piły głównej ani 13000 obr./min podcinaka.",
+        "Sterowanie ma START/STOP oraz wyłącznik awaryjny, a przewód 4,5 m. Po zaniku napięcia urządzenie wymaga ponownego uruchomienia START; przed regulacją odłącz zasilanie."
+      ],
+      "images": [
+        {
+          "alt": "Panel sterowania z wyłącznikiem awaryjnym",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/111410/f2c66ee24960bc40988c1cbc6133"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry robocze",
+      "paragraphs": [],
+      "bullets": [
+        "Piła: 2600 W, 4500 obr./min, 200 mm, otwór 25,4 mm, maks. 45 mm.",
+        "Podcinak: 1600 W, 13000 obr./min, 110 mm, otwór 20 mm.",
+        "Odciąg: 1200 W; zasilanie 230 V.",
+        "Stół: maks. 2150 × 1480 × 750 mm; długość z ogranicznikiem do 1220 mm.",
+        "Kod WJ100; GTIN 8056095132593."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Potwierdzone elementy zestawu",
+      "paragraphs": [
+        "Zestaw obejmuje stół, zespół tnący z tarczami, odciąg oraz układ sterowania. Frezarka nie jest wskazana jako element zestawu."
+      ]
+    }
+  ]
+}

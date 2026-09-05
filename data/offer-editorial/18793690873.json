@@ -1,0 +1,82 @@
+{
+  "offerId": "18793690873",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Szablon do gniazd zamków wpuszczanych",
+      "paragraphs": [
+        "Przyrząd WB260 prowadzi frez przy wykonywaniu gniazda pod zamek wpuszczany w drzwiach. Ułatwia powtarzalne ustawienie przy montażu nowych zamków i wymianie istniejących.",
+        "Regulowane zaciski obejmują drzwi o grubości 35–100 mm. Przed frezowaniem sprawdź pozycję na próbce."
+      ],
+      "images": [
+        {
+          "alt": "Szablon WB260 do frezowania zamków",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/11625d/ac93ded64d5eb81fdbe00b3b18d0"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Prowadnice, zaciski i frezy M10",
+      "paragraphs": [
+        "Zestaw wykorzystuje prowadnice oraz regulowane zaciski z powierzchniami ochronnymi. Frezy mają gwint M10 i średnice 18, 22 oraz 24 mm.",
+        "Potwierdzona maksymalna długość frezowania to 260 mm, a maksymalna głębokość 160 mm."
+      ],
+      "images": [
+        {
+          "alt": "Frezy 18, 22 i 24 mm w walizce",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/11fed0/067aef374d9b91c8effd094a00e8"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Przygotowanie drzwi przed montażem okuć",
+      "paragraphs": [
+        "Przyrząd jest przeznaczony do drzwi drewnianych; źródło wymienia także MDF, HDF i drzwi fornirowane. Dobierz średnicę frezu do korpusu zamka.",
+        "Po wykonaniu gniazda montaż klamki i wkładki wymaga odrębnego trasowania oraz właściwych okuć."
+      ],
+      "images": [
+        {
+          "alt": "Mocowanie szablonu na drzwiach",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/110b5b/95897b1149d2b6cee23504670a4b"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Pewne zamocowanie przed frezowaniem",
+      "paragraphs": [
+        "Zablokuj przyrząd na drzwiach, sprawdź ustawienie osi i głębokości, a następnie prowadź frez zgodnie z instrukcją. Przed zmianą frezu lub regulacją odłącz zasilanie frezarki."
+      ],
+      "images": [
+        {
+          "alt": "Frezowanie gniazda zamka w krawędzi drzwi",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/112ad2/54dcf6904b36bcd82da8c5360c75"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry",
+      "paragraphs": [],
+      "bullets": [
+        "Drzwi: 35–100 mm grubości.",
+        "Maks. długość frezowania 260 mm; głębokość 160 mm.",
+        "Frezy M10: 18, 22 i 24 mm.",
+        "Kod WB260; GTIN 5908102310285."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zawartość zestawu",
+      "paragraphs": [
+        "Przyrząd, prowadnice, zaciski, frezy 18/22/24 mm, dłuto stolarskie, linijka, klucze, elementy mocujące i walizka."
+      ]
+    }
+  ]
+}

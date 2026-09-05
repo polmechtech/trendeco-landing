@@ -1,0 +1,84 @@
+{
+  "offerId": "18891618377",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Stołowa okleiniarka do krótkich serii",
+      "paragraphs": [
+        "Model Medium służy do oklejania prostych i zaokrąglonych krawędzi mniejszych oraz średnich elementów. Jest przeznaczony do pracy z obrzeżem, gdy potrzebne jest samodzielne stanowisko zamiast dużej linii produkcyjnej.",
+        "Szerokie rolki podawcze w blacie mają prowadzić element podczas posuwu. Przed rozpoczęciem serii warto sprawdzić ustawienia na próbce."
+      ],
+      "images": [
+        {
+          "alt": "Okleiniarka stołowa Medium",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/1138e6/5cb0164647578067bf46dc19e75d"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Regulowane podawanie i dostęp do zbiornika kleju",
+      "paragraphs": [
+        "Urządzenie ma zbiornik kleju 1000 ml, elektroniczną regulację temperatury do 170 °C i prędkość posuwu od 0 do 8 m/min. Źródło podaje grzałkę 825 W oraz zasilanie 230 V.",
+        "Odcinanie obrzeża może odbywać się automatycznie pneumatycznie albo ręcznie pedałem. Pneumatyczny tryb wymaga sprężarki."
+      ],
+      "images": [
+        {
+          "alt": "Panel sterowania okleiniarki Medium",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/1148a1/6f945d1a4de1b4ead4e051b939f8"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Obrzeża 0,5–2 mm przy elementach 7–60 mm",
+      "paragraphs": [
+        "Potwierdzony zakres grubości obrzeża wynosi 0,5–2 mm, a grubość obrabianego elementu 7–60 mm. Prędkość posuwu dobierz do obrzeża, geometrii krawędzi i stabilnego prowadzenia detalu.",
+        "Maszyna umożliwia pracę przy krawędziach prostych oraz zaokrąglonych. Przy nieregularnym lub małym detalu prowadź go pewnie przez obszar rolek."
+      ],
+      "images": [
+        {
+          "alt": "Zespół prowadzenia obrzeża",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/11a451/771fbc5d4c5f98f7d48bd13a4c64"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Ustaw temperaturę i przygotuj sprężarkę",
+      "paragraphs": [
+        "Przed pracą ustaw temperaturę do stosowanego kleju i obrzeża, a wynik sprawdź na próbce. Źródło podaje czas podgrzewania 5–8 minut i maksymalnie 10 godzin pracy bez przerwy.",
+        "Do automatycznego odcinania podłącz sprężarkę. Przed uzupełnieniem granulatu, regulacją lub czyszczeniem odłącz zasilanie i poczekaj na ostygnięcie układu grzewczego."
+      ],
+      "images": [
+        {
+          "alt": "Sterowanie odcinaniem obrzeża",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/1191c4/5cdafde84f898ecbbe74510a3fea"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry robocze",
+      "paragraphs": [],
+      "bullets": [
+        "Moc grzałki: 825 W; zasilanie: 230 V.",
+        "Temperatura: do 170 °C; nagrzewanie: 5–8 min.",
+        "Obrzeże: 0,5–2 mm; element: 7–60 mm.",
+        "Posuw: 0–8 m/min; zbiornik kleju: 1000 ml.",
+        "Kod producenta: Medium; GTIN: 9399452658282."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Potwierdzone wyposażenie",
+      "paragraphs": [
+        "Opis potwierdza rolki podawcze w blacie, zbiornik kleju oraz ręczne i pneumatyczne odcinanie obrzeża. Sprężarka i stolik są wymaganym lub dostępnym osobno wyposażeniem, nie zostały wskazane jako elementy zestawu."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "offerId": "18891625103",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Stołowa okleiniarka do krótkich serii i mniejszych elementów",
+      "paragraphs": [
+        "TrendEco Optimus jest stołową okleiniarką przeznaczoną do nanoszenia obrzeża na krawędzie proste i zaokrąglone. Jej układ sprawdza się przy krótkich seriach, pojedynczych zleceniach oraz podczas obróbki niewielkich elementów meblowych.",
+        "Składany stół z prowadnicami rolkowymi daje podparcie obrabianemu elementowi. Ustawienie prowadzenia i prędkości należy dobrać do formatu detalu oraz rodzaju obrzeża."
+      ],
+      "images": [
+        {
+          "alt": "Stołowa okleiniarka TrendEco Optimus na składanej podstawie",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/119dd3/e8717e2546f2b65d82248740de75"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Klej topliwy, regulowany posuw i odcinanie obrzeża",
+      "paragraphs": [
+        "Urządzenie ma zbiornik kleju o pojemności 1000 ml, elektroniczną regulację temperatury do 170 °C oraz regulowaną prędkość posuwu od 0 do 8 m/min. Źródło wskazuje grzałkę 825 W i zasilanie 230 V.",
+        "Odcinanie obrzeża może odbywać się ręcznie albo pneumatycznie. Tryb pneumatyczny wymaga podłączenia sprężarki, dlatego przed rozpoczęciem pracy trzeba przygotować odpowiednie zasilanie powietrzem."
+      ],
+      "images": [
+        {
+          "alt": "Zespół prowadzenia i oklejania krawędzi",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/117771/c88dbbfa439eb946fcae1ecfb650"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Oklejanie obrzeży prostych i zaokrąglonych",
+      "paragraphs": [
+        "Potwierdzony zakres grubości obrzeża wynosi 0,5–2 mm, a grubości obrabianego elementu 7–60 mm. Dzięki temu urządzenie można ustawiać do typowych niewielkich formatów meblowych, o ile ich wymiary mieszczą się w możliwościach prowadzenia na stole.",
+        "Rozkładane przedłużenia stołu wspierają detal podczas posuwu. Nie zastępują one prawidłowego podparcia bardzo długich lub niestabilnych elementów."
+      ],
+      "images": [
+        {
+          "alt": "Okleiniarka z rozłożonymi podporami stołu",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/113fc9/53f5a3534fdc96a01f8d74b85fea"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Przygotuj klej, sprężarkę i ustawienia przed pracą",
+      "paragraphs": [
+        "Przed oklejaniem ustaw temperaturę do używanego kleju i obrzeża, a po rozgrzaniu sprawdź wynik na próbce. Opis źródłowy podaje czas podgrzewania kleju 5–8 minut oraz maksymalny czas pracy bez przerwy 10 godzin.",
+        "Przy odcinaniu pneumatycznym podłącz sprężarkę. Przed czyszczeniem, uzupełnieniem zbiornika kleju lub regulacją prowadnic odłącz urządzenie od zasilania i poczekaj, aż układ grzewczy ostygnie."
+      ],
+      "images": [
+        {
+          "alt": "Prowadzenie obrzeża przy zespole roboczym",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/1167fd/4db1d4eb4f32ad28ba4481f3209e"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry robocze",
+      "paragraphs": [],
+      "bullets": [
+        "Moc grzałki: 825 W; zasilanie: 230 V.",
+        "Temperatura: do 170 °C; podgrzewanie kleju: 5–8 min.",
+        "Grubość obrzeża: 0,5–2 mm; grubość elementu: 7–60 mm.",
+        "Prędkość posuwu: 0–8 m/min; zbiornik kleju: 1000 ml.",
+        "Kod producenta: Optimus; GTIN: 9399452653782."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Potwierdzone elementy urządzenia",
+      "paragraphs": [
+        "Opis potwierdza składany stół z prowadnicami rolkowymi, zbiornik kleju oraz funkcję ręcznego i pneumatycznego odcinania obrzeża. Sprężarka potrzebna do pracy pneumatycznej nie została wskazana jako element zestawu."
+      ]
+    }
+  ]
+}

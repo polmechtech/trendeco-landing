@@ -1,0 +1,82 @@
+{
+  "offerId": "18775655922",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Kompaktowa piła stołowa z podcinakiem",
+      "paragraphs": [
+        "WJ108S1 to mobilny zestaw z piłą główną, podcinakiem, odciągiem i składanym stołem. Służy do cięcia płyt oraz elementów drewnopochodnych w miejscu montażu.",
+        "Podcinak przygotowuje powierzchnię przed cięciem tarczą główną; ustawienie należy potwierdzić na próbce."
+      ],
+      "images": [
+        {
+          "alt": "Piła WJ108S1 ze stołem",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/11cb7d/8e11326d41a1a445b15ceecaa8ce"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Piła, podcinak i odciąg na stole WJ108",
+      "paragraphs": [
+        "Piła główna ma 2600 W, 4500 obr./min, tarczę 200 mm z otworem 25,4 mm i wysokość cięcia 45 mm. Podcinak: 1600 W, 13000 obr./min, 110 mm, otwór 20 mm. Odciąg ma 1200 W.",
+        "Stół po rozłożeniu ma maks. 980 + 450 × 800 × 760 mm, a otwór pod zespół 500 × 300 mm."
+      ],
+      "images": [
+        {
+          "alt": "Stół WJ108 z prowadnicą",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/1169d6/2b50bfbe41ca96cc4ec3088ac28e"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Cięcie płyt i możliwość montażu frezarki",
+      "paragraphs": [
+        "Prowadnica, podziałka i regulacja kąta 0–45° pomagają ustawić cięcia wzdłużne, poprzeczne oraz pod kątem. Stół umożliwia także montaż frezarki górnowrzecionowej dostępnej osobno."
+      ],
+      "images": [
+        {
+          "alt": "Mobilne stanowisko podczas pracy",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/119050/764c0625484098ea233fc0000758"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Stabilne ustawienie przed cięciem",
+      "paragraphs": [
+        "Przed pracą rozstaw stół stabilnie, sprawdź osłony i mocowanie tarcz. Nie przekraczaj 4500 obr./min piły ani 13000 obr./min podcinaka; przed regulacją odłącz zasilanie."
+      ],
+      "images": [
+        {
+          "alt": "Zespół tnący z osłoną",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/111740/b76b424745548c4e12996fb143c1"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry",
+      "paragraphs": [],
+      "bullets": [
+        "Piła: 2600 W, 4500 obr./min, 200 mm, otwór 25,4 mm, maks. 45 mm.",
+        "Podcinak: 1600 W, 13000 obr./min, 110 mm, otwór 20 mm.",
+        "Odciąg 1200 W; zasilanie 230 V.",
+        "Stół: maks. 980 + 450 × 800 × 760 mm.",
+        "Kod WJ108S1; GTIN 8056095201824."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zawartość zestawu",
+      "paragraphs": [
+        "Zespół tnący z tarczami, stół, odciąg z wężem i workiem oraz sterowanie. Frezarka nie należy do zestawu."
+      ]
+    }
+  ]
+}

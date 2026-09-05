@@ -1,0 +1,8 @@
+{
+  "offerId": "18901345311",
+  "sourceWarnings": [
+    "Opis pełny nazywa zespół tnący raz serią S1, a raz Lux; tekst nie przypisuje zespołowi dodatkowej serii.",
+    "Katalog podaje maksymalną moc 5400 W, podczas gdy opis rozdziela moce piły, podcinaka i odciągu; użyto wyłącznie parametrów poszczególnych układów.",
+    "Waga urządzenia w katalogu wynosi 80 kg, natomiast opis podaje 85 kg dla stołu i 21 kg dla zespołu tnącego; nie podano jednej masy całego zestawu."
+  ]
+}

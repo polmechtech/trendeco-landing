@@ -1,0 +1,81 @@
+{
+  "offerId": "18878600668",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Reduktor JZQ250 do napędów o niskiej prędkości wyjściowej",
+      "paragraphs": [
+        "Zestaw napędowy obejmuje dwustopniową przekładnię walcową JZQ250, dwa koła pasowe, paski klinowe i wpusty. Przełożenie 48,57 : 1 zmniejsza prędkość wyjściową względem wejścia.",
+        "Może być użyty w konstrukcjach wymagających takiego przełożenia, między innymi łuparkach, przenośnikach lub rozdrabniaczach, po doborze napędu do całej maszyny."
+      ],
+      "images": [
+        {
+          "alt": "Przekładnia walcowa JZQ250 z osprzętem napędowym",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/11a893/fc4974f142d5a08edba2882a1ae1"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Dwustopniowa przekładnia z napędem pasowym",
+      "paragraphs": [
+        "Przekładnia ma montaż poziomy i może pracować w obu kierunkach. Maksymalna prędkość wału wejściowego wynosi 1500 obr./min.",
+        "W zestawie są koła pasowe 210 mm i 70 mm, paski klinowe oraz wpusty. Wymiary korpusu podane w źródle obejmują m.in. L 500 mm, A 250 mm i H 305 mm."
+      ],
+      "images": [
+        {
+          "alt": "Koła pasowe dostarczane z przekładnią",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/11afc2/e05ff2604ec6b57d3bc2dc2ce4e7"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Dobór do własnego układu napędowego",
+      "paragraphs": [
+        "Reduktor wymaga dopasowania silnika, kół pasowych i obciążenia do projektu. Źródło dopuszcza współpracę z silnikami elektrycznymi 230 V lub 400 V, ale nie zastępuje to obliczeń całego napędu."
+      ],
+      "images": [
+        {
+          "alt": "Przykłady zastosowań przekładni JZQ250",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/11b63d/670f8d544185a4b873f8d328519a"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Olej i prawidłowy montaż przed uruchomieniem",
+      "paragraphs": [
+        "Przed uruchomieniem należy dodać 2,5–3 l oleju przekładniowego oraz sprawdzić osiowość i napięcie pasków. Nie przekraczaj 1500 obr./min na wale wejściowym."
+      ],
+      "images": [
+        {
+          "alt": "Przekładnia w fabrycznym opakowaniu",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/1116fe/c6c672b24bf0819fba8cdfc7765f"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry",
+      "paragraphs": [],
+      "bullets": [
+        "Model JZQ250; przekładnia walcowa dwustopniowa.",
+        "Przełożenie 48,57 : 1; montaż poziomy; praca prawo/lewo.",
+        "Maks. prędkość wejściowa: 1500 obr./min.",
+        "Koła pasowe: 210 mm i 70 mm."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zawartość zestawu",
+      "paragraphs": [
+        "Przekładnia JZQ250, duże i małe koło pasowe, paski klinowe oraz wpusty."
+      ]
+    }
+  ]
+}

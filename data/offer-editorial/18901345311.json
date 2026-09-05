@@ -1,0 +1,84 @@
+{
+  "offerId": "18901345311",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Składany stół formatowy do cięcia płyt z podcinakiem",
+      "paragraphs": [
+        "TrendEco Profi S1 to zestaw składający się ze stołu formatowego i zespołu tnącego z piłą główną, podcinakiem oraz wbudowanym odciągiem. Służy do cięcia płyt i formatek w pracach meblarskich, także tam, gdzie stanowisko trzeba rozłożyć na miejscu montażu.",
+        "Podcinak wykonuje wstępne nacięcie warstwy powierzchniowej przed przejściem tarczy głównej. Przy płytach laminowanych pomaga ograniczać wyszczerbienia, jeżeli jest właściwie ustawiony względem tarczy głównej."
+      ],
+      "images": [
+        {
+          "alt": "Stół formatowy TrendEco Profi S1 z zespołem tnącym",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/11368d/c0d5f37d48548df1f10538a8eef7"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Niezależna piła, podcinak i odciąg",
+      "paragraphs": [
+        "Piła główna ma moc 2600 W, prędkość 4500 obr./min, tarczę 200 mm z otworem 25,4 mm i 60 zębami. Maksymalna wysokość cięcia wynosi 45 mm. Podcinak ma 1600 W, 13000 obr./min, tarczę 110 mm z otworem 20 mm i 24 zębami.",
+        "Podcinak podnosi się i opuszcza ręcznie, z możliwością zablokowania ustawionej pozycji. Odciąg o mocy 1200 W pracuje z wężem i workiem na trociny. Zespół tnący waży 21 kg, a jego otwór w stole ma 500 × 300 mm."
+      ],
+      "images": [
+        {
+          "alt": "Powierzchnia robocza i prowadnice stołu formatowego",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/118611/c66d5588493d9866e2b835c31f29"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Podparcie dla długich formatów i cięcie pod kątem",
+      "paragraphs": [
+        "Wysuwany, wahadłowy stół roboczy zapewnia podparcie przy cięciu dłuższych elementów. Prowadnica równoległa z podziałką pomaga ustawić powtarzalny wymiar, a mechanizm umożliwia regulację kąta cięcia od 0 do 45°.",
+        "Źródło wskazuje wykorzystanie przy płytach meblowych, formatkach i elementach drewnianych. Dobór tarczy oraz ustawienie podcinaka trzeba dopasować do materiału i rodzaju cięcia."
+      ],
+      "images": [
+        {
+          "alt": "Rozłożony stół formatowy z odciągiem",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/119e96/19494ecf4a4897b1052bc96cccca"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Próba ustawienia i bezpieczne uruchamianie",
+      "paragraphs": [
+        "Przed pracą rozstaw stół stabilnie, sprawdź osłony, mocowanie tarcz oraz prowadnice. Po zmianie ustawienia podcinaka wykonaj próbne cięcie. Nie przekraczaj 4500 obr./min dla piły głównej ani 13000 obr./min dla podcinaka.",
+        "Sterowanie obejmuje START/STOP i wyłącznik awaryjny, a przewód ma 4,5 m długości. Po zaniku napięcia urządzenie pozostaje wyłączone i wymaga ponownego uruchomienia przyciskiem START. Przed regulacją, wymianą tarcz lub montażem osprzętu odłącz zasilanie."
+      ],
+      "images": [
+        {
+          "alt": "Układ sterowania z wyłącznikiem awaryjnym",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/111410/f2c66ee24960bc40988c1cbc6133"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry robocze",
+      "paragraphs": [],
+      "bullets": [
+        "Piła główna: 2600 W, 4500 obr./min, 200 mm, otwór 25,4 mm, 60 zębów, maks. 45 mm.",
+        "Podcinak: 1600 W, 13000 obr./min, 110 mm, otwór 20 mm, 24 zęby.",
+        "Odciąg: 1200 W; zasilanie: 230 V.",
+        "Stół po rozłożeniu: maks. 1980 × 2000 × 750 mm; część nieruchoma 810 × 2000 mm, ruchoma 1170 mm.",
+        "Kod producenta: WJS600BS1; GTIN: 8056091172593."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zawartość zestawu i wyposażenie opcjonalne",
+      "paragraphs": [
+        "Zestaw zawiera zespół tnący z zamontowanymi tarczami oraz składany stół formatowy. Frezarka górnowrzecionowa i okleiniarka TrendEco Mini mogą być montowane w przewidzianych miejscach, lecz opis źródłowy wskazuje je jako wyposażenie opcjonalne, poza zestawem."
+      ]
+    }
+  ]
+}

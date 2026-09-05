@@ -1,0 +1,84 @@
+{
+  "offerId": "18891612769",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Okleiniarka Medium ze stolikiem roboczym",
+      "paragraphs": [
+        "Ten zestaw łączy okleiniarkę TrendEco Medium z dedykowanym stolikiem. Stanowisko służy do oklejania prostych i zaokrąglonych krawędzi małych oraz średnich elementów meblowych.",
+        "Stolik podnosi maszynę do roboczej wysokości i tworzy oddzielne miejsce pracy. Nie zmienia zakresu obrzeży ani parametrów samej okleiniarki."
+      ],
+      "images": [
+        {
+          "alt": "Okleiniarka Medium na dołączonym stoliku",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/1138e7/9a9676e4401d893e43fdb8cdd32b"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Prowadzenie na rolkach i regulowany proces klejenia",
+      "paragraphs": [
+        "Maszyna ma zbiornik kleju 1000 ml, regulację temperatury do 170 °C i regulowany posuw 0–8 m/min. Potwierdzona moc grzałki wynosi 825 W, a zasilanie 230 V.",
+        "Obrzeże może być odcinane ręcznie albo pneumatycznie. Tryb pneumatyczny wymaga podłączenia sprężarki."
+      ],
+      "images": [
+        {
+          "alt": "Panel sterowania okleiniarki Medium",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/1148a1/6f945d1a4de1b4ead4e051b939f8"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Obrzeża 0,5–2 mm przy elementach 7–60 mm",
+      "paragraphs": [
+        "Źródło potwierdza pracę z obrzeżem 0,5–2 mm oraz elementami o grubości 7–60 mm. Posuw dobiera się do obrzeża, materiału i geometrii krawędzi.",
+        "Stolik jest szczególnie użyteczny przy powtarzalnej pracy z niewielkimi formatami, ponieważ zapewnia stałe ustawienie maszyny."
+      ],
+      "images": [
+        {
+          "alt": "Kompletna okleiniarka ze stolikiem",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/118767/cd8860544209a9d2c9a81c1c91d8"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Próba temperatury, sprężarka i czyszczenie",
+      "paragraphs": [
+        "Przed rozpoczęciem pracy ustaw temperaturę do kleju i obrzeża oraz wykonaj próbę. Czas podgrzewania wskazany w źródle to 5–8 minut, a maksymalny czas pracy bez przerwy — 10 godzin.",
+        "Do odcinania pneumatycznego podłącz sprężarkę. Przed napełnieniem zbiornika, regulacją lub czyszczeniem odłącz zasilanie i odczekaj, aż układ grzewczy ostygnie."
+      ],
+      "images": [
+        {
+          "alt": "Sterowanie automatycznym i ręcznym odcinaniem obrzeża",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/1191c4/5cdafde84f898ecbbe74510a3fea"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry robocze",
+      "paragraphs": [],
+      "bullets": [
+        "Moc grzałki: 825 W; zasilanie: 230 V.",
+        "Temperatura: do 170 °C; nagrzewanie: 5–8 min.",
+        "Obrzeże: 0,5–2 mm; element: 7–60 mm.",
+        "Posuw: 0–8 m/min; zbiornik kleju: 1000 ml.",
+        "Kod producenta: Medium rolls; GTIN: 9399452652082."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zawartość zestawu",
+      "paragraphs": [
+        "Zestaw obejmuje okleiniarkę i stolik roboczy. Funkcja ręcznego oraz pneumatycznego odcinania jest potwierdzona, natomiast sprężarka potrzebna do trybu pneumatycznego nie jest wskazana jako element zestawu."
+      ]
+    }
+  ]
+}
