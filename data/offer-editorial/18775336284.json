@@ -1,0 +1,81 @@
+{
+  "offerId": "18775336284",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Profi Standard Plus Max — stanowisko do cięcia i frezowania",
+      "paragraphs": [
+        "Zestaw opiera się na stole formatowym, zespole tnącym z podcinakiem i frezarce. Umożliwia formatowanie płyt oraz frezowanie po zmianie konfiguracji stanowiska.",
+        "Źródło niespójnie opisuje status okleiniarki Mini; przed zakupem jej obecność należy potwierdzić."
+      ],
+      "images": [
+        {
+          "alt": "Profi Standard Plus Max",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/110b78/5bfabbbd4082834948bc05b8f0eb"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Piła, podcinak i frezarka",
+      "paragraphs": [
+        "Piła: 2600 W, 4500 obr./min, 200 mm, otwór 25,4 mm, maks. 45 mm. Podcinak: 1600 W, 13000 obr./min, 110 mm, otwór 20 mm. Odciąg: 1200 W.",
+        "Frezarka ma 1600 W, 23000 obr./min i tuleje 6, 10, 12,7 mm."
+      ],
+      "images": [
+        {
+          "alt": "Montaż frezarki we wkładce stołu",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/11238c/964edd10452c95a7f15e39954b7d"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Formatowanie płyt i obróbka frezem",
+      "paragraphs": [
+        "Prowadnica i kąt 0–45° pomagają prowadzić cięcia. Podcinak ustaw na próbce przed obróbką laminatu."
+      ],
+      "images": [
+        {
+          "alt": "Rozłożony stół formatowy",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/119e96/19494ecf4a4897b1052bc96cccca"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Bezpieczna zmiana konfiguracji",
+      "paragraphs": [
+        "Sprawdź osłony i mocowanie narzędzi. Przed zmianą tarcz lub montażem frezarki odłącz zasilanie; po zaniku napięcia uruchom zestaw ponownie START."
+      ],
+      "images": [
+        {
+          "alt": "Sterowanie z wyłącznikiem awaryjnym",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/111410/f2c66ee24960bc40988c1cbc6133"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry",
+      "paragraphs": [],
+      "bullets": [
+        "Piła 2600 W, 4500 obr./min, 200 mm, maks. 45 mm.",
+        "Podcinak 1600 W, 13000 obr./min, 110 mm.",
+        "Frezarka 1600 W, 23000 obr./min; odciąg 1200 W.",
+        "Kod WJS600BSFO; GTIN 8056091486393."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zakres wyposażenia",
+      "paragraphs": [
+        "Potwierdzono zespół tnący z tarczami, stół i frezarkę. Status okleiniarki Mini wymaga potwierdzenia ze sprzedawcą z uwagi na sprzeczne informacje źródłowe."
+      ]
+    }
+  ]
+}

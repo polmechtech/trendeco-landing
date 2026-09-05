@@ -1,0 +1,82 @@
+{
+  "offerId": "18775342926",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Składana formatówka WJ100S1 z podcinakiem",
+      "paragraphs": [
+        "WJ100S1 to mobilny zestaw ze stołem, piłą, podcinakiem i odciągiem do cięcia płyt. Tylny ogranicznik pozwala prowadzić cięcie do 1220 mm, a po odblokowaniu można go opuścić.",
+        "Podcinak wymaga ustawienia na próbce dla danego materiału."
+      ],
+      "images": [
+        {
+          "alt": "Mobilna formatówka WJ100S1",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/11a3df/2dab5d4347a78b4ffcb24329c73d"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Piła, podcinak i teleskopowy stół",
+      "paragraphs": [
+        "Piła: 2600 W, 4500 obr./min, 200 mm, otwór 25,4 mm, maks. 45 mm. Podcinak: 1600 W, 13000 obr./min, 110 mm, otwór 20 mm. Odciąg: 1200 W.",
+        "Stół ma maks. 2150 × 1480 × 750 mm i otwór 500 × 300 mm."
+      ],
+      "images": [
+        {
+          "alt": "Teleskopowy stół formatowy",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/11068a/9a4ee12b4d389b04caab1559f176"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Formatowanie płyt na stanowisku mobilnym",
+      "paragraphs": [
+        "Prowadnica z podziałką i kąt 0–45° wspierają cięcia wzdłużne, poprzeczne i pod kątem. Wkładka umożliwia montaż frezarki dostępnej osobno."
+      ],
+      "images": [
+        {
+          "alt": "Stół w pozycji roboczej",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/11c684/ac0b5678480ab72323c2b96674a0"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Osłony, regulacja i restart po zaniku napięcia",
+      "paragraphs": [
+        "Sprawdź stabilność, osłony oraz tarcze przed uruchomieniem. Po zaniku napięcia zestaw wymaga START; przewód ma 4,5 m. Przed regulacją odłącz zasilanie."
+      ],
+      "images": [
+        {
+          "alt": "Sterowanie z wyłącznikiem awaryjnym",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/116405/e29086834ff18cf7ed0061f48e30"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry",
+      "paragraphs": [],
+      "bullets": [
+        "Piła 2600 W, 4500 obr./min, 200 mm, maks. 45 mm.",
+        "Podcinak 1600 W, 13000 obr./min, 110 mm.",
+        "Odciąg 1200 W; zasilanie 230 V.",
+        "Stół 2150 × 1480 × 750 mm; cięcie z ogranicznikiem do 1220 mm.",
+        "Kod WJ100S1; GTIN 8056095201893."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zawartość zestawu",
+      "paragraphs": [
+        "Stół, zespół tnący z tarczami, odciąg z workiem i sterowanie. Frezarka poza zestawem."
+      ]
+    }
+  ]
+}

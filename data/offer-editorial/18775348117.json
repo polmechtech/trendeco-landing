@@ -1,0 +1,81 @@
+{
+  "offerId": "18775348117",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Teleskopowy stół formatowy WJ100",
+      "paragraphs": [
+        "Oferta dotyczy wyłącznie stołu WJ100. Stanowi on podstawę do zamontowania kompatybilnego zespołu tnącego, okleiniarki Mini lub frezarki, które są dostępne osobno.",
+        "Teleskopowa powierzchnia wspiera dłuższe elementy podczas pracy z prawidłowo zamontowanym modułem."
+      ],
+      "images": [
+        {
+          "alt": "Stół formatowy WJ100",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/111725/9775b4d947a3baf1fb0738ff13d8"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Blat przesuwny i otwór montażowy",
+      "paragraphs": [
+        "Maksymalne wymiary po rozłożeniu to 2150 × 1480 × 750 mm. Blat ma 1200 × 980 mm, z częścią ruchomą i nieruchomą po 600 mm; wysokość jest regulowana 700–750 mm.",
+        "Otwór pod moduł ma 500 × 300 mm. Stół ma prowadnicę równoległą z podziałką i waży 54 kg."
+      ],
+      "images": [
+        {
+          "alt": "Teleskopowy blat stołu WJ100",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/11068a/9a4ee12b4d389b04caab1559f176"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Podstawa do własnego stanowiska",
+      "paragraphs": [
+        "Po zamontowaniu kompatybilnego modułu stół może służyć do prac z płytami oraz elementami drewnopochodnymi. Urządzenie dobiera się i mocuje zgodnie z jego dokumentacją."
+      ],
+      "images": [
+        {
+          "alt": "Stół rozłożony do pracy",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/113458/2867625b465ca65f60f06dffeb7d"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Stabilność przed montażem modułu",
+      "paragraphs": [
+        "Rozstaw stół na równym podłożu, sprawdź blokady, prowadnicę i mocowanie modułu. Nie używaj stołu z niezabezpieczonym otworem montażowym."
+      ],
+      "images": [
+        {
+          "alt": "Prowadnica stołu formatowego",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/118527/7ccd4a064d91ad64d22f37aba3ca"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry",
+      "paragraphs": [],
+      "bullets": [
+        "Maks. 2150 × 1480 × 750 mm.",
+        "Blat 1200 × 980 mm; wysokość 700–750 mm.",
+        "Otwór 500 × 300 mm; masa 54 kg.",
+        "Kod WJ100; GTIN 8056095447086."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zakres oferty",
+      "paragraphs": [
+        "Tylko stół formatowy. Zespół tnący, okleiniarka i frezarka nie są częścią oferty."
+      ]
+    }
+  ]
+}

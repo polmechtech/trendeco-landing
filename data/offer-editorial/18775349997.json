@@ -1,0 +1,81 @@
+{
+  "offerId": "18775349997",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Składany stół WJ108 do modułowego stanowiska",
+      "paragraphs": [
+        "WJ108 jest mobilnym stołem z otworem montażowym do zespołu tnącego, okleiniarki Mini lub frezarki. Sam stół nie zawiera tych urządzeń.",
+        "Składana konstrukcja umożliwia przygotowanie kompaktowego stanowiska w warsztacie lub na montażu."
+      ],
+      "images": [
+        {
+          "alt": "Mobilny stół WJ108",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/1138b2/5a4960ff4637a1724d7bcab4a8d1"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Blat, prowadnica i otwór montażowy",
+      "paragraphs": [
+        "Stół ma maksymalne wymiary 980 + 450 × 800 × 760 mm, blat 980 × 800 mm oraz otwór 500 × 300 mm. Waży 14 kg.",
+        "Prowadnica równoległa i grawerowana podziałka pomagają ustawić element; otwory w blacie służą do montażu kompatybilnej frezarki."
+      ],
+      "images": [
+        {
+          "alt": "Blat WJ108 z prowadnicą",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/11151c/ef8f6bf44ac5ac301a80a021536f"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Podparcie do cięcia, frezowania lub oklejania",
+      "paragraphs": [
+        "Po zamontowaniu odpowiedniego urządzenia stół może stanowić podstawę operacji cięcia, frezowania albo oklejania. Dobór urządzenia i jego mocowanie należy wykonać zgodnie z jego instrukcją."
+      ],
+      "images": [
+        {
+          "alt": "Stół WJ108 w zastosowaniu",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/119050/764c0625484098ea233fc0000758"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Sprawdź stabilność i mocowanie modułu",
+      "paragraphs": [
+        "Przed pracą rozstaw stół na równym podłożu, sprawdź blokady i pewne zamocowanie urządzenia. Nie używaj otworu montażowego bez właściwie zamontowanego modułu."
+      ],
+      "images": [
+        {
+          "alt": "Otwór montażowy w blacie",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/1161ac/8998146746daa6780f900a12fb18"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry",
+      "paragraphs": [],
+      "bullets": [
+        "Maks. 980 + 450 × 800 × 760 mm.",
+        "Blat 980 × 800 mm; otwór 500 × 300 mm.",
+        "Masa 14 kg.",
+        "Kod WJ108; GTIN 8056095444924."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zakres oferty",
+      "paragraphs": [
+        "Oferta dotyczy stołu WJ108. Zespół tnący, okleiniarka Mini i frezarka są przedstawione jako moduły dostępne osobno."
+      ]
+    }
+  ]
+}

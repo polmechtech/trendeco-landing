@@ -1,0 +1,81 @@
+{
+  "offerId": "18775352139",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Stół formatowy z podcinakiem i frezarką",
+      "paragraphs": [
+        "Profi Standard Plus łączy składany stół, zespół tnący z podcinakiem i frezarkę górnowrzecionową. Umożliwia kolejno formatowanie płyt oraz frezowanie po montażu narzędzia we wkładce blatu.",
+        "Podcinak wymaga ustawienia względem tarczy głównej na próbce."
+      ],
+      "images": [
+        {
+          "alt": "Stół formatowy Profi Standard Plus",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/116068/fbab421e4f2bb2002fcc9484b0df"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Piła, podcinak, odciąg i frezarka",
+      "paragraphs": [
+        "Piła: 2600 W, 4500 obr./min, 200 mm, otwór 25,4 mm, maks. 45 mm. Podcinak: 1600 W, 13000 obr./min, 110 mm, otwór 20 mm. Odciąg: 1200 W.",
+        "Frezarka w zestawie ma 1600 W, 23000 obr./min oraz tuleje 6, 10 i 12,7 mm. Stół ma maks. 1980 × 2000 × 750 mm."
+      ],
+      "images": [
+        {
+          "alt": "Wkładka stołu do montażu frezarki",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/1146cd/f64cd9724a91a31dd3d79cf933bb"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Formatowanie płyt i frezowanie",
+      "paragraphs": [
+        "Prowadnica z podziałką i kąt 0–45° pomagają ustawiać cięcia. Frezarka służy do obróbki po jej prawidłowym zamontowaniu w blacie."
+      ],
+      "images": [
+        {
+          "alt": "Rozłożony stół formatowy",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/119e96/19494ecf4a4897b1052bc96cccca"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Kontrola osłon i sterowania",
+      "paragraphs": [
+        "Przed pracą ustabilizuj stół, sprawdź osłony oraz mocowanie tarcz. Po zaniku napięcia ponownie uruchom zestaw START; przed regulacją odłącz zasilanie."
+      ],
+      "images": [
+        {
+          "alt": "Układ sterowania z wyłącznikiem awaryjnym",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/111410/f2c66ee24960bc40988c1cbc6133"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry",
+      "paragraphs": [],
+      "bullets": [
+        "Piła 2600 W, 4500 obr./min, 200 mm; podcinak 1600 W, 13000 obr./min, 110 mm.",
+        "Frezarka 1600 W, 23000 obr./min.",
+        "Stół maks. 1980 × 2000 × 750 mm; zasilanie 230 V.",
+        "Kod WJS600BSF; GTIN 8056091484993."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zawartość zestawu",
+      "paragraphs": [
+        "Zespół tnący z tarczami, stół formatowy, frezarka i zestaw 15 frezów. Okleiniarka Mini jest opcjonalna."
+      ]
+    }
+  ]
+}

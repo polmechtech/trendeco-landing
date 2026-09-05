@@ -1,0 +1,81 @@
+{
+  "offerId": "18775338435",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Stanowisko Profi Lux Plus Max: cięcie, frezowanie i oklejanie",
+      "paragraphs": [
+        "Zestaw łączy stół formatowy, piłę z podcinakiem, frezarkę i okleiniarkę Mini. Moduły pracują w różnych konfiguracjach na tym samym stole; przed zmianą konfiguracji odłącz zasilanie.",
+        "Podcinak wymaga regulacji na próbce."
+      ],
+      "images": [
+        {
+          "alt": "Zestaw Profi Lux Plus Max",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/1104ec/5a9f17e74ce3bac7f2455194e187"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Oddzielne układy na wspólnym stole",
+      "paragraphs": [
+        "Piła: 3000 W, 4800 obr./min, 200 mm, otwór 25,4 mm, maks. 45 mm. Podcinak: 1500 W, 7000 obr./min, 110 mm, otwór 20 mm. Odciąg: 1200 W.",
+        "Frezarka ma 1600 W i 23000 obr./min. Okleiniarka Mini oraz frezarka są potwierdzonymi elementami zestawu."
+      ],
+      "images": [
+        {
+          "alt": "Wkładka montażowa stołu",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/11238c/964edd10452c95a7f15e39954b7d"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Formatowanie i prace krawędziowe",
+      "paragraphs": [
+        "Stół wspiera formatowanie płyt, a po zmianie modułu frezowanie lub oklejanie. Dobierz ustawienia oraz narzędzia do materiału."
+      ],
+      "images": [
+        {
+          "alt": "Rozłożony stół formatowy",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/119e96/19494ecf4a4897b1052bc96cccca"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Sterowanie i konfiguracja stanowiska",
+      "paragraphs": [
+        "Sprawdź osłony, prowadnice i mocowanie modułu. START/STOP oraz wyłącznik awaryjny sterują zestawem; po zaniku napięcia wymagane jest ponowne uruchomienie START."
+      ],
+      "images": [
+        {
+          "alt": "Panel sterowania",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/111410/f2c66ee24960bc40988c1cbc6133"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry",
+      "paragraphs": [],
+      "bullets": [
+        "Piła 3000 W, 4800 obr./min, 200 mm, maks. 45 mm.",
+        "Podcinak 1500 W, 7000 obr./min, 110 mm.",
+        "Frezarka 1600 W, 23000 obr./min; odciąg 1200 W.",
+        "Kod WJS600BLFO; GTIN 8056091314993."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zawartość zestawu",
+      "paragraphs": [
+        "Zespół tnący z tarczami, stół, frezarka, okleiniarka Mini i układ sterowania."
+      ]
+    }
+  ]
+}

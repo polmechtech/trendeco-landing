@@ -1,0 +1,81 @@
+{
+  "offerId": "18775332230",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Mobilna formatówka XXL z podcinakiem",
+      "paragraphs": [
+        "WJ100S11 to składany zestaw do cięcia płyt z piłą główną, podcinakiem i odciągiem. Tylny ogranicznik pozwala prowadzić cięcie do 1220 mm.",
+        "Podcinak ustaw na próbce przed obróbką laminatu."
+      ],
+      "images": [
+        {
+          "alt": "Mobilna piła formatowa WJ100S11",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/119201/28c15e234517b4a33a30fca875a0"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Silniki, podcinak i teleskopowy stół",
+      "paragraphs": [
+        "Piła: 2600 W, 4500 obr./min, 200 mm, otwór 25,4 mm, maks. 45 mm. Podcinak: 1600 W, 13000 obr./min, 110 mm, otwór 20 mm. Odciąg: 1200 W.",
+        "Źródło określa silniki jako bezszczotkowe. Stół ma maks. 2150 × 1480 × 750 mm."
+      ],
+      "images": [
+        {
+          "alt": "Teleskopowy stół piły",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/11068a/9a4ee12b4d389b04caab1559f176"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Formatowanie płyt w miejscu montażu",
+      "paragraphs": [
+        "Prowadnica z podziałką i regulacja 0–45° służą do ustawiania cięć. Wkładka pozwala zainstalować frezarkę dostępną osobno."
+      ],
+      "images": [
+        {
+          "alt": "Rozłożone stanowisko",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/11c684/ac0b5678480ab72323c2b96674a0"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Kontrola przed uruchomieniem",
+      "paragraphs": [
+        "Sprawdź osłony, tarcze i stabilność stołu. Po zaniku napięcia ponownie uruchom zestaw START; przed regulacją odłącz zasilanie."
+      ],
+      "images": [
+        {
+          "alt": "Panel sterowania",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/116405/e29086834ff18cf7ed0061f48e30"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry",
+      "paragraphs": [],
+      "bullets": [
+        "Piła 2600 W, 4500 obr./min, 200 mm, maks. 45 mm.",
+        "Podcinak 1600 W, 13000 obr./min, 110 mm.",
+        "Odciąg 1200 W; zasilanie 230 V.",
+        "Kod WJ100S11; GTIN 5908102310100."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zawartość zestawu",
+      "paragraphs": [
+        "Stół, zespół tnący z tarczami, odciąg i sterowanie. Frezarka poza zestawem."
+      ]
+    }
+  ]
+}
