@@ -14,17 +14,16 @@ const whatsappLink = "https://wa.me/48512077770?text=Dzień%20dobry%2C%20mam%20p
 const tiktokLink = "https://www.tiktok.com/@trendeco4";
 const languageLinks = [
   { href: "/", flag: "🇵🇱", label: "PL", title: "Polski" },
-  { href: "/en", flag: "🇬🇧", label: "EN", title: "English" },
   { href: "/cs", flag: "🇨🇿", label: "CZ", title: "Čeština" },
   { href: "/sk", flag: "🇸🇰", label: "SK", title: "Slovenčina" },
   { href: "/hu", flag: "🇭🇺", label: "HU", title: "Magyar" },
-  { href: "/ro", flag: "🇷🇴", label: "RO", title: "Română" },
 ];
 
 export default async function Home() {
   const requestHeaders = await headers();
   const country = (requestHeaders.get("x-vercel-ip-country") ?? "PL").toUpperCase();
-  if (country !== "PL") redirect(`/${countryToLocale[country] ?? "en"}`);
+  const locale = countryToLocale[country];
+  if (locale) redirect(`/${locale}`);
 
   const products = await getProducts(); const erliPrices = await getErliPrices(products);
   const websiteJsonLd = { "@context": "https://schema.org", "@type": "WebSite", name: "TrendEco", url: "https://www.trendeco.eu", inLanguage: "pl-PL" };

@@ -34,7 +34,7 @@ const organizationJsonLd = {
   address: { "@type": "PostalAddress", streetAddress: "Jagielska 25/27", postalCode: "02-886", addressLocality: "Warszawa", addressCountry: "PL" },
   areaServed: { "@type": "Country", name: "Poland" },
   knowsAbout: ["piły formatowe", "piły pierścieniowe", "łuparki przekładniowe", "okleiniarki", "obróbka drewna", "maszyny stolarskie"],
-  contactPoint: { "@type": "ContactPoint", telephone: "+48512077770", email: "mail@trendeco.eu", contactType: "customer service", areaServed: "PL", availableLanguage: ["pl", "en"] },
+  contactPoint: { "@type": "ContactPoint", telephone: "+48512077770", email: "mail@trendeco.eu", contactType: "customer service", areaServed: "PL", availableLanguage: ["pl", "cs", "sk", "hu"] },
   sameAs: ["https://www.tiktok.com/@trendeco4"],
   brand: [
     { "@type": "Brand", name: "TrendEco", url: "https://trendeco.eu" },

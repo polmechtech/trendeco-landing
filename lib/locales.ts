@@ -1,21 +1,18 @@
-export type SiteLocale = "en" | "cs" | "sk" | "hu" | "ro";
+export type SiteLocale = "cs" | "sk" | "hu";
 
-export const supportedLocales: SiteLocale[] = ["en", "cs", "sk", "hu", "ro"];
+export const supportedLocales: SiteLocale[] = ["cs", "sk", "hu"];
 
 export const localeLabels: Record<SiteLocale | "pl", string> = {
   pl: "Polski",
-  en: "English",
   cs: "Čeština",
   sk: "Slovenčina",
   hu: "Magyar",
-  ro: "Română",
 };
 
 export const countryToLocale: Record<string, SiteLocale> = {
   CZ: "cs",
   SK: "sk",
   HU: "hu",
-  RO: "ro",
 };
 
 export const texts: Record<SiteLocale, {
@@ -25,23 +22,13 @@ export const texts: Record<SiteLocale, {
   categories: Record<string, string>;
   available: string;
   unavailable: string;
+  buyCourier: string;
   buyAllegro: string;
+  whatsappOrder: (productName: string, offerId: string) => string;
   noProducts: string;
   noResults: string;
   clear: string;
 }> = {
-  en: {
-    intro: "Machines and tools for woodworking, construction and wood processing.",
-    subintro: "Browse the current TrendEco range and open the selected offer on Allegro.",
-    search: "Search products...",
-    categories: { "Łuparki": "Log splitters", "Budownictwo": "Construction", "Meblarstwo": "Woodworking", "Akcesoria": "Accessories" },
-    available: "Available",
-    unavailable: "Temporarily unavailable",
-    buyAllegro: "Buy on Allegro",
-    noProducts: "Current Allegro offers could not be loaded.",
-    noResults: "No products found",
-    clear: "Clear search",
-  },
   cs: {
     intro: "Stroje a nářadí pro truhlářství, stavebnictví a zpracování dřeva.",
     subintro: "Prohlédněte si aktuální nabídku TrendEco a otevřete vybranou nabídku na Allegro.cz.",
@@ -49,7 +36,9 @@ export const texts: Record<SiteLocale, {
     categories: { "Łuparki": "Štípačky dřeva", "Budownictwo": "Stavebnictví", "Meblarstwo": "Truhlářství", "Akcesoria": "Příslušenství" },
     available: "Dostupné",
     unavailable: "Dočasně nedostupné",
+    buyCourier: "Objednat s platbou kurýrovi",
     buyAllegro: "Koupit na Allegro.cz",
+    whatsappOrder: (productName, offerId) => `Dobrý den, chci objednat produkt „${productName}” (nabídka ${offerId}) s platbou kurýrovi při převzetí. Prosím o potvrzení dostupnosti, ceny a dopravy.`,
     noProducts: "Aktuální nabídky Allegro se nepodařilo načíst.",
     noResults: "Nebyly nalezeny žádné produkty",
     clear: "Vymazat hledání",
@@ -61,7 +50,9 @@ export const texts: Record<SiteLocale, {
     categories: { "Łuparki": "Štiepačky dreva", "Budownictwo": "Stavebníctvo", "Meblarstwo": "Stolárstvo", "Akcesoria": "Príslušenstvo" },
     available: "Dostupné",
     unavailable: "Dočasne nedostupné",
+    buyCourier: "Objednať s platbou kuriérovi",
     buyAllegro: "Kúpiť na Allegro.sk",
+    whatsappOrder: (productName, offerId) => `Dobrý deň, chcem objednať produkt „${productName}” (ponuka ${offerId}) s platbou kuriérovi pri prevzatí. Prosím o potvrdenie dostupnosti, ceny a dopravy.`,
     noProducts: "Aktuálne ponuky Allegro sa nepodarilo načítať.",
     noResults: "Nenašli sa žiadne produkty",
     clear: "Vymazať vyhľadávanie",
@@ -73,22 +64,12 @@ export const texts: Record<SiteLocale, {
     categories: { "Łuparki": "Rönkhasítók", "Budownictwo": "Építőipar", "Meblarstwo": "Faipar", "Akcesoria": "Tartozékok" },
     available: "Elérhető",
     unavailable: "Átmenetileg nem elérhető",
+    buyCourier: "Rendelés fizetéssel a futárnál",
     buyAllegro: "Vásárlás az Allegro.hu-n",
+    whatsappOrder: (productName, offerId) => `Jó napot! Szeretném megrendelni a(z) „${productName}” terméket (ajánlat: ${offerId}) fizetéssel a futárnál átvételkor. Kérem, erősítsék meg az elérhetőséget, az árat és a szállítást.`,
     noProducts: "Az aktuális Allegro ajánlatok nem tölthetők be.",
     noResults: "Nincs találat",
     clear: "Keresés törlése",
-  },
-  ro: {
-    intro: "Mașini și unelte pentru tâmplărie, construcții și prelucrarea lemnului.",
-    subintro: "Consultați oferta actuală TrendEco și deschideți oferta selectată pe Allegro.",
-    search: "Caută produs...",
-    categories: { "Łuparki": "Despicătoare de lemn", "Budownictwo": "Construcții", "Meblarstwo": "Tâmplărie", "Akcesoria": "Accesorii" },
-    available: "Disponibil",
-    unavailable: "Indisponibil temporar",
-    buyAllegro: "Cumpără pe Allegro",
-    noProducts: "Ofertele Allegro actuale nu au putut fi încărcate.",
-    noResults: "Nu au fost găsite produse",
-    clear: "Șterge căutarea",
   },
 };
 
