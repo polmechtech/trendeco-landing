@@ -1,0 +1,91 @@
+{
+  "offerId": "18901353022",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Stół formatowy z podcinakiem i frezarką w jednym zestawie",
+      "paragraphs": [
+        "TrendEco Profi Lux Plus łączy składany stół formatowy, zespół tnący z podcinakiem oraz frezarkę górnowrzecionową. Zestaw służy do formatowania płyt meblowych i wykonywania prac frezarskich na tym samym stanowisku po zamontowaniu frezarki we wkładce blatu.",
+        "Podcinak przygotowuje warstwę powierzchniową przed tarczą główną. Jego zadaniem jest ograniczenie wyszczerbień przy cięciu płyt laminowanych, ale skuteczność zależy od właściwego ustawienia obu tarcz na materiale próbnym."
+      ],
+      "images": [
+        {
+          "alt": "Stół formatowy TrendEco Profi Lux Plus z zespołem tnącym",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/11b228/f58470174d57930a3168940e1541"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Piła, podcinak i frezarka na wspólnej powierzchni roboczej",
+      "paragraphs": [
+        "Piła główna ma moc 3000 W, pracuje z prędkością 4800 obr./min i używa tarczy 200 mm z otworem 25,4 mm oraz 60 zębami. Maksymalna wysokość cięcia wynosi 45 mm. Podcinak ma moc 1500 W, 7000 obr./min, tarczę 110 mm z otworem 20 mm i 24 zębami. Za odbiór wiórów odpowiada odciąg 1200 W.",
+        "Wkładka w blacie pozwala osadzić dostarczoną frezarkę: 1600 W, 23000 obr./min, z tulejami 6, 10 i 12,7 mm. Nieruchoma część stołu ma 810 × 2000 mm, a część ruchoma długość 1170 mm. Otwór pod zespół tnący ma 500 × 300 mm."
+      ],
+      "images": [
+        {
+          "alt": "Wkładka stołu do montażu frezarki",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/1146cd/f64cd9724a91a31dd3d79cf933bb"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Formatowanie płyt i frezowanie po zmianie konfiguracji",
+      "paragraphs": [
+        "Rozłożony stół daje podparcie dla dłuższych formatów, a prowadnica równoległa z podziałką ułatwia powtarzalne ustawianie szerokości. Mechanizm umożliwia regulację kąta od 0 do 45°. Źródło wskazuje zastosowanie do płyt meblowych, MDF oraz płyt laminowanych jednostronnie i dwustronnie.",
+        "Po przejściu na operację frezowania narzędzie mocuje się we wkładce blatu. Takie rozwiązanie jest przydatne, gdy na jednym stanowisku trzeba kolejno przycinać elementy i wykonywać obróbkę frezem."
+      ],
+      "images": [
+        {
+          "alt": "Rozłożony stół formatowy z odciągiem",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/119e96/19494ecf4a4897b1052bc96cccca"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Ustawienie podcinaka oraz bezpieczna obsługa stanowiska",
+      "paragraphs": [
+        "Przed pracą ustaw stół stabilnie, sprawdź osłony, prowadnice i mocowanie tarcz. Podcinak należy wyregulować względem tarczy głównej, a efekt potwierdzić próbą na materiale. Nie przekraczaj 4800 obr./min piły głównej, 7000 obr./min podcinaka ani 23000 obr./min frezarki.",
+        "Układ sterowania ma przyciski START/STOP i wyłącznik awaryjny, a przewód zasilający ma 4,5 m. Po zaniku napięcia urządzenie wymaga ponownego uruchomienia przyciskiem START. Przed wymianą tarczy, regulacją albo zmianą konfiguracji odłącz zasilanie."
+      ],
+      "images": [
+        {
+          "alt": "Panel sterowania z wyłącznikiem awaryjnym",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/111410/f2c66ee24960bc40988c1cbc6133"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry robocze",
+      "paragraphs": [],
+      "bullets": [
+        "Piła główna: 3000 W, 4800 obr./min, 200 mm, otwór 25,4 mm, 60 zębów, maks. 45 mm.",
+        "Podcinak: 1500 W, 7000 obr./min, 110 mm, otwór 20 mm, 24 zęby.",
+        "Odciąg: 1200 W; zasilanie: 220/230 V, 50/60 Hz.",
+        "Frezarka: 1600 W, 23000 obr./min, tuleje 6, 10 i 12,7 mm.",
+        "Stół po rozłożeniu: maks. 1980 × 2000 × 750 mm; kod producenta: WJS600BLF; GTIN: 8056091313293."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Elementy potwierdzone w zestawie",
+      "paragraphs": [
+        "Zestaw obejmuje zespół tnący z zamontowanymi tarczami, składany stół formatowy, układ sterowania, frezarkę oraz zestaw 15 frezów. Opis źródłowy wskazuje okleiniarkę TrendEco Mini jako wyposażenie opcjonalne — nie jest ona częścią tego zestawu."
+      ],
+      "images": [
+        {
+          "alt": "Frezarka i zestaw frezów dołączone do zestawu",
+          "placement": "equipment",
+          "url": "https://a.allegroimg.com/original/11cda6/189cf8764f4dbc748f91b20eb40e"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "offerId": "18901376338",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Podcinanie laminatu i cięcie główne — narzędzia do dwóch zadań",
+      "paragraphs": [
+        "Zestaw obejmuje podcinak trapezowy 110 × 20 mm oraz dwie tarcze główne: 200 × 25,4 mm z 60 zębami i 230 × 25,4 mm z 80 zębami. Jest przeznaczony do kompatybilnych zespołów tnących TrendEco, używanych przy rozcinaniu płyt laminowanych i MDF.",
+        "Podcinak przygotowuje powierzchnię laminatu przed przejściem głównej tarczy. Taki podział pracy pomaga ograniczyć wyrywanie warstwy wykończeniowej po stronie podcinanej. O wyniku decyduje jednak zestrojenie obu narzędzi, a nie samo zamontowanie dodatkowej tarczy."
+      ],
+      "images": [
+        {
+          "alt": "Podcinak i dwie tarcze główne oferowane w zestawie",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/11a000/56f2f1d74db6b7323873326718c3"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Trapezowy podcinak i dwa warianty tarczy głównej",
+      "paragraphs": [
+        "Podcinak ma 24 zęby trapezowe i otwór 20 mm. Tarcze główne mają wspólny otwór 25,4 mm oraz rzaz 2,6 mm, lecz różnią się średnicą i liczbą zębów. Wariant 200 mm i wariant 230 mm należy dobierać do możliwości konkretnej pilarki; większa tarcza nie jest automatycznie zamiennikiem mniejszej.",
+        "Szerokość i położenie nacięcia podcinającego trzeba dopasować do rzazu tarczy głównej. Bez tego podcinanie może nie zapewnić oczekiwanej jakości krawędzi laminatu."
+      ],
+      "images": [
+        {
+          "alt": "Zbliżenie uzębienia podcinaka",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/11d696/892ff8ab4eeba39df3755b215c5b"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Do płyt laminowanych i MDF w zgodnym zespole tnącym",
+      "paragraphs": [
+        "Zestaw jest przydatny przy wykonywaniu elementów meblowych z płyt jednostronnie i dwustronnie laminowanych oraz MDF. Opis wskazuje składane, przenośne zespoły tnące TrendEco oraz pilarki stołowe, formatowe i panelowe. Zgodność trzeba ocenić na podstawie wymiarów mocowania i zakresu pracy danego modelu. Pokazana pilarka ilustruje zastosowanie — nie jest częścią tego zestawu."
+      ],
+      "images": [
+        {
+          "alt": "Przykład zespołu tnącego TrendEco; pilarka nie jest objęta zestawem",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/11abb0/b3b16bba4b298f8a42d8001db618"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Przed montażem sprawdź średnice i dopuszczalne obroty",
+      "paragraphs": [
+        "Otwór, średnica tarczy i dopuszczalna prędkość muszą odpowiadać wrzecionu oraz konstrukcji pilarki. Limit podcinaka wynosi 7000 obr./min, a każdej tarczy głównej 5000 obr./min. Nie przekraczaj limitu zamontowanego narzędzia. Przed uruchomieniem ustaw podcinak względem tarczy głównej i sprawdź efekt na próbnym materiale.",
+        "Zakres szerokości rzazu podcinaka wymaga potwierdzenia dla dostarczanego egzemplarza. Nie należy dobierać go wyłącznie na podstawie średnicy 110 mm."
+      ],
+      "images": [
+        {
+          "alt": "Zbliżenie krawędzi tarczy głównej",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/11750a/a6fd2dc0489bbbb79a5b5cd7b099"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Wymiary poszczególnych narzędzi",
+      "paragraphs": [],
+      "bullets": [
+        "Podcinak: 110 mm, otwór 20 mm, 24 zęby, korpus 1,8 mm, maks. 7000 obr./min.",
+        "Tarcza główna: 200 mm, otwór 25,4 mm, 60 zębów, rzaz 2,6 mm, korpus 1,8 mm, maks. 5000 obr./min.",
+        "Druga tarcza główna: 230 mm, otwór 25,4 mm, 80 zębów, rzaz 2,6 mm, maks. 5000 obr./min.",
+        "Kod producenta: 11020246080; GTIN: 5027654052518."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Trzy narzędzia w komplecie",
+      "paragraphs": [
+        "W zestawie znajdują się podcinak 110 × 20 mm, tarcza 200 × 25,4 mm 60T oraz tarcza 230 × 25,4 mm 80T. Oferta dotyczy narzędzi tnących, bez pilarki."
+      ]
+    }
+  ]
+}

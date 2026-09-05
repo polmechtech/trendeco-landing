@@ -1,0 +1,72 @@
+{
+  "offerId": "18901381491",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Dwa etapy wykończenia obrzeża jednym narzędziem",
+      "paragraphs": [
+        "Ręczny trymer 2w1 służy do obróbki obrzeża PVC po jego przyklejeniu. Część tnąca usuwa wystający nadmiar, a cyklina R2 pozwala wyrównać krawędź. Połączenie tych funkcji jest przydatne wtedy, gdy po przycięciu trzeba od razu usunąć drobne nierówności bez sięgania po drugie narzędzie."
+      ],
+      "images": [
+        {
+          "alt": "Trymer do obrzeży z cykliną — widok narzędzia",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/110414/009874194334af6c2d919e9bda64"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Ostrze do naddatku, cyklina do końcowego wygładzenia",
+      "paragraphs": [
+        "Prowadzenie narzędzia pomaga rozpocząć cięcie przy krawędzi płyty i utrzymać położenie ostrza względem obrzeża. Utwardzana stal ostrza stanowi część roboczą przeznaczoną do przycinania. Cyklina o promieniu R2 pełni inną funkcję: usuwa pozostałości kleju i drobne poszarpania oraz porządkuje profil krawędzi po obróbce."
+      ],
+      "images": [
+        {
+          "alt": "Część narzędzia z oznaczeniem cykliny R2",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/1185f2/f048f6294056850777ebb60cfa89"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Ręczne poprawki i wykańczanie pojedynczych elementów",
+      "paragraphs": [
+        "Narzędzie sprawdzi się przy ręcznym oklejaniu płyt, pracach montażowych i miejscowych poprawkach po obróbce obrzeża. Ułatwia przejście od usunięcia naddatku do wygładzenia tej samej krawędzi, szczególnie przy niewielkiej liczbie elementów wymagających ręcznego wykończenia."
+      ],
+      "images": [
+        {
+          "alt": "Ręczne prowadzenie trymera przy krawędzi płyty",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/113c25/d9326e6744db8b1cece6217fdb14"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Dobierz profil do obrzeża i prowadź narzędzie stabilnie",
+      "paragraphs": [
+        "Potwierdzone zastosowanie dotyczy PVC. Cyklina R2 nie zastępuje narzędzia do dowolnego promienia, dlatego jej profil musi odpowiadać planowanemu wykończeniu. Rezultat zależy od stanu ostrza i sposobu ręcznego prowadzenia; przed obróbką widocznego elementu warto sprawdzić efekt na odcinku próbnym. Nie należy usuwać nadmiernego naddatku jednym wymuszonym przejściem."
+      ],
+      "images": [
+        {
+          "alt": "Zbliżenie części tnącej przy obrzeżu",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/111a89/0eecef8b45c8b50631ffd03b1888"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Podstawowe dane narzędzia",
+      "paragraphs": [],
+      "bullets": [
+        "Funkcje: przycinanie nadmiaru obrzeża i cyklinowanie.",
+        "Profil cykliny: R2; materiał obrzeża: PVC.",
+        "Ostrze: utwardzana stal; obsługa ręczna.",
+        "Kod producenta: 2W1TK; seria: 2W1; GTIN: 756040722821."
+      ]
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { getOfferEditorial } from "@/lib/offerEditorial";
 import type { ReactNode } from "react";
 import { extractOfferId, type AllegroProduct } from "@/lib/allegro";
 
@@ -146,7 +147,7 @@ function EngineeringDescription({ product }: { product: AllegroProduct }) {
 export default async function OfferLayout({ children, params }: { children: ReactNode; params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const offerId = extractOfferId(slug);
-  if (!offerId || !TEST_OFFER_IDS.has(offerId)) return children;
+  if (!offerId || getOfferEditorial(offerId) || !TEST_OFFER_IDS.has(offerId)) return children;
 
   const product = await getProduct(offerId);
   if (!product) return children;

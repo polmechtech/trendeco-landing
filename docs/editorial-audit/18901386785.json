@@ -1,0 +1,9 @@
+{
+  "offerId": "18901386785",
+  "sourceWarnings": [
+    "Moc: parametr 2785 W, opis 2,0 kW; pominięto moc całkowitą.",
+    "Masa: parametr 50 kg, opis 48 kg; pominięto masę.",
+    "Wysokość elementu: opis podaje 10–50 mm oraz 7–60 mm; zakres wymaga potwierdzenia. Wysokość frezowania 45 mm nie jest wysokością oklejania.",
+    "Nie powtarzano deklaracji certyfikacji, IP65 i obciążalności 5,5 kW."
+  ]
+}

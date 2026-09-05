@@ -1,0 +1,79 @@
+{
+  "offerId": "18901369031",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Tarcza główna do formatowania płyt i pracy z podcinakiem",
+      "paragraphs": [
+        "Tarcza widia.tech 200 × 25,4 mm z 60 zębami jest przeznaczona do kompatybilnych zespołów tnących pilarek stołowych i formatowych. Przy rozcinaniu płyt laminowanych może współpracować z prawidłowo ustawionym podcinakiem. Podcinak wykonuje wówczas nacięcie warstwy powierzchniowej, a tarcza główna prowadzi cięcie na pełną głębokość."
+      ],
+      "images": [
+        {
+          "alt": "Tarcza widia.tech 200 mm z 60 zębami",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/11b289/8e30c60d4ce6ba1d0460efd43c99"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Średnica, otwór i rzaz określają zgodność z zespołem tnącym",
+      "paragraphs": [
+        "Średnica tarczy wynosi 200 mm, otwór 25,4 mm, liczba zębów 60, a rzaz 2,6 mm. Korpus ma grubość 1,8 mm. Te parametry trzeba odnieść do dokumentacji pilarki i jej osłon, ponieważ tarcza pasuje wyłącznie do zespołu przewidzianego dla takiej średnicy i otworu.",
+        "Przy współpracy z podcinakiem niezbędne jest ustawienie jego nacięcia pod rzaz głównej tarczy. Jest to regulacja zespołu pilarki, nie właściwość samej tarczy."
+      ],
+      "images": [
+        {
+          "alt": "Profil i grubość tarczy tnącej",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/11fabc/c345fd144512abffb4df101b4fb9"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Płyty laminowane i MDF w zgodnej pilarce",
+      "paragraphs": [
+        "Opis wskazuje płyty jedno- i dwustronnie laminowane oraz MDF, a parametry katalogowe także drewno, HDF, PCV i płyty wiórowe. Dla materiałów i konfiguracji innych niż opisane należy dobrać tarczę i parametry cięcia zgodnie z instrukcją pilarki oraz zaleceniami producenta narzędzia. Zdjęcie maszyny pokazuje przykład zastosowania i nie oznacza, że jest ona elementem zestawu."
+      ],
+      "images": [
+        {
+          "alt": "Przykład pracy tarczy w zespole tnącym; pilarka poza ofertą",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/11abb0/b3b16bba4b298f8a42d8001db618"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Kontrola montażu i limitu obrotów przed uruchomieniem",
+      "paragraphs": [
+        "Maksymalna prędkość obrotowa tarczy to 5000 obr./min. Przed montażem odłącz zasilanie pilarki i sprawdź zgodność średnicy, otworu oraz dopuszczalnych obrotów. Tarcza musi być czysta, nieuszkodzona i zamocowana zgodnie z instrukcją konkretnej maszyny. Nie należy wymuszać posuwu ani używać tarczy z uszkodzonymi zębami."
+      ],
+      "images": [
+        {
+          "alt": "Zbliżenie uzębienia tarczy 200 mm",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/11750a/a6fd2dc0489bbbb79a5b5cd7b099"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone parametry",
+      "paragraphs": [],
+      "bullets": [
+        "Średnica: 200 mm; otwór: 25,4 mm; liczba zębów: 60.",
+        "Rzaz: 2,6 mm; korpus: 1,8 mm; maksymalnie 5000 obr./min.",
+        "Kod producenta: 20025460; seria: tarcza formatowa; GTIN: 5027654055656."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zawartość oferty",
+      "paragraphs": [
+        "Oferta obejmuje jedną tarczę 200 × 25,4 mm 60T. Podcinak, pilarka i stół widoczne na materiałach ilustracyjnych nie są objęte tą ofertą."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "offerId": "18901367414",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Podcinak do ochrony krawędzi płyt laminowanych",
+      "paragraphs": [
+        "Podcinak trapezowy 110 × 20 mm jest narzędziem do zgodnych zespołów tnących pilarek. Wykonuje płytkie nacięcie warstwy laminatu przed przejściem tarczy głównej, co przy prawidłowym ustawieniu pomaga ograniczyć wykruszenia po stronie podcinanej."
+      ],
+      "images": [
+        {
+          "alt": "Podcinak trapezowy 110 mm",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/115afa/71f95ebf478298a5f563be112ec1"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Geometria trapezowa i ustawienie względem tarczy głównej",
+      "paragraphs": [
+        "Podcinak ma średnicę 110 mm, otwór 20 mm oraz 24 zęby trapezowe. Korpus ma grubość 1,8 mm. Geometria i położenie podcinaka należy ustawić do rzazu tarczy głównej. Szerokość nacięcia musi być odpowiednia dla tej tarczy, inaczej powierzchnia laminatu może nadal ulec wykruszeniu."
+      ],
+      "images": [
+        {
+          "alt": "Profil uzębienia podcinaka",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/11d696/892ff8ab4eeba39df3755b215c5b"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Płyty laminowane i MDF w pilarkach z podcinaniem",
+      "paragraphs": [
+        "Opis wskazuje płyty jedno- i dwustronnie laminowane oraz MDF. Narzędzie może być stosowane w kompatybilnych pilarkach stołowych, formatowych i panelowych wyposażonych w odpowiedni zespół podcinający. Zdjęcie maszyny jest przykładem zastosowania; pilarka nie stanowi części oferty."
+      ],
+      "images": [
+        {
+          "alt": "Przykład zespołu tnącego z podcinakiem; maszyna poza ofertą",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/11abb0/b3b16bba4b298f8a42d8001db618"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Sprawdź mocowanie, obroty i ustawienie nacięcia",
+      "paragraphs": [
+        "Otwór 20 mm, średnica 110 mm i geometria podcinaka muszą odpowiadać danemu wrzecionu i osłonie. Maksymalna prędkość obrotowa wynosi 7000 obr./min. Przed pracą odłącz zasilanie, ustaw podcinak względem tarczy głównej i wykonaj próbne cięcie. Zakres szerokości rzazu potwierdź dla konkretnego egzemplarza."
+      ],
+      "images": [
+        {
+          "alt": "Ilustracja zastosowania podcinaka w zestawie tnącym",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/1134d2/ec9354cc400c89cd0f953d882fa4"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Potwierdzone dane",
+      "paragraphs": [],
+      "bullets": [
+        "Średnica: 110 mm; otwór: 20 mm; 24 zęby trapezowe.",
+        "Grubość korpusu: 1,8 mm; maksymalnie 7000 obr./min.",
+        "Kod producenta: 1102018; seria: podcinak; GTIN: 5027654055625."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zawartość oferty",
+      "paragraphs": [
+        "Oferta dotyczy jednego podcinaka 110 × 20 mm. Tarcza główna i pilarka widoczne na zdjęciach zastosowania nie należą do zestawu."
+      ]
+    }
+  ]
+}

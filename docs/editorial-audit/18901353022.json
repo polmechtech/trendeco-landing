@@ -1,0 +1,8 @@
+{
+  "offerId": "18901353022",
+  "sourceWarnings": [
+    "Parametr katalogowy podaje 4500 obr./min, a opis pełny zespołu tnącego wskazuje 4800 obr./min; w opisie użyto wartości z opisu pełnego.",
+    "Katalog podaje łączną moc 5700 W, lecz opis źródłowy rozdziela moce piły, podcinaka, odciągu i frezarki; podano tylko te wartości składowe.",
+    "Katalog oznacza markę jako „bez marki”, natomiast opis pełny identyfikuje stół jako TrendEco i podaje model frezarki; w tekście opisano funkcję frezarki bez rozstrzygania marki całego zestawu."
+  ]
+}

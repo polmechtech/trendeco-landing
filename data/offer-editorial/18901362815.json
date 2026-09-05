@@ -1,0 +1,83 @@
+{
+  "offerId": "18901362815",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Mobilny stół formatowy z zespołem tnącym i podcinakiem",
+      "paragraphs": [
+        "Zestaw łączy składany stół formatowy z zespołem tnącym wyposażonym w piłę główną, podcinak oraz wbudowany odciąg. Jest przeznaczony do rozcinania płyt i formatek w pracach meblarskich, a dzięki składanemu stołowi może być ustawiany także przy montażu poza stałym warsztatem.",
+        "Podcinak wykonuje nacięcie warstwy płyty przed przejściem tarczy głównej. Ma to znaczenie podczas cięcia laminatu, ale jakość krawędzi zależy od prawidłowego ustawienia obu tarcz i prowadzenia materiału."
+      ],
+      "images": [
+        {
+          "alt": "Stół formatowy TrendEco z zespołem tnącym i sterowaniem",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/11cecd/aa698b1b4698ab0390cca9066096"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Stół, piła główna, podcinak i odciąg jako jeden układ roboczy",
+      "paragraphs": [
+        "Główna piła ma moc 3000 W, średnicę 200 mm, otwór 25,4 mm, 60 zębów i maksymalną głębokość cięcia 45 mm. Podcinak ma moc 1500 W, średnicę 110 mm, otwór 20 mm i 24 zęby; jego położenie reguluje się śrubami. Wbudowany system odsysania ma silnik 1200 W i worek na trociny.",
+        "Stół ma nieruchomą część 810 × 2000 mm oraz ruchomą część długości 1170 mm. Po rozłożeniu zajmuje maksymalnie 1980 × 2000 × 750 mm. Wkładka pozwala zamontować frezarkę górnowrzecionową, a otwór zespołu tnącego może przyjąć okleiniarkę TrendEco Mini — oba urządzenia są opcjonalne i nie należą do zestawu."
+      ],
+      "images": [
+        {
+          "alt": "Otwór i wkładka montażowa w stole formatowym",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/11ff9d/2401ae53422cb92a99a0d8414d16"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Formatowanie płyt oraz cięcie pod kątem",
+      "paragraphs": [
+        "Wysuwany stół wspiera cięcie dłuższych elementów, a prowadnica równoległa z podziałką pomaga ustawić powtarzalny wymiar. Kąt cięcia stołu można regulować od 0 do 45°. Zestaw może służyć do formatek, części mebli i płyt dekoracyjnych, o ile materiał oraz parametry pracy są zgodne z instrukcją i zastosowanymi tarczami."
+      ],
+      "images": [
+        {
+          "alt": "Rozłożony stół formatowy z podporą dla dłuższych elementów",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/119e96/19494ecf4a4897b1052bc96cccca"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Stabilne ustawienie, regulacja podcinaka i bezpieczne uruchamianie",
+      "paragraphs": [
+        "Przed pracą ustaw stół na stabilnym podłożu, zamocuj i sprawdź osłony, prowadnice oraz tarcze. Podcinak należy wyregulować względem tarczy głównej na próbnym elemencie. Maksymalne obroty piły głównej to 4800 obr./min, a podcinaka 7000 obr./min.",
+        "W zestawie jest układ sterowania z START/STOP i wyłącznikiem awaryjnym; przewód ma 4,5 m. Po zaniku napięcia maszyna wymaga ponownego uruchomienia przyciskiem START. Przed wymianą tarcz, regulacją lub montażem opcjonalnego osprzętu odłącz zasilanie."
+      ],
+      "images": [
+        {
+          "alt": "Panel START STOP i wyłącznik awaryjny zestawu",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/110397/a6b576294b10b779e5cd9439864c"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Kluczowe parametry zestawu",
+      "paragraphs": [],
+      "bullets": [
+        "Piła główna: 3000 W, 4800 obr./min, 200 mm, otwór 25,4 mm, 60 zębów, maks. 45 mm głębokości cięcia.",
+        "Podcinak: 1500 W, 7000 obr./min, 110 mm, otwór 20 mm, 24 zęby.",
+        "Odciąg: silnik 1200 W. Zasilanie zestawu: 230 V.",
+        "Stół po rozłożeniu: maks. 1980 × 2000 × 750 mm; otwór pod zespół: 500 × 300 mm.",
+        "Kod producenta: Profi Max; GTIN: 8056091312593."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zawartość zestawu i elementy opcjonalne",
+      "paragraphs": [
+        "W komplecie znajdują się zespół tnący z zamontowanymi tarczami, składany stół formatowy i układ sterowania. Frezarka górnowrzecionowa oraz okleiniarka TrendEco Mini mogą być zamontowane w przewidzianych miejscach, lecz nie są częścią zestawu."
+      ]
+    }
+  ]
+}

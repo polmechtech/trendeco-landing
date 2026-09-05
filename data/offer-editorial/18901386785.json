@@ -1,0 +1,100 @@
+{
+  "offerId": "18901386785",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "WF-700: od przyklejenia obrzeża do wykończenia krawędzi",
+      "paragraphs": [
+        "TrendEco WF-700 łączy nanoszenie kleju, podawanie i obcinanie obrzeża z frezowaniem oraz polerowaniem. Kolejne etapy obróbki są skupione na jednym stanowisku, co ogranicza przenoszenie elementu między osobnymi narzędziami. Maszyna jest przeznaczona do obrzeży PVC, ABS, melaminowych i forniru o grubości 0,3–3,0 mm.",
+        "To kompaktowe rozwiązanie dla zakładu wykonującego meble na wymiar, szafy, zabudowy i blaty. Jego zaletą jest połączenie operacji potrzebnych do wykończenia krawędzi płyty z zasilaniem 230 V / 50 Hz."
+      ],
+      "images": [
+        {
+          "alt": "Okleiniarka TrendEco WF-700 — widok całego stanowiska",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/118990/ae1202574c8cb09b129aa388fe01"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Klej, docisk i obróbka obu krawędzi w jednej sekwencji",
+      "paragraphs": [
+        "Zespół klejowy nanosi spoiwo, a rolki prowadzą element i dociskają obrzeże. Podawanie uruchamia się po osiągnięciu zadanej temperatury zbiornika kleju. Dwie frezarki obrabiają górny i dolny naddatek; po nich zespoły polerujące wykańczają obrzeże. Każdy etap ma więc własne zadanie, a wynik zależy od ich wspólnego ustawienia.",
+        "Dwa pneumatyczne noże obcinają początek i koniec obrzeża. Obcinanie może być uruchamiane pedałem oraz automatycznie podczas podawania elementu. Ramię z talerzem na łożysku podtrzymuje rolkę obrzeża i ułatwia jego rozwijanie."
+      ],
+      "images": [
+        {
+          "alt": "Zespoły frezujące okleiniarki WF-700",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/110bc7/1b1e8fdb404cb0a8ae3e34cd7a1c"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Podparcie płyt i możliwość oklejania nieregularnych kształtów",
+      "paragraphs": [
+        "Ślizgi i rolki w stole roboczym ułatwiają przesuwanie elementu. Wysuwane rolki zwiększają podparcie większych płyt i blatów — ma to znaczenie przy utrzymaniu krawędzi w prawidłowym położeniu względem zespołu klejowego.",
+        "Do elementów nieregularnych zespół klejowy można ustawić bocznie i prowadzić detal ręcznie. Takiej konfiguracji nie należy utożsamiać z automatycznym przejściem przez wszystkie zespoły wykańczające: sposób obróbki trzeba dopasować do kształtu elementu."
+      ],
+      "images": [
+        {
+          "alt": "WF-700 z wysuniętym podparciem stołu",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/1187b4/c4a6b09149df85a3a3b3a1058ad8"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Przygotuj sprężone powietrze i czas na nagrzanie kleju",
+      "paragraphs": [
+        "Pneumatyczne obcinanie wymaga kompresora zapewniającego około 8 bar. Przed rozpoczęciem klejenia przewidziany jest czas nagrzewania 5–10 minut. Temperaturę, docisk i posuw należy dostosować do kleju, obrzeża i płyty.",
+        "Maksymalna wysokość frezowania wynosi 45 mm. Zakres wysokości samego oklejania wymaga potwierdzenia dla planowanego elementu, szczególnie przy grubszych płytach: możliwość naniesienia obrzeża nie oznacza automatycznie możliwości jego frezowania w tym samym przejściu."
+      ],
+      "images": [
+        {
+          "alt": "Szczegół pneumatycznego zespołu obcinania obrzeża",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/11b4c4/bc3e4aec44828363070552c8956b"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Ustawienia i potwierdzone parametry",
+      "paragraphs": [
+        "Panel umożliwia regulację posuwu i prędkości polerowania oraz pokazuje temperaturę kleju. Osobne włączanie frezarek pozwala uwzględnić aktualny etap pracy."
+      ],
+      "bullets": [
+        "Zasilanie: 230 V / 50 Hz.",
+        "Grubość obrzeża: 0,3–3,0 mm; maksymalna wysokość frezowania: 45 mm.",
+        "Prędkość oklejania: 0–6 m/min; zbiornik kleju: 1000 ml.",
+        "Trzpień frezów: 1/4 cala; wymiary urządzenia: 850 × 500 × 450 mm.",
+        "Model: WF-700; GTIN: 5908102310278."
+      ],
+      "images": [
+        {
+          "alt": "Panel regulacji polerowania i temperatury kleju",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/11886a/0965288c43b280d781f47aac4011"
+        }
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Wyposażenie zestawu",
+      "paragraphs": [
+        "Zestaw obejmuje okleiniarkę TrendEco WF-700, dwa frezy wykańczające z łożyskami, dwie tarcze polerskie oraz instrukcję obsługi."
+      ],
+      "images": [
+        {
+          "alt": "Zespół polerujący i rolki w okleiniarce WF-700",
+          "placement": "equipment",
+          "url": "https://a.allegroimg.com/original/1162e7/1b1c6a1b4ca8853acf1eb4da4df3"
+        }
+      ]
+    }
+  ]
+}

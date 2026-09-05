@@ -1,0 +1,93 @@
+{
+  "offerId": "18901393010",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Powtarzalne gniazda i wpusty bez prowadzenia frezarki wyłącznie z ręki",
+      "paragraphs": [
+        "Zestaw łączy frezarkę górnowrzecionową z przystawką prowadząco-pozycjonującą do rowków, wpustów i połączeń meblowych. Przy kolejnych elementach liczy się nie tylko kształt pojedynczego gniazda, lecz także jego położenie względem krawędzi i środka materiału. Przystawka daje narzędziu ustalony tor ruchu, ułatwiając odtworzenie tego samego ustawienia na następnych detalach.",
+        "To rozwiązanie do prac stolarskich, w których ręczna frezarka ma wykonywać powtarzalne operacje: przygotowanie połączeń wpuszczanych, kanałów montażowych oraz gniazd pod ukryte zawiasy i mocowania. Nie zastępuje doboru frezu do konkretnego połączenia, ale porządkuje samo pozycjonowanie i prowadzenie narzędzia."
+      ],
+      "images": [
+        {
+          "url": "https://a.allegroimg.com/original/112814/64d59c154e5983e6d4884af34bf3",
+          "alt": "Przystawka prowadząca i frezarka oferowane w zestawie",
+          "placement": "hero"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Prowadnice ustalają ruch, regulacja ustala położenie frezu",
+      "paragraphs": [
+        "Metalowy układ prowadnic i mocowań stabilizuje zespół frezujący podczas ruchu liniowego. Regulacja głębokości przystawki wynosi 20 mm, wysokości 30 mm, a ustawienia bocznego 50 mm. Są to zakresy ustawienia mechanizmu — nie należy utożsamiać ich z gwarantowaną głębokością każdego możliwego frezowania.",
+        "Dodatkowa, demontowana linijka z grawerowaną skalą i śrubami pozycjonującymi pomaga ustawić przystawkę względem materiału. Po właściwym ustawieniu łatwiej zachować jednakowe odległości przy wykonywaniu serii gniazd. Rękojeść ma przycisk pracy chwilowej i możliwość zablokowania pracy ciągłej, dzięki czemu sterowanie frezarką nie wymaga odrywania dłoni od uchwytu."
+      ],
+      "images": [
+        {
+          "url": "https://a.allegroimg.com/original/118820/57bd532846b4b4f124ec8ceed2ac",
+          "alt": "Układ prowadnic przystawki pokazany bez frezarki",
+          "placement": "construction"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Do elementów meblowych i prac montażowych",
+      "paragraphs": [
+        "Przystawka jest przeznaczona do drewna litego, MDF, sklejki i płyt meblowych. Sprawdza się przy seryjnym przygotowaniu elementów w warsztacie oraz podczas montażu mebli i kuchni, gdy kilka detali wymaga tego samego położenia rowka lub gniazda.",
+        "Gniazdo zasilające w przystawce pozwala podłączyć frezarkę bezpośrednio do uchwytu sterującego. Przewód zasilający przystawki ma około 1,6 m. Takie połączenie ułatwia uporządkowanie przewodów wokół stanowiska; ich przebieg trzeba nadal utrzymywać poza obszarem pracy frezu."
+      ],
+      "images": [
+        {
+          "url": "https://a.allegroimg.com/original/112e22/867e1b834329be1014dfcd8de69e",
+          "alt": "Ilustracja prowadzenia przystawki przy elemencie drewnianym",
+          "placement": "application"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Przed pierwszym użyciem: sprawdź tuleję i zamocowanie",
+      "paragraphs": [
+        "Dołączony frez ma trzpień 6,35 mm, a frezarka tuleję 8 mm. Do jego prawidłowego zamocowania potrzebna jest tuleja redukcyjna 8 mm → 6,35 mm. Adaptera nie ma w zestawie. Takie tuleje są dostępne osobno w sklepach z osprzętem do frezarek. Warto sprawdzić posiadane akcesoria — odpowiednia tuleja może już znajdować się w warsztacie. Przed użyciem sprawdź jej zgodność z uchwytem frezarki i trzpieniem frezu.",
+        "Obrabiany element musi być stabilnie zamocowany. Frez, prędkość obrotową i głębokość przejścia należy dobrać do materiału oraz planowanej operacji, zgodnie z instrukcją narzędzia. Przed regulacją lub wymianą frezu odłącz zasilanie. Zakres regulacji prowadnicy nie zwalnia z kontroli geometrii połączenia na próbnym elemencie."
+      ],
+      "images": [
+        {
+          "url": "https://a.allegroimg.com/original/11941c/d94a70a74dca9fc089073206b8e3",
+          "alt": "Szczegóły przystawki, mocowania i przewodów sterowania",
+          "placement": "details"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Parametry frezarki i przystawki",
+      "paragraphs": [
+        "Frezarka ma 6-stopniową regulację prędkości. Pozwala ona dopasować obroty do używanego frezu i obrabianego materiału w podanym zakresie."
+      ],
+      "bullets": [
+        "Moc frezarki: 800 W; zasilanie: 230 V / 50 Hz.",
+        "Prędkość obrotowa: 15 000–30 000 obr./min; tuleja zaciskowa: 8 mm.",
+        "Regulacja przystawki: głębokość 20 mm, wysokość 30 mm, ustawienie boczne 50 mm.",
+        "Przewód przystawki: około 1,6 m.",
+        "Kod producenta: R15SFF; GTIN: 5908102310315."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Co zawiera zestaw",
+      "paragraphs": [
+        "W komplecie znajdują się przystawka, frezarka górnowrzecionowa, worek z ukrytymi mocowaniami meblowymi, imbus, wiertło piórowe 5 mm oraz frez o trzpieniu 6,35 mm, średnicy roboczej 10 mm i długości roboczej 30 mm. Przystawkę uzupełnia demontowana linijka pozycjonująca. Tuleję redukcyjną 8 mm → 6,35 mm trzeba zapewnić osobno."
+      ],
+      "images": [
+        {
+          "url": "https://a.allegroimg.com/original/11a331/d353cdec4eaea03a5444d2b990f7",
+          "alt": "Frezarka górnowrzecionowa dołączona do zestawu",
+          "placement": "equipment"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "offerId": "18901362815",
+  "sourceWarnings": [
+    "Nazwa/parametry mówią Profi Max, opis Profi Lux; użyto neutralnego określenia zestawu TrendEco.",
+    "Parametr prędkości 4700 obr./min różni się od opisu 4800 obr./min; użyto 4800 obr./min z pełnego opisu.",
+    "Masa produktu 85 kg w parametrze odnosi się prawdopodobnie do stołu, opis rozróżnia 19 kg zespołu tnącego i 85 kg stołu.",
+    "Wysokość 750 mm w danych stołu jest niezgodna z ilustracją 75 cm; zapisano 750 mm."
+  ]
+}

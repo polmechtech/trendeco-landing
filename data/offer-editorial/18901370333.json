@@ -1,0 +1,79 @@
+{
+  "offerId": "18901370333",
+  "sections": [
+    {
+      "id": "przeznaczenie",
+      "heading": "Para narzędzi do rozcinania laminowanych płyt meblowych",
+      "paragraphs": [
+        "Komplet łączy podcinak trapezowy 110 × 20 mm z tarczą główną 200 × 25,4 mm 60T. W kompatybilnym zespole tnącym podcinak przygotowuje nacięcie laminatu, a tarcza główna rozdziela płytę. Dzięki temu obróbka warstwy powierzchniowej odbywa się przed właściwym cięciem, co pomaga ograniczyć jej wykruszenia po stronie podcinanej."
+      ],
+      "images": [
+        {
+          "alt": "Podcinak 110 mm i tarcza główna 200 mm w zestawie",
+          "placement": "hero",
+          "url": "https://a.allegroimg.com/original/11e27c/31096e45434f8bd5f86c4d6b6ead"
+        }
+      ]
+    },
+    {
+      "id": "konstrukcja",
+      "heading": "Oddzielne zadania wymagają wspólnego ustawienia",
+      "paragraphs": [
+        "Podcinak ma 24 zęby trapezowe, natomiast tarcza główna 60 zębów i rzaz 2,6 mm. Różnią się również mocowaniem: otwór podcinaka wynosi 20 mm, a tarczy głównej 25,4 mm. Są to dwa narzędzia do odpowiednich wrzecion, a nie wymienne tarcze o takim samym uchwycie.",
+        "Przy ustawianiu trzeba zgrać tor i szerokość nacięcia podcinającego z rzazem tarczy głównej. Sam podcinak nie koryguje luzów prowadzenia ani nie zastępuje prawidłowego podparcia płyty."
+      ],
+      "images": [
+        {
+          "alt": "Profil uzębienia podcinaka trapezowego",
+          "placement": "construction",
+          "url": "https://a.allegroimg.com/original/11d696/892ff8ab4eeba39df3755b215c5b"
+        }
+      ]
+    },
+    {
+      "id": "zastosowanie",
+      "heading": "Do zespołów TrendEco pracujących z podcinaniem",
+      "paragraphs": [
+        "Zestaw jest przeznaczony do kompatybilnych składanych, przenośnych zespołów tnących TrendEco oraz pracy z płytami jedno- i dwustronnie laminowanymi i MDF. Jest przydatny przy przygotowywaniu formatek meblowych, gdy oprócz wymiaru ważna jest krawędź warstwy dekoracyjnej. Zdjęcie zespołu tnącego pokazuje zastosowanie; maszyna nie jest objęta ofertą."
+      ],
+      "images": [
+        {
+          "alt": "Przykład montażu narzędzi w zespole tnącym; maszyna poza zestawem",
+          "placement": "application",
+          "url": "https://a.allegroimg.com/original/11abb0/b3b16bba4b298f8a42d8001db618"
+        }
+      ]
+    },
+    {
+      "id": "warunki-pracy",
+      "heading": "Zgodność z pilarką sprawdź przed montażem",
+      "paragraphs": [
+        "Sprawdź średnice, otwory i dopuszczalne obroty obu wrzecion. Podcinak dopuszcza maksymalnie 7000 obr./min, tarcza główna 5000 obr./min. Szerokość rzazu podcinaka należy potwierdzić dla konkretnego egzemplarza i ustawić względem tarczy 2,6 mm. Po regulacji wykonaj próbne cięcie, aby ocenić obie strony laminatu."
+      ],
+      "images": [
+        {
+          "alt": "Zbliżenie uzębienia tarczy głównej",
+          "placement": "details",
+          "url": "https://a.allegroimg.com/original/11750a/a6fd2dc0489bbbb79a5b5cd7b099"
+        }
+      ]
+    },
+    {
+      "id": "parametry",
+      "heading": "Parametry rozdzielone dla obu tarcz",
+      "paragraphs": [],
+      "bullets": [
+        "Podcinak: średnica 110 mm, otwór 20 mm, 24 zęby trapezowe, korpus 1,8 mm, maks. 7000 obr./min.",
+        "Tarcza główna: średnica 200 mm, otwór 25,4 mm, 60 zębów, rzaz 2,6 mm, korpus 1,8 mm, maks. 5000 obr./min.",
+        "Kod producenta: 110202460; GTIN: 5027654055632."
+      ]
+    },
+    {
+      "id": "wyposazenie",
+      "heading": "Zawartość kompletu",
+      "paragraphs": [
+        "Oferta obejmuje jeden podcinak 110 × 20 mm i jedną tarczę główną 200 × 25,4 mm 60T. Pilarka i stół widoczne na zdjęciach zastosowania nie należą do kompletu."
+      ]
+    }
+  ]
+}
