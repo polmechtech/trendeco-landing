@@ -121,17 +121,19 @@ export function extractOfferId(slug: string): string | null {
 
 export function mapAllegroOffers(data: any): AllegroProduct[] {
   const offers = Array.isArray(data?.offers) ? data.offers : [];
-  return offers.map((offer: any) => ({
-    id: String(offer.id),
-    name: String(offer.name ?? ""),
-    image: offer.primaryImage?.url ?? "",
-    images: offer.primaryImage?.url ? [{ url: offer.primaryImage.url, order: 1 }] : [],
-    price: offer.sellingMode?.price?.amount ?? "",
-    currency: offer.sellingMode?.price?.currency ?? "PLN",
-    stock: Number(offer.stock?.available ?? 0),
-    url: `https://allegro.pl/oferta/${offer.id}`,
-    category: classifyProduct(String(offer.name ?? "")),
-    parameters: [],
-    sku: offer.external?.id ? String(offer.external.id) : undefined,
-  }));
+  return offers
+    .map((offer: any) => ({
+      id: String(offer.id),
+      name: String(offer.name ?? ""),
+      image: offer.primaryImage?.url ?? "",
+      images: offer.primaryImage?.url ? [{ url: offer.primaryImage.url, order: 1 }] : [],
+      price: offer.sellingMode?.price?.amount ?? "",
+      currency: offer.sellingMode?.price?.currency ?? "PLN",
+      stock: Number(offer.stock?.available ?? 0),
+      url: `https://allegro.pl/oferta/${offer.id}`,
+      category: classifyProduct(String(offer.name ?? "")),
+      parameters: [],
+      sku: offer.external?.id ? String(offer.external.id) : undefined,
+    }))
+    .filter((product: AllegroProduct) => product.stock > 0);
 }
