@@ -7,7 +7,7 @@ import { productSitemapSnapshot } from "@/lib/productSitemapSnapshot";
 export const revalidate = 3600;
 const OFFERS_CACHE_KEY = "allegro:offers_cache:v4";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
- const baseUrl="https://www.trendeco.eu"; const now=new Date();
+ const baseUrl="https://trendeco.eu"; const now=new Date();
  const staticPages:MetadataRoute.Sitemap=[
   {url:baseUrl,lastModified:now,changeFrequency:"hourly",priority:1},
   {url:`${baseUrl}/o-nas`,lastModified:now,changeFrequency:"monthly",priority:.6},
