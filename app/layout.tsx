@@ -6,7 +6,7 @@ import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-const siteUrl = "https://www.trendeco.eu";
+const siteUrl = "https://trendeco.eu";
 const whatsappLink = "https://wa.me/48512077770?text=Dzień%20dobry%2C%20mam%20pytanie%20o%20ofertę%20TrendEco.";
 
 export const metadata: Metadata = {
