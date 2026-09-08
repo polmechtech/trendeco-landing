@@ -32,9 +32,10 @@ function confirmedFacts(product: AllegroProduct) {
     const match = source.match(regex);
     if (match?.[1]) facts.push({ section, name, value: match[1].trim() });
   };
+  const wholeNumber = String.raw`(?:\d{1,2}(?:[ \u00A0]\d{3})+|\d{3,5})`;
   add("Napięcie", /\b(230\s?V|400\s?V|220\s?V|380\s?V)\b/i);
-  add("Moc", /\b(\d{3,5}(?:[.,]\d+)?\s?(?:W|kW))\b/i);
-  add("Prędkość obrotowa", /\b(\d{3,5}\s?(?:obr\.?\/?min|rpm))\b/i);
+  add("Moc", new RegExp(`\\b(${wholeNumber}(?:[.,]\\d+)?\\s?W|\\d{1,3}(?:[.,]\\d+)?\\s?kW)\\b`, "i"));
+  add("Prędkość obrotowa", new RegExp(`\\b(${wholeNumber}\\s?(?:obr\\.?\\/?min|rpm|r\\/?min))\\b`, "i"));
   add("Średnica", /\b(?:średnica|Ø|fi)\s*[:=]?\s*(\d{2,4}(?:[.,]\d+)?\s?mm)\b/i);
   add("Wymiar", /\b(\d{2,4}\s?[x×]\s?\d{2,4}(?:\s?[x×]\s?\d{1,4})?\s?mm)\b/i);
   return facts.slice(0, 6);
