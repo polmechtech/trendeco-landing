@@ -23,7 +23,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "YouBot", allow: "/" },
       { userAgent: "CCBot", allow: "/" },
     ],
-    sitemap: "https://www.trendeco.eu/sitemap.xml",
-    host: "https://www.trendeco.eu",
+    sitemap: "https://trendeco.eu/sitemap.xml",
+    host: "https://trendeco.eu",
   };
 }
