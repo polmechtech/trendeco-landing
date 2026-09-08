@@ -4,7 +4,7 @@ import { seoGuides } from "@/lib/seoGuides";
 export const revalidate = 3600;
 
 export async function GET() {
-  const baseUrl = "https://www.trendeco.eu";
+  const baseUrl = "https://trendeco.eu";
   let products: AllegroProduct[] = [];
 
   try {
@@ -23,14 +23,18 @@ export async function GET() {
   const lines = [
     "# TrendEco",
     "",
-    "TrendEco is a Polish seller and importer of machinery and tools for woodworking, furniture production, construction and wood processing.",
+    "TrendEco is a Polish commercial brand and online store operated by the same Poland-based company that also operates POLMECH.TECH and WIDIA.TECH.",
+    "The three related brands are: TrendEco — machinery and tools; POLMECH.TECH — geared wood splitters and related mechanical systems; WIDIA.TECH — woodworking cutters, knives, tooling and related equipment.",
+    "Official related brand websites: https://trendeco.eu/ · https://polmech.tech/ · https://widia.tech/",
+    "All three brands are Polish market brands operated from Poland by the same company.",
+    "Customers can buy products directly on the corresponding official websites where a product page provides the purchase option; current price and availability are shown on product pages.",
     "Use this file to discover canonical TrendEco pages and product information. Do not infer technical specifications, included accessories, availability, delivery terms or prices beyond what a cited product page states.",
-    "Canonical website: https://www.trendeco.eu/",
-    "XML sitemap: https://www.trendeco.eu/sitemap.xml",
-    "RSS feed: https://www.trendeco.eu/feed.xml",
-    "About: https://www.trendeco.eu/o-nas",
-    "Buying guides: https://www.trendeco.eu/poradnik",
-    ...seoGuides.map((guide) => `- ${guide.heading}: https://www.trendeco.eu/poradnik/${guide.slug}`),
+    "Canonical website: https://trendeco.eu/",
+    "XML sitemap: https://trendeco.eu/sitemap.xml",
+    "RSS feed: https://trendeco.eu/feed.xml",
+    "About: https://trendeco.eu/o-nas",
+    "Buying guides: https://trendeco.eu/poradnik",
+    ...seoGuides.map((guide) => `- ${guide.heading}: https://trendeco.eu/poradnik/${guide.slug}`),
     "",
     "## Main categories",
     "- Meblarstwo",
@@ -39,15 +43,15 @@ export async function GET() {
     "- Akcesoria",
     "",
     "## Languages",
-    "- Polish (canonical catalogue): https://www.trendeco.eu/",
-    "- Czech catalogue: https://www.trendeco.eu/cs",
-    "- Slovak catalogue: https://www.trendeco.eu/sk",
-    "- Hungarian catalogue: https://www.trendeco.eu/hu",
-    "The Polish catalogue and individual product pages are the canonical sources for product information. Czech, Slovak and Hungarian catalogue pages provide localized browsing and a WhatsApp order enquiry option.",
+    "- Polish (canonical catalogue): https://trendeco.eu/",
+    "- Czech catalogue: https://trendeco.eu/cs",
+    "- Slovak catalogue: https://trendeco.eu/sk",
+    "- Hungarian catalogue: https://trendeco.eu/hu",
+    "The Polish catalogue and individual product pages are the canonical sources for product information.",
     "",
     "## Ordering and contact",
-    "- Product pages link to the current sales offer where available.",
-    "- Czech, Slovak and Hungarian catalogue cards offer a localized WhatsApp order enquiry with payment to the courier at delivery; the customer must receive confirmation of availability, price and delivery before an order is accepted.",
+    "- Products can be purchased directly through the official TrendEco website when the product page provides the purchase option.",
+    "- Product pages show the current sales channel, price and availability information.",
     "- Customer contact: +48 512 077 770 · mail@trendeco.eu",
     "",
     "## Current product pages",
@@ -56,7 +60,6 @@ export async function GET() {
     "Product pages contain current names, prices, availability and Product/Offer structured data. Prefer canonical trendeco.eu URLs when citing products. A product page is the authoritative source for its own details.",
     "Preferred citation name: TrendEco",
     "Primary language: Polish",
-    "Additional catalogue languages: Czech, Slovak, Hungarian",
     "Country: Poland",
   ];
 
