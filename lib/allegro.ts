@@ -70,6 +70,14 @@ export const TRENDECO_UI_VERSION = "pobranie-whatsapp-tiktok-v1";
 export function classifyProduct(name: string): ProductCategory {
   const n = name.toLowerCase();
   if (
+    n.includes("kosz magazynowy") ||
+    n.includes("wyłącznik włącznik maszynowy") ||
+    n.includes("wylacznik wlacznik maszynowy") ||
+    n.includes("podcinak trapezowy") ||
+    n.includes("tarcza piła tarczowa widia.tech 200") ||
+    n.includes("tarcza pila tarczowa widia.tech 200")
+  ) return "Akcesoria";
+  if (
     n.includes("cnc") ||
     n.includes("piła stołowa") ||
     n.includes("pila stolowa") ||
