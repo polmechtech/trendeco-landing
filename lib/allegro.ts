@@ -70,6 +70,7 @@ export const TRENDECO_UI_VERSION = "pobranie-whatsapp-tiktok-v1";
 export function classifyProduct(name: string): ProductCategory {
   const n = name.toLowerCase();
   if (
+    n.includes("wiertarka") ||
     n.includes("kosz magazynowy") ||
     n.includes("wyłącznik włącznik maszynowy") ||
     n.includes("wylacznik wlacznik maszynowy") ||
