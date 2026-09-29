@@ -3,7 +3,7 @@ import { sprzedajemyEditorial } from "@/lib/sprzedajemyEditorial";
 import { sprzedajemyMapping } from "@/lib/sprzedajemyMapping";
 
 export const dynamic = "force-dynamic";
-export const maxDuration = 300;
+export const maxDuration = 60;
 const API = "https://sprzedajemy.pl/webapi/v1";
 const TEST_ID = "18550962217";
 
