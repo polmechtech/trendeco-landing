@@ -12,7 +12,23 @@ export async function POST() {
     const headers = { Authorization: `Bearer ${token}`, "Content-Type": "application/json" };
 
     const existing = await fetch(`${API}/offer-details?external_id=${encodeURIComponent(EXTERNAL_ID)}`, { headers, cache: "no-store" });
-    if (existing.ok) return NextResponse.json({ created: false, reason: "already_exists", offer: await existing.json() });
+    if (existing.ok) {
+      const offer = await existing.json();
+      if (!offer?.pictures?.length && offer?.offerId) {
+        const catalog = await fetch("https://trendeco.eu/api/catalog", { cache: "no-store" });
+        const data = await catalog.json();
+        const products = Array.isArray(data) ? data : (data.products ?? []);
+        const p = products.find((x: any) => String(x.id) === SOURCE_ID);
+        const pictures = (p?.images ?? []).map((x: any) => typeof x === "string" ? x : x.url).filter(Boolean).slice(0, 12);
+        const add = await fetch(`${API}/add-offer-pictures-batch`, {
+          method: "POST", headers, body: JSON.stringify([{ offerId: Number(offer.offerId), pictures }]), cache: "no-store"
+        });
+        const raw = await add.text();
+        let addBody: any; try { addBody = JSON.parse(raw); } catch { addBody = { raw }; }
+        return NextResponse.json({ created: false, reason: "already_exists", picturesQueued: add.ok, picturesRequested: pictures.length, picturesApiStatus: add.status, picturesApiResponse: addBody, offer });
+      }
+      return NextResponse.json({ created: false, reason: "already_exists", offer });
+    }
 
     const loc = await fetch(`${API}/get-location?q=${encodeURIComponent("Warszawa")}`, { headers, cache: "no-store" });
     if (!loc.ok) return NextResponse.json({ created: false, step: "location", apiStatus: loc.status, apiResponse: await loc.text() }, { status: 502 });
