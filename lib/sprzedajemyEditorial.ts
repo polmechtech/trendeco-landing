@@ -29,7 +29,7 @@ function cleanTitle(name: string, b: string) {
   let s = name
     .replace(/\bTrendEco\b/gi, "")
     .replace(/\bPOLMECH\.TECH\b/gi, "")
-    .replace(/\bWIDIA\.TECH\b/gi, "")
+    .replace(/\bWIDIA\.TECH\b/gi, "")\n    .replace(/\bRebir\b/gi, "")
     .replace(/\s+/g, " ")
     .trim();
 
@@ -68,7 +68,7 @@ function usefulParagraphs(description: string) {
     if (c.length < 35) continue;\n    if (/^(najważniejsze dane|dane techniczne|specyfikacja produktu)/i.test(c)) continue;
     if (selected.some(x => x.toLowerCase() === c.toLowerCase())) continue;
     selected.push(c);
-    if (selected.join("\n\n").length > 1250) break;
+    if (selected.join("\n\n").length > 850) break;
   }
   return selected.slice(0, 5);
 }
@@ -94,6 +94,6 @@ export function sprzedajemyEditorial(p: ProductLike) {
   return {
     brand: b,
     title,
-    description: parts.join("\n\n").slice(0, 3000).trim(),
+    description: parts.join("\n\n").slice(0, 1800).trim(),
   };
 }
