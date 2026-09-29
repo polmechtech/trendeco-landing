@@ -51,7 +51,7 @@ function cleanTitle(name: string, b: string) {
 function stripMarkup(text: string) {
   return text
     .replace(/<[^>]+>/g, " ")
-    .replace(/[✅🔹▶📋📦⚠️⚡🪵🛡️🦾🚀↩️🇵🇱]/gu, "")
+    .replace(/[^\\p{L}\\p{N}\\s.,;:()/%+×x–—\\-]/gu, " ")
     .replace(/\r/g, "")
     .replace(/[ \t]+/g, " ")
     .replace(/\n{3,}/g, "\n\n")
@@ -65,7 +65,7 @@ function usefulParagraphs(description: string) {
   const selected: string[] = [];
   for (const c of chunks) {
     if (banned.test(c) || /@(polmech|trendeco)/i.test(c)) continue;
-    if (c.length < 35) continue;
+    if (c.length < 35) continue;\n    if (/^(najważniejsze dane|dane techniczne|specyfikacja produktu)/i.test(c)) continue;
     if (selected.some(x => x.toLowerCase() === c.toLowerCase())) continue;
     selected.push(c);
     if (selected.join("\n\n").length > 1250) break;
@@ -76,8 +76,8 @@ function usefulParagraphs(description: string) {
 function specs(p: ProductLike) {
   const preferred = /^(model|moc|zasilanie|prędkość|maksymalna|średnica|długość|szerokość|grubość|zakres|waga|wymiary|rodzaj|typ|pojemność|prędkość posuwu)/i;
   return (p.parameters ?? [])
-    .filter(x => preferred.test(x.name) && x.values?.length)
-    .slice(0, 10)
+    .filter(x => preferred.test(x.name) && x.values?.length && x.values.some(v => !/^(0|0\\.0|inna|brak informacji)$/i.test(v)))
+    .slice(0, 8)
     .map(x => `${x.name}: ${x.values!.join(", ")}`);
 }
 
