@@ -46,38 +46,30 @@ function cleanTitle(name: string, b: string) {
   ];
   for (const [re, value] of replacements) s = s.replace(re, value).trim();
   const title = `${b} ${s}`.replace(/\s+/g, " ").trim();
-  return title.length <= 75 ? title : title.slice(0, 75).replace(/\s+\S*$/, "").trim();
+  if (title.length <= 75) return title;
+  return title.slice(0, 75).replace(/\s+\S*$/, "").replace(/\s+(do|z|ze|i|oraz|dla|bez|na|w)$/i, "").trim();
 }
 
 function stripMarkup(text: string) {
   return text
     .replace(/<[^>]+>/g, " ")
-    .replace(/[^\\p{L}\\p{N}\\s.,;:()/%+×x–—\\-]/gu, " ")
+    .replace(/[^\p{L}\p{N}\s.,;:()/%+×x–—-]/gu, " ")
     .replace(/\r/g, "")
     .replace(/[ \t]+/g, " ")
-    .replace(/
-{3,}/g, "
-
-")
+    .replace(/\n{3,}/g, "\n\n")
     .trim();
 }
 
 function usefulParagraphs(description: string) {
-  const text = stripMarkup(description);
-  const chunks = text.split(/
-
-+/).map(x => x.trim()).filter(Boolean);
-  const banned = /^(zobacz|youtube|tiktok|dlaczego|bezpieczeństwo przede wszystkim|zalety stosowania|panel sterowania)$/i;
+  const chunks = stripMarkup(description).split(/\n\n+/).map(x => x.trim()).filter(Boolean);
   const selected: string[] = [];
-  for (const c of chunks) {
-    if (banned.test(c) || /@(polmech|trendeco)/i.test(c)) continue;
-    if (c.length < 35) continue;
-    if (/^(najważniejsze dane|dane techniczne|specyfikacja produktu)/i.test(c)) continue;
-    if (selected.some(x => x.toLowerCase() === c.toLowerCase())) continue;
-    selected.push(c);
-    if (selected.join("
-
-").length > 850) break;
+  for (const item of chunks) {
+    if (item.length < 35) continue;
+    if (/^(zobacz|youtube|tiktok|najważniejsze dane|dane techniczne|specyfikacja produktu)/i.test(item)) continue;
+    if (/@(polmech|trendeco)/i.test(item)) continue;
+    if (selected.some(x => x.toLowerCase() === item.toLowerCase())) continue;
+    selected.push(item);
+    if (selected.join("\n\n").length > 850) break;
   }
   return selected.slice(0, 5);
 }
@@ -85,28 +77,23 @@ function usefulParagraphs(description: string) {
 function specs(p: ProductLike) {
   const preferred = /^(model|moc|zasilanie|prędkość|maksymalna|średnica|długość|szerokość|grubość|zakres|waga|wymiary|rodzaj|typ|pojemność|prędkość posuwu)/i;
   return (p.parameters ?? [])
-    .filter(x => preferred.test(x.name) && x.values?.length && x.values.some(v => !/^(0|0\\.0|inna|brak informacji)$/i.test(v)))
+    .filter(x => preferred.test(x.name) && x.values?.length)
+    .filter(x => x.values!.some(v => !/^(0|0\.0|inna|brak informacji)$/i.test(v)))
     .slice(0, 8)
     .map(x => `${x.name}: ${x.values!.join(", ")}`);
 }
 
 export function sprzedajemyEditorial(p: ProductLike) {
   const b = brand(p);
-  const title = cleanTitle(p.name, b);
-  const intro = usefulParagraphs(p.description ?? "");
   const technical = specs(p);
   const parts = [
-    ...intro,
-    technical.length ? `Najważniejsze dane:
-${technical.map(x => `• ${x}`).join("
-")}` : "",
+    ...usefulParagraphs(p.description ?? ""),
+    technical.length ? `Najważniejsze dane:\n${technical.map(x => `• ${x}`).join("\n")}` : "",
     "Produkt nowy. Sprzedaż i obsługa z Polski.",
   ].filter(Boolean);
   return {
     brand: b,
-    title,
-    description: parts.join("
-
-").slice(0, 1800).trim(),
+    title: cleanTitle(p.name, b),
+    description: parts.join("\n\n").slice(0, 1800).trim(),
   };
 }
