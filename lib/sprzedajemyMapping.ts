@@ -53,8 +53,8 @@ export function sprzedajemyMapping(id:string, price:string|number): SprzedajemyM
  if (!pair) throw new Error(`Brak mapowania Sprzedajemy dla produktu ${id}`);
  const attributes:Record<string,string|number|boolean>={price:Number(price),condition:1};
  // Sprzedajemy uses a closed brand dictionary. Our own brands use the allowed value "Inna".
- if ([19256,19299,19202,19324,19337,19339,19204].includes(pair[0])) attributes["2692_marka"]=212270;
- if(id==="18958388796"){
+ if ([19256,19299,19202,19324,19337,19339,19204,19323,19350,19232,19277,19240,19273,19334].includes(pair[0])) attributes["2692_marka"]=212270;
+ if(id==="18901381491") attributes["2821_typ"]=212480; // nóż\n if(id==="18550986067"){ attributes["2989_rodzaj"]=212775; attributes["2990_dlugosc"]=2290; }\n if(id==="18958388796"){
    attributes["3137_typ"]=213028; // wiertarka
    attributes["3138_zasilanie"]=213032; // sieciowe
    attributes["3139_rodzaj"]=213035; // bezudarowa
