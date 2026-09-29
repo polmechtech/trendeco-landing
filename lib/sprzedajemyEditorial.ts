@@ -29,7 +29,8 @@ function cleanTitle(name: string, b: string) {
   let s = name
     .replace(/\bTrendEco\b/gi, "")
     .replace(/\bPOLMECH\.TECH\b/gi, "")
-    .replace(/\bWIDIA\.TECH\b/gi, "")\n    .replace(/\bRebir\b/gi, "")
+    .replace(/\bWIDIA\.TECH\b/gi, "")
+    .replace(/\bRebir\b/gi, "")
     .replace(/\s+/g, " ")
     .trim();
 
@@ -54,21 +55,29 @@ function stripMarkup(text: string) {
     .replace(/[^\\p{L}\\p{N}\\s.,;:()/%+×x–—\\-]/gu, " ")
     .replace(/\r/g, "")
     .replace(/[ \t]+/g, " ")
-    .replace(/\n{3,}/g, "\n\n")
+    .replace(/
+{3,}/g, "
+
+")
     .trim();
 }
 
 function usefulParagraphs(description: string) {
   const text = stripMarkup(description);
-  const chunks = text.split(/\n\n+/).map(x => x.trim()).filter(Boolean);
+  const chunks = text.split(/
+
++/).map(x => x.trim()).filter(Boolean);
   const banned = /^(zobacz|youtube|tiktok|dlaczego|bezpieczeństwo przede wszystkim|zalety stosowania|panel sterowania)$/i;
   const selected: string[] = [];
   for (const c of chunks) {
     if (banned.test(c) || /@(polmech|trendeco)/i.test(c)) continue;
-    if (c.length < 35) continue;\n    if (/^(najważniejsze dane|dane techniczne|specyfikacja produktu)/i.test(c)) continue;
+    if (c.length < 35) continue;
+    if (/^(najważniejsze dane|dane techniczne|specyfikacja produktu)/i.test(c)) continue;
     if (selected.some(x => x.toLowerCase() === c.toLowerCase())) continue;
     selected.push(c);
-    if (selected.join("\n\n").length > 850) break;
+    if (selected.join("
+
+").length > 850) break;
   }
   return selected.slice(0, 5);
 }
@@ -88,12 +97,16 @@ export function sprzedajemyEditorial(p: ProductLike) {
   const technical = specs(p);
   const parts = [
     ...intro,
-    technical.length ? `Najważniejsze dane:\n${technical.map(x => `• ${x}`).join("\n")}` : "",
+    technical.length ? `Najważniejsze dane:
+${technical.map(x => `• ${x}`).join("
+")}` : "",
     "Produkt nowy. Sprzedaż i obsługa z Polski.",
   ].filter(Boolean);
   return {
     brand: b,
     title,
-    description: parts.join("\n\n").slice(0, 1800).trim(),
+    description: parts.join("
+
+").slice(0, 1800).trim(),
   };
 }
