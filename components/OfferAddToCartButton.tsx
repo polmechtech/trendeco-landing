@@ -17,11 +17,19 @@ export default function OfferAddToCartButton({ product }: { product: ProductForC
     try {
       const value = Number.parseFloat(String(product.price).replace(",", ".")) || 0;
       const w = window as Window & { gtag?: (...args: unknown[]) => void };
-      w.gtag?.("event", "add_to_cart", {
+      const params = {
         currency: product.currency || "PLN",
         value,
         items: [{ item_id: product.id, item_name: product.name, price: value, quantity: 1 }],
-      });
+      };
+      if (w.gtag) {
+        w.gtag("event", "add_to_cart", params);
+      } else {
+        window.setTimeout(() => {
+          const delayed = window as Window & { gtag?: (...args: unknown[]) => void };
+          delayed.gtag?.("event", "add_to_cart", params);
+        }, 600);
+      }
       const items = JSON.parse(localStorage.getItem(CART_KEY) || "[]") as CartItem[];
       const existing = items.find((item) => item.id === product.id);
       const next = existing
@@ -31,7 +39,7 @@ export default function OfferAddToCartButton({ product }: { product: ProductForC
       window.dispatchEvent(new Event("trendeco-cart-updated"));
     } finally {
       // Give gtag a moment to enqueue the click event before leaving the product page.
-      window.setTimeout(() => { window.location.href = "/koszyk"; }, 250);
+      window.setTimeout(() => { window.location.href = "/koszyk"; }, 900);
     }
   }
 
