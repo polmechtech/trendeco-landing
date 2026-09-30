@@ -10,6 +10,7 @@ type ErliMap = Record<string, ErliInfo>;
 type CartItem = { id: string; name: string; price: string; currency: string; image?: string; quantity: number };
 
 const CART_KEY = "trendeco-cart";
+const PENDING_ADD_KEY = "trendeco-ga4-pending-add";
 const sections: ProductCategory[] = ["Łuparki", "Budownictwo", "Meblarstwo", "Akcesoria"];
 
 function getDiscountedPrice(product: AllegroProduct) {
@@ -22,6 +23,9 @@ function getDiscountedPrice(product: AllegroProduct) {
 
 function addToCart(product: AllegroProduct) {
   try {
+    const price = getDiscountedPrice(product);
+    const value = Number.parseFloat(String(price).replace(",", ".")) || 0;
+    localStorage.setItem(PENDING_ADD_KEY, JSON.stringify({ currency: product.currency || "PLN", value, items: [{ item_id: product.id, item_name: product.name, price: value, quantity: 1 }] }));
     const items = JSON.parse(localStorage.getItem(CART_KEY) || "[]") as CartItem[];
     const existing = items.find((item) => item.id === product.id);
     const next = existing
