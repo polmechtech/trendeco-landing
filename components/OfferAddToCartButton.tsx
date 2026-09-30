@@ -16,7 +16,8 @@ export default function OfferAddToCartButton({ product }: { product: ProductForC
   function addToCart() {
     try {
       const value = Number.parseFloat(String(product.price).replace(",", ".")) || 0;
-      window.gtag?.("event", "add_to_cart", {
+      const w = window as Window & { gtag?: (...args: unknown[]) => void };
+      w.gtag?.("event", "add_to_cart", {
         currency: product.currency || "PLN",
         value,
         items: [{ item_id: product.id, item_name: product.name, price: value, quantity: 1 }],
@@ -29,7 +30,8 @@ export default function OfferAddToCartButton({ product }: { product: ProductForC
       localStorage.setItem(CART_KEY, JSON.stringify(next));
       window.dispatchEvent(new Event("trendeco-cart-updated"));
     } finally {
-      window.location.href = "/koszyk";
+      // Give gtag a moment to enqueue the click event before leaving the product page.
+      window.setTimeout(() => { window.location.href = "/koszyk"; }, 250);
     }
   }
 
