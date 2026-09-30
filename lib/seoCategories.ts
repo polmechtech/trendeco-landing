@@ -50,10 +50,10 @@ export const seoCategories: SeoCategory[] = [
   {
     slug: "luparka-przekladniowa",
     keyword: "łuparka przekładniowa",
-    title: "Łuparka przekładniowa do drewna — TrendEco",
-    description: "Łuparki przekładniowe TrendEco do drewna opałowego, wersje 230 V i 400 V. Sprawdź aktualne modele, ceny, wyposażenie, dostępność i serwis w Polsce.",
-    heading: "Łuparka przekładniowa do drewna opałowego",
-    intro: "Łuparka przekładniowa wykorzystuje silnik, przekładnię redukcyjną i klin do mechanicznego rozłupywania drewna opałowego. Zobacz aktualne łuparki TrendEco 230 V i 400 V, kompletne maszyny oraz moduły do samodzielnej zabudowy.",
+    title: "Łuparka do pniaków, sęków i rozwidleń — przekładniowa POLMECH.TECH",
+    description: "Łuparka przekładniowa POLMECH.TECH 400 V do trudnego drewna: pniaków, sęków, rozwidleń, tui i nieregularnych polan. Mechaniczna alternatywa dla hydrauliki i świdra.",
+    heading: "Łuparka do pniaków, sęków i rozwidleń — POLMECH.TECH",
+    intro: "Łuparka przekładniowa POLMECH.TECH to mechaniczne rozwiązanie do seryjnego przygotowania drewna opałowego, szczególnie trudnych, sękatych, rozwidlonych i nieregularnych polan. Zamiast siłownika hydraulicznego lub stożka świdrowego wykorzystuje silnik, reduktor i dwa przeciwległe kliny. Aktualna kompletna wersja POLMECH.TECH pracuje z silnikiem PROMOTOR 3 kW / 400 V.",
     terms: ["łuparka", "luparka", "przekładnia", "przekladnia", "rozłupyw", "rozlupyw"],
   },
   {
