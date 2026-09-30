@@ -15,6 +15,12 @@ const CART_KEY = "trendeco-cart";
 export default function OfferAddToCartButton({ product }: { product: ProductForCart }) {
   function addToCart() {
     try {
+      const value = Number.parseFloat(String(product.price).replace(",", ".")) || 0;
+      window.gtag?.("event", "add_to_cart", {
+        currency: product.currency || "PLN",
+        value,
+        items: [{ item_id: product.id, item_name: product.name, price: value, quantity: 1 }],
+      });
       const items = JSON.parse(localStorage.getItem(CART_KEY) || "[]") as CartItem[];
       const existing = items.find((item) => item.id === product.id);
       const next = existing
