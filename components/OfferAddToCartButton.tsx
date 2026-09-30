@@ -12,9 +12,15 @@ type ProductForCart = {
 type CartItem = { id: string; name: string; price: string; currency: string; image?: string; quantity: number };
 const CART_KEY = "trendeco-cart";
 
+function gaEvent(name: string, params: Record<string, unknown>) {
+  window.gtag?.("event", name, params);
+}
+
 export default function OfferAddToCartButton({ product }: { product: ProductForCart }) {
   function addToCart() {
     try {
+      const value = Number.parseFloat(String(product.price).replace(",", ".")) || 0;
+      gaEvent("add_to_cart", { currency: product.currency || "PLN", value, items: [{ item_id: product.id, item_name: product.name, price: value, quantity: 1 }] });
       const items = JSON.parse(localStorage.getItem(CART_KEY) || "[]") as CartItem[];
       const existing = items.find((item) => item.id === product.id);
       const next = existing
