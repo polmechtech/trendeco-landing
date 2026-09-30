@@ -11,25 +11,17 @@ type ProductForCart = {
 
 type CartItem = { id: string; name: string; price: string; currency: string; image?: string; quantity: number };
 const CART_KEY = "trendeco-cart";
+const PENDING_ADD_KEY = "trendeco-ga4-pending-add";
 
 export default function OfferAddToCartButton({ product }: { product: ProductForCart }) {
   function addToCart() {
     try {
       const value = Number.parseFloat(String(product.price).replace(",", ".")) || 0;
-      const w = window as Window & { gtag?: (...args: unknown[]) => void };
-      const params = {
+      localStorage.setItem(PENDING_ADD_KEY, JSON.stringify({
         currency: product.currency || "PLN",
         value,
         items: [{ item_id: product.id, item_name: product.name, price: value, quantity: 1 }],
-      };
-      if (w.gtag) {
-        w.gtag("event", "add_to_cart", params);
-      } else {
-        window.setTimeout(() => {
-          const delayed = window as Window & { gtag?: (...args: unknown[]) => void };
-          delayed.gtag?.("event", "add_to_cart", params);
-        }, 600);
-      }
+      }));
       const items = JSON.parse(localStorage.getItem(CART_KEY) || "[]") as CartItem[];
       const existing = items.find((item) => item.id === product.id);
       const next = existing
@@ -38,8 +30,7 @@ export default function OfferAddToCartButton({ product }: { product: ProductForC
       localStorage.setItem(CART_KEY, JSON.stringify(next));
       window.dispatchEvent(new Event("trendeco-cart-updated"));
     } finally {
-      // Give gtag a moment to enqueue the click event before leaving the product page.
-      window.setTimeout(() => { window.location.href = "/koszyk"; }, 900);
+      window.location.href = "/koszyk";
     }
   }
 
