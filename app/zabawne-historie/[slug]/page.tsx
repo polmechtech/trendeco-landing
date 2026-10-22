@@ -1,0 +1,7 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { funnyStories,getFunnyStory } from "@/lib/funnyStories";
+export const generateStaticParams=()=>funnyStories.map(x=>({slug:x.slug}));
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{const s=getFunnyStory((await params).slug);return s?{title:s.hero,description:s.story.slice(0,155),alternates:{canonical:"/zabawne-historie/"+s.slug}}:{robots:{index:false}}}
+export default async function Story({params}:{params:Promise<{slug:string}>}){const s=getFunnyStory((await params).slug);if(!s)notFound();return <main className="min-h-screen bg-zinc-100 px-5 py-12 text-zinc-950"><article className="mx-auto max-w-3xl rounded-3xl bg-white p-7 sm:p-12"><Link href="/zabawne-historie" className="font-bold text-orange-600">← Wszystkie historie</Link><p className="mt-7 text-sm font-bold text-zinc-500">{s.character} · Opowieść fikcyjna</p><h1 className="mt-3 text-4xl font-black">{s.hero}</h1><p className="mt-7 text-lg leading-9 text-zinc-800">{s.story}</p><div className="mt-9 border-t pt-6"><p className="text-sm text-zinc-500">Sprzęt wspomniany w opowieści — sprawdź rzeczywiste parametry i zasady bezpieczeństwa w ofercie.</p><Link href={s.href} className="mt-3 inline-block rounded-full bg-zinc-950 px-5 py-3 font-bold text-white">Zobacz: {s.product} →</Link></div></article></main>}
