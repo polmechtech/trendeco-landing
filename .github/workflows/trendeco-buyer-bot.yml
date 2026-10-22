@@ -1,0 +1,22 @@
+name: TrendEco Buyer Bot - visibility
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '21 6 * * *'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/trendeco_buyer_bot.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: trendeco-visibility
+          path: output/
+          retention-days: 30
