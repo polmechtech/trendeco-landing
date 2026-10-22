@@ -16,6 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   {url:`${baseUrl}/zwroty-i-reklamacje`,lastModified:now,changeFrequency:"monthly",priority:.7},
   {url:`${baseUrl}/regulamin`,lastModified:now,changeFrequency:"monthly",priority:.5},
   {url:`${baseUrl}/polityka-prywatnosci`,lastModified:now,changeFrequency:"monthly",priority:.5},
+  {url:`${baseUrl}/rozrywka`,lastModified:now,changeFrequency:"weekly",priority:.65},
   {url:`${baseUrl}/poradnik`,lastModified:now,changeFrequency:"weekly",priority:.85},
   {url:`${baseUrl}/zabawne-historie`,lastModified:now,changeFrequency:"weekly",priority:.65},
   ...funnyStories.map(story=>({url:`${baseUrl}/zabawne-historie/${story.slug}`,lastModified:now,changeFrequency:"monthly" as const,priority:.6})),
