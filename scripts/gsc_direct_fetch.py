@@ -7,6 +7,7 @@ from datetime import date, timedelta
 from pathlib import Path
 from urllib.parse import quote
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 from google.oauth2 import service_account
 from google.auth.transport.requests import Request as AuthRequest
 
@@ -37,6 +38,10 @@ def main():
         try:
             with urlopen(request,timeout=35) as response:
                 result=json.load(response)
+        except HTTPError as exc:
+            print(f"{name}: GSC HTTP {exc.code} ({exc.reason}) for property {site}",file=sys.stderr)
+            summary.append({"site":name,"status":"error","http_status":exc.code,"property":site})
+            continue
         except Exception as exc:
             print(f"{name}: GSC request failed ({type(exc).__name__}); verify property and access",file=sys.stderr)
             summary.append({"site":name,"status":"error","error_type":type(exc).__name__})
