@@ -13,9 +13,9 @@ from google.auth.transport.requests import Request as AuthRequest
 
 SCOPES=["https://www.googleapis.com/auth/webmasters.readonly"]
 SITES={
-    "trendeco": os.getenv("GSC_SITE_TRENDECO","sc-domain:trendeco.eu"),
-    "polmech": os.getenv("GSC_SITE_POLMECH","sc-domain:polmech.tech"),
-    "widia": os.getenv("GSC_SITE_WIDIA","sc-domain:widia.tech"),
+    "trendeco": (os.getenv("GSC_SITE_TRENDECO") or "sc-domain:trendeco.eu").strip(),
+    "polmech": (os.getenv("GSC_SITE_POLMECH") or "sc-domain:polmech.tech").strip(),
+    "widia": (os.getenv("GSC_SITE_WIDIA") or "sc-domain:widia.tech").strip(),
 }
 def main():
     secret=os.getenv("GSC_SERVICE_ACCOUNT_JSON","")
