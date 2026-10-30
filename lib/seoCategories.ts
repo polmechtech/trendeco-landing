@@ -14,10 +14,10 @@ export const seoCategories: SeoCategory[] = [
   {
     slug: "pila-formatowa",
     keyword: "piła formatowa",
-    title: "Piła formatowa — stołowe piły formatowe TrendEco",
-    description: "Piły formatowe TrendEco do płyt, drewna i prac stolarskich. Sprawdź aktualne modele, ceny, dostępność i zakup przez TrendEco, Allegro lub ERLI.",
-    heading: "Piła formatowa — piły formatowe do warsztatu i stolarni",
-    intro: "Piła formatowa ułatwia dokładne cięcie płyt meblowych, drewna i materiałów drewnopochodnych. Poniżej znajdują się aktualnie dostępne piły formatowe i powiązane maszyny TrendEco z bieżącymi cenami i dostępnością.",
+    title: "Piła formatowa z podcinakiem 230V – TrendEco",
+    description: "Piła formatowa z podcinakiem 230V do płyt meblowych i laminowanych. Poznaj modele TrendEco, porównaj parametry, ceny i dostępność.",
+    heading: "Piła formatowa z podcinakiem – modele 230V do stolarni",
+    intro: "Piła formatowa z podcinakiem pozwala dokładnie docinać płyty meblowe, także laminowane. Podcinak ogranicza odpryski na dolnej krawędzi płyty, a stół przesuwny ułatwia prowadzenie materiału. Sprawdź kompaktowe modele TrendEco z zasilaniem 230 V, porównaj ich parametry, ceny i dostępność.",
     terms: ["piła formatowa", "pila formatowa", "formatowa"],
   },
   {
@@ -82,5 +82,9 @@ export function getSeoCategory(slug: string) {
 
 export function matchesSeoCategory(product: AllegroProduct, category: SeoCategory) {
   const name = product.name.toLocaleLowerCase("pl-PL");
+  if (category.slug === "pila-formatowa") {
+    return (name.includes("piła formatowa") || name.includes("pila formatowa") || name.includes("pilarka formatowa"))
+      && !/tarcza|frez|akcesori|części|czesci|podcinak osobno/.test(name);
+  }
   return category.terms.some((term) => name.includes(term.toLocaleLowerCase("pl-PL")));
 }
