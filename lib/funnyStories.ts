@@ -1,6 +1,23 @@
 export type FunnyStory={slug:string;hero:string;character:string;product:string;href:string;story:string};
 export const funnyStories:FunnyStory[]=[
   {
+    "slug": "bartek-i-stos-na-fotografie-2026-11-02",
+    "hero": "Bartek i stos na fotografię",
+    "character": "Bartek ze Śląska",
+    "product": "Łuparki do drewna",
+    "href": "/kategoria/luparka-przekladniowa",
+    "story": "Bartek ze Śląska układał drewno opałowe u sąsiada, który zażyczył sobie stosu „jak z katalogu”. Po łupaniu polan Bartek ułożył szczapy równo, zostawiając miejsce na przewiew. Sąsiad obejrzał efekt i westchnął: „Pięknie, ino teraz szkoda palić”. Nazajutrz przyprowadził fotografa, żeby uwiecznić stos przed zimą. Fotograf poprosił o „odrobinę życia w kadrze”. W tej chwili kot sąsiada wskoczył na stos i zasnął. Zdjęcie wygrało osiedlowy konkurs pod tytułem „Ciepło domowego ogniska”. Sąsiad dostał dyplom, kot saszetkę, a Bartek zamówienie na drugi stos. Pierwszy podobno był już zabytkiem."
+  },
+  {
+    "slug": "leszek-i-szuflada-na-przydasie-2026-11-02",
+    "hero": "Leszek i szuflada na przydasie",
+    "character": "Leszek z Lubelskiego",
+    "product": "Piły formatowe",
+    "href": "/kategoria/pila-formatowa",
+    "story": "Leszek z Lubelskiego montował zabudowę w przedpokoju. Gospodarz poprosił o szufladę na „przydasie”: kluczyki bez zamków, śrubki bez mebli i kabel, którego przeznaczenia nikt nie pamiętał. Leszek przyciął płyty meblowe na pile formatowej, zrobił przegródki i podczas montażu szuflady zapytał, jak podpisać ostatnią. „Rzeczy ważne” — odparł gospodarz. Żona spojrzała na zawartość. „To raczej rzeczy, które kiedyś były ważne”. Po chwili uzgodnili napis: „Na wszelki wypadek”. Wieczorem gospodarz znalazł w niej brakujący kluczyk do roweru. Leszek dostał pochwałę za porządek, a szuflada — pierwszy w życiu dowód przydatności."
+  },
+
+  {
     "slug": "bartek-i-centymetr-dla-komisji-2026-10-26",
     "hero": "Bartek i centymetr dla komisji",
     "character": "Bartek ze Śląska",
