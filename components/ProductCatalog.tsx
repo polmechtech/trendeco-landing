@@ -5,8 +5,6 @@ import { getOfferPath, getDisplayProductName, type AllegroProduct, type ProductC
 import { seoCategories } from "@/lib/seoCategories";
 import FreeShippingBadge from "@/components/FreeShippingBadge";
 
-type ErliInfo = { price: string; currency: string; url: string };
-type ErliMap = Record<string, ErliInfo>;
 type CartItem = { id: string; name: string; price: string; currency: string; image?: string; quantity: number };
 
 const CART_KEY = "trendeco-cart";
@@ -59,7 +57,7 @@ function constructionRank(product: AllegroProduct) {
   return 50;
 }
 
-export default function ProductCatalog({ products, erliPrices }: { products: AllegroProduct[]; erliPrices: ErliMap }) {
+export default function ProductCatalog({ products }: { products: AllegroProduct[] }) {
   const [query, setQuery] = useState("");
   const stickyHeaderRef = useRef<HTMLDivElement>(null);
   const [stickyHeaderHeight, setStickyHeaderHeight] = useState(0);
