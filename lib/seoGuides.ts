@@ -402,12 +402,12 @@ export const seoGuides: SeoGuide[] = [
   "slug": "moc-silnika-do-luparki-jzq250-3kw-4kw",
   "published": "2026-11-03",
   "title": "Silnik do łuparki z reduktorem JZQ250 — 3 kW, 4 kW czy więcej?",
-  "description": "Dlaczego większa moc nie oznacza szybszego łupania? Dobór silnika 400 V, prędkości klina i zabezpieczenia przed udarem.",
+  "description": "Dlaczego większa moc silnika nie gwarantuje większej siły skutecznego rozłupywania? Dobór napędu 400 V i ochrona reduktora przed udarem.",
   "heading": "Jak dobrać moc silnika do łuparki przekładniowej z reduktorem JZQ250",
   "sections": [
     {
       "heading": "Zacznij od przełożenia i prędkości, nie od liczby kilowatów",
-      "text": "W napędzie łuparki mechanicznej silnik, koła pasowe i reduktor tworzą jeden układ. Prędkość wału roboczego zależy przede wszystkim od obrotów silnika oraz przełożeń pasowego i zębatego. Jeżeli zamienisz silnik 3 kW na jednostkę 5,5 kW o zbliżonych obrotach, klin nie zacznie wykonywać większej liczby cykli w ciągu minuty. Zyskasz potencjalny zapas momentu napędowego, ale nie automatycznie wydajność w metrach przestrzennych drewna na godzinę."
+      "text": "W napędzie łuparki mechanicznej silnik, koła pasowe i reduktor tworzą jeden układ. Prędkość wału roboczego zależy przede wszystkim od obrotów silnika oraz przełożeń pasowego i zębatego. Zastąpienie silnika 3 kW jednostką 5,5 kW nie oznacza proporcjonalnego wzrostu skutecznej siły rozłupywania. Możliwy moment wzrośnie, ale rzeczywisty efekt ograniczają geometria klina, przełożenie i wytrzymałość przekładni; wzrasta również ryzyko przeciążenia."
     },
     {
       "heading": "Dlaczego POLMECH.TECH stosuje 3 kW / 400 V",
