@@ -411,7 +411,7 @@ export const seoGuides: SeoGuide[] = [
     },
     {
       "heading": "Dlaczego POLMECH.TECH stosuje 3 kW / 400 V",
-      "text": "Gotowa łuparka przekładniowa POLMECH.TECH została skonfigurowana i sprawdzona z trójfazowym silnikiem PROMOTOR 3 kW / 400 V. W samodzielnych projektach opartych na analogicznym układzie JZQ250 rozważa się również 4 kW, lecz wymaga to oceny pasów, wałów, kół zębatych, mocowań i sterowania. Rekomendacja 3–4 kW dotyczy tej konstrukcji napędu, a nie każdej przekładni oznaczonej JZQ250 w dowolnym zastosowaniu."
+      "text": "Gotowa łuparka przekładniowa POLMECH.TECH została skonfigurowana i sprawdzona z trójfazowym silnikiem PROMOTOR 3 kW / 400 V. W samodzielnych projektach opartych na analogicznym układzie JZQ250 rozważa się również 4 kW, lecz wymaga to oceny pasów, wałów, kół zębatych, mocowań i sterowania. Dla reduktora JZQ250 tej wielkości optymalnie dobieramy silnik o mocy 3–4 kW / 400 V. Ten zakres wynika z rozmiaru i możliwości przenoszenia obciążeń przez sam reduktor; zastosowanie mocniejszego silnika wymaga odrębnej oceny wytrzymałości przekładni i zabezpieczenia przed przeciążeniem."
     },
     {
       "heading": "Co naprawdę dzieje się przy zablokowaniu klina",
