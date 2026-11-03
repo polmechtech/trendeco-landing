@@ -1,4 +1,4 @@
-export type SeoGuide = { slug: string; title: string; description: string; heading: string; sections: { heading: string; text: string }[]; links: { label: string; href: string }[] };
+export type SeoGuide = { published?: string; slug: string; title: string; description: string; heading: string; sections: { heading: string; text: string }[]; links: { label: string; href: string }[] };
 
 export const seoGuides: SeoGuide[] = [
   { slug: "jak-wybrac-pile-formatowa", title: "Jak wybrać piłę formatową do warsztatu?", description: "Podcinak, stół, zasilanie, zakres cięcia i serwis — kryteria wyboru piły formatowej.", heading: "Jak wybrać piłę formatową do warsztatu i produkcji mebli", sections: [
@@ -28,6 +28,7 @@ export const seoGuides: SeoGuide[] = [
   ], links: [{ label: "Narzędzia WIDIA.TECH", href: "https://widia.tech" }, { label: "Oferta TrendEco", href: "/" }] },
   {
   "slug": "mobilna-formatowka-wj100-czy-wj108",
+    "published": "2026-11-03",
   "title": "WJ100 czy WJ108 — który stół formatowy wybrać?",
   "description": "Porównanie mobilnych stołów WJ100 i WJ108 pod kątem miejsca pracy, transportu i wyposażenia.",
   "heading": "WJ100 czy WJ108? Dobór mobilnego stołu formatowego",
@@ -58,6 +59,7 @@ export const seoGuides: SeoGuide[] = [
 },
   {
   "slug": "podcinak-i-tarcza-glowna-do-laminatu",
+    "published": "2026-11-03",
   "title": "Podcinak i tarcza do laminatu — jak dobrać zestaw?",
   "description": "Wymiary, rzaz i ustawienie podcinaka 110 mm z tarczą 200 mm lub 230 mm.",
   "heading": "Podcinak 110 mm i tarcza główna — dobór do płyt laminowanych",
@@ -88,6 +90,7 @@ export const seoGuides: SeoGuide[] = [
 },
   {
   "slug": "zestaw-pila-frezarka-okleiniarka-czy-osobne-maszyny",
+    "published": "2026-11-03",
   "title": "Piła, frezarka i okleiniarka — razem czy osobno?",
   "description": "Jak wybrać modułowy zestaw do mebli i ocenić straty czasu przy zmianie operacji.",
   "heading": "Jedno stanowisko czy osobne maszyny do produkcji mebli?",
@@ -118,6 +121,7 @@ export const seoGuides: SeoGuide[] = [
 },
   {
   "slug": "okleiniarka-mini-medium-optimus-wf700",
+    "published": "2026-11-03",
   "title": "Mini, Medium, Optimus czy WF-700 — dobór okleiniarki",
   "description": "Różnice w sposobie pracy i wyposażeniu kompaktowych okleiniarek TrendEco.",
   "heading": "Jak dobrać okleiniarkę: Mini, Medium, Optimus i WF-700",
@@ -148,6 +152,7 @@ export const seoGuides: SeoGuide[] = [
 },
   {
   "slug": "przygotowanie-krawedzi-przed-oklejaniem",
+    "published": "2026-11-03",
   "title": "Frezowanie wstępne i wykańczanie obrzeża PVC",
   "description": "Kiedy potrzebny jest moduł frezowania krawędzi, a kiedy wystarczy ręczny trymer R2.",
   "heading": "Od surowej krawędzi płyty do gotowego obrzeża PVC",
@@ -178,6 +183,7 @@ export const seoGuides: SeoGuide[] = [
 },
   {
   "slug": "pila-pierscieniowa-reczna-czy-prowadnica",
+    "published": "2026-11-03",
   "title": "Piła pierścieniowa ręczna czy na prowadnicy?",
   "description": "Kiedy prowadnica ręczna lub elektryczna ułatwia cięcie betonu i żelbetu.",
   "heading": "Piła pierścieniowa: praca z ręki, prowadnica ręczna czy elektryczna?",
@@ -208,6 +214,7 @@ export const seoGuides: SeoGuide[] = [
 },
   {
   "slug": "eksploatacja-pily-pierscieniowej-pierscien-prowadnica",
+    "published": "2026-11-03",
   "title": "Pierścień, prowadnica i woda — koszty eksploatacji piły",
   "description": "Jak oceniać zużycie pierścieni i prowadnic oraz uniknąć przedwczesnej wymiany.",
   "heading": "Eksploatacja piły pierścieniowej: co zużywa się pierwsze?",
@@ -238,6 +245,7 @@ export const seoGuides: SeoGuide[] = [
 },
   {
   "slug": "luparka-gotowa-czy-modul-jzq250",
+    "published": "2026-11-03",
   "title": "Łuparka gotowa, moduł mechaniczny czy przekładnia JZQ250?",
   "description": "Co trzeba policzyć przy wyborze gotowej łuparki i budowie własnego napędu.",
   "heading": "Gotowa łuparka czy moduł z przekładnią JZQ250?",
@@ -268,6 +276,7 @@ export const seoGuides: SeoGuide[] = [
 },
   {
   "slug": "jak-dobierac-polano-do-luparki-przekladniowej",
+    "published": "2026-11-03",
   "title": "Jak przygotować drewno do łuparki przekładniowej?",
   "description": "Kształt, sęki, wilgotność i bezpieczne podawanie polan do mechanicznej łuparki.",
   "heading": "Drewno do łuparki: sęki, wilgotność i sposób podawania",
@@ -298,6 +307,7 @@ export const seoGuides: SeoGuide[] = [
 },
   {
   "slug": "szablon-do-zamkow-a-przystawka-do-rowkow",
+    "published": "2026-11-03",
   "title": "Szablon do zamków czy przystawka do rowków?",
   "description": "Jak odróżnić przyrząd WB260 do drzwi od zestawu frezarskiego do połączeń meblowych.",
   "heading": "Frezowanie gniazd: szablon do zamka czy prowadnica do rowków?",
@@ -318,7 +328,7 @@ export const seoGuides: SeoGuide[] = [
   "links": [
     {
       "label": "Narzędzia stolarskie",
-      "href": "/kategoria/frezarka"
+      "href": "/"
     },
     {
       "label": "Katalog TrendEco",
@@ -328,6 +338,7 @@ export const seoGuides: SeoGuide[] = [
 },
   {
   "slug": "przecinarka-reczna-do-gresu-i-kolko-tnace",
+    "published": "2026-11-03",
   "title": "Przecinarka do gresu 1200 mm i kółko 22 mm — dobór",
   "description": "Długość cięcia, rodzaj płytki i kompatybilność kółka w ręcznej przecinarce.",
   "heading": "Ręczna przecinarka do płytek: prowadnica, docisk i kółko tnące",
@@ -348,7 +359,7 @@ export const seoGuides: SeoGuide[] = [
   "links": [
     {
       "label": "Narzędzia budowlane",
-      "href": "/kategoria/przecinarka"
+      "href": "/kategoria/przecinarka-do-plytek"
     },
     {
       "label": "Oferta TrendEco",
@@ -358,6 +369,7 @@ export const seoGuides: SeoGuide[] = [
 },
   {
   "slug": "stol-rolkowy-przymiar-i-oslona-pily",
+    "published": "2026-11-03",
   "title": "Podparcie, przymiar i osłona piły — dobór osprzętu",
   "description": "Jak poprawić organizację stanowiska bez ryzykownej przeróbki pilarki.",
   "heading": "Osprzęt do pilarki: stojak rolkowy, przymiar i osłona",
