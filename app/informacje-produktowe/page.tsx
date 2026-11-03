@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { AllegroProduct } from "@/lib/allegro";
+import { gpsrSafetyPolish } from "@/lib/gpsrSafetyPolish";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
@@ -49,7 +50,8 @@ export default async function ProductInfoPage({ searchParams }: { searchParams: 
 
       <section id="gpsr" className="mt-6 rounded-3xl bg-white p-6 shadow-sm md:p-10">
         <h2 className="text-2xl font-black">Informacje bezpieczeństwa GPSR</h2>
-        {gpsr?.safetyInformation?.description ? <p className="mt-5 whitespace-pre-line leading-7 text-zinc-700">{gpsr.safetyInformation.description}</p> : <p className="mt-5 text-zinc-600">Brak dodatkowego tekstu bezpieczeństwa w aktualnych danych oferty.</p>}
+        <div className="mt-5 whitespace-pre-line leading-7 text-zinc-700">{gpsrSafetyPolish(product.name, product.category)}</div>
+        {gpsr?.safetyInformation?.description && <details className="mt-5 rounded-xl border border-zinc-200 p-4 text-sm text-zinc-600"><summary className="cursor-pointer font-bold">Oryginalna informacja bezpieczeństwa przekazana w ofercie Allegro</summary><p className="mt-3 whitespace-pre-line">{gpsr.safetyInformation.description}</p></details>}
       </section>
     </div>
   </main>;
