@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getOfferPath, type AllegroProduct } from "@/lib/allegro";
+import { getOfferPath, getDisplayProductName, getAllegroDescriptionImages, type AllegroProduct } from "@/lib/allegro";
+import ProductZoomImage from "@/components/ProductZoomImage";
 import { getSeoCategory, matchesSeoCategory, seoCategories } from "@/lib/seoCategories";
 
 export const revalidate = 3600;
@@ -80,7 +81,7 @@ export default async function SeoCategoryPage({ params }: { params: Promise<{ sl
         "@type": "ListItem",
         position: index + 1,
         url: `https://www.trendeco.eu${getOfferPath(product)}`,
-        name: product.name,
+        name: getDisplayProductName(product.name),
       })),
     },
   };
@@ -147,10 +148,11 @@ export default async function SeoCategoryPage({ params }: { params: Promise<{ sl
                         <span className="text-zinc-400">Brak zdjęcia</span>
                       )}
                     </div>
-                    <h2 className="mt-3 text-sm font-black leading-snug sm:text-base">{product.name}</h2>
+                    <h2 className="mt-3 text-sm font-black leading-snug sm:text-base">{getDisplayProductName(product.name)}</h2>
                     <p className="mt-2 text-lg font-black text-orange-600 sm:text-xl">{product.price} {product.currency}</p>
                     <p className="mt-1 text-xs text-zinc-500 sm:text-sm">{product.stock > 0 ? `Dostępne: ${product.stock} szt.` : "Sprawdź dostępność"}</p>
                   </a>
+                  {getAllegroDescriptionImages(product).length > 0 && <div className="mt-3 grid grid-cols-2 gap-2" aria-label="Dodatkowe zdjęcia z opisu Allegro">{getAllegroDescriptionImages(product).slice(0, 2).map((url, index) => <div key={url} className="flex aspect-[4/3] items-center justify-center rounded-lg bg-white p-1"><ProductZoomImage src={url} alt={`${getDisplayProductName(product.name)} — zdjęcie ${index + 1}`} /></div>)}</div>}
                 </article>
               ))}
             </div>
