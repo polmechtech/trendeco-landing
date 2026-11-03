@@ -397,6 +397,53 @@ export const seoGuides: SeoGuide[] = [
       "href": "/poradnik/jak-wybrac-pile-formatowa"
     }
   ]
+},
+  {
+  "slug": "moc-silnika-do-luparki-jzq250-3kw-4kw",
+  "published": "2026-11-03",
+  "title": "Silnik do łuparki z reduktorem JZQ250 — 3 kW, 4 kW czy więcej?",
+  "description": "Dlaczego większa moc nie oznacza szybszego łupania? Dobór silnika 400 V, prędkości klina i zabezpieczenia przed udarem.",
+  "heading": "Jak dobrać moc silnika do łuparki przekładniowej z reduktorem JZQ250",
+  "sections": [
+    {
+      "heading": "Zacznij od przełożenia i prędkości, nie od liczby kilowatów",
+      "text": "W napędzie łuparki mechanicznej silnik, koła pasowe i reduktor tworzą jeden układ. Prędkość wału roboczego zależy przede wszystkim od obrotów silnika oraz przełożeń pasowego i zębatego. Jeżeli zamienisz silnik 3 kW na jednostkę 5,5 kW o zbliżonych obrotach, klin nie zacznie wykonywać większej liczby cykli w ciągu minuty. Zyskasz potencjalny zapas momentu napędowego, ale nie automatycznie wydajność w metrach przestrzennych drewna na godzinę."
+    },
+    {
+      "heading": "Dlaczego POLMECH.TECH stosuje 3 kW / 400 V",
+      "text": "Gotowa łuparka przekładniowa POLMECH.TECH została skonfigurowana i sprawdzona z trójfazowym silnikiem PROMOTOR 3 kW / 400 V. W samodzielnych projektach opartych na analogicznym układzie JZQ250 rozważa się również 4 kW, lecz wymaga to oceny pasów, wałów, kół zębatych, mocowań i sterowania. Rekomendacja 3–4 kW dotyczy tej konstrukcji napędu, a nie każdej przekładni oznaczonej JZQ250 w dowolnym zastosowaniu."
+    },
+    {
+      "heading": "Co naprawdę dzieje się przy zablokowaniu klina",
+      "text": "Podczas rozłupywania włókna drewna odkształcają się, rozciągają i stopniowo pękają. Obciążenie może być wysokie, ale materiał zwykle nie jest idealnie sztywną przeszkodą. Inaczej jest, gdy w strefie roboczej znajdzie się metalowy łom albo inny praktycznie nieodkształcalny przedmiot. Gwałtowne zatrzymanie klina powoduje nagłą zmianę prędkości obracających się mas. Energia kinetyczna zgromadzona w silniku, kołach i wałach musi zostać wytracona, a chwilowe obciążenie zębów może przewyższyć normalny moment roboczy. Następstwem bywa wykruszenie zębów, uszkodzenie wału lub elementów przeniesienia napędu."
+    },
+    {
+      "heading": "Czy większy silnik zawsze pobiera więcej prądu?",
+      "text": "Nie. Moc znamionowa określa zdolność silnika do oddawania mocy mechanicznej w określonych warunkach, a chwilowy pobór zależy od rzeczywistego obciążenia, sprawności i charakterystyki jednostki. Mocniejszy napęd może jednak dostarczyć większy moment podczas trudnej pracy, a przy wykorzystaniu tej rezerwy zużyć więcej energii. W projekcie z ograniczoną nośnością przekładni taka rezerwa może być bardziej zagrożeniem niż korzyścią. Nie warto traktować przewymiarowania jako sposobu na omijanie zakleszczeń."
+    },
+    {
+      "heading": "Jak ograniczać skutki przeciążenia w projekcie własnym",
+      "text": "Należy zweryfikować dopuszczalny moment i obciążenia dynamiczne reduktora, właściwości napędu pasowego oraz sposób zatrzymania maszyny. W razie potrzeby przewiduje się sprzęgło przeciążeniowe, ogranicznik momentu albo inny skuteczny element mechaniczny dobrany do układu. Zabezpieczenie termiczne silnika i wyłącznik START/STOP nie zastąpią automatycznie ochrony zębów przed krótkim udarem. Dobór oraz montaż zabezpieczeń musi wynikać z oceny ryzyka całej maszyny, także przy nieoczekiwanym przedmiocie w torze klina."
+    },
+    {
+      "heading": "Co wybrać przy zakupie modułu lub samego reduktora",
+      "text": "Jeżeli potrzebujesz gotowej maszyny do drewna opałowego, punktem odniesienia jest sprawdzona konfiguracja 3 kW / 400 V. Jeżeli kupujesz osobny moduł mechaniczny lub przekładnię JZQ250 do własnej konstrukcji, najpierw wykonaj obliczenia i określ sposób ograniczenia momentu, a dopiero potem zamawiaj silnik. W POLMECH.TECH można zapytać o dostępność i cenę trójfazowych silników 3 kW oraz 4 kW / 400 V. Silnik mocniejszy niż 4 kW wymaga odrębnego przeprojektowania i sprawdzenia obciążeń; samo zwiększenie mocy nie jest zalecaną modyfikacją."
+    }
+  ],
+  "links": [
+    {
+      "label": "Łuparki i przekładnie",
+      "href": "/kategoria/luparka-przekladniowa"
+    },
+    {
+      "label": "POLMECH.TECH — konstrukcja napędu",
+      "href": "https://polmech.tech"
+    },
+    {
+      "label": "230 V czy 400 V?",
+      "href": "/poradnik/luparka-przekladniowa-230v-czy-400v"
+    }
+  ]
 }
 ];
 
