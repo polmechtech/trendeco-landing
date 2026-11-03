@@ -128,7 +128,9 @@ export function getDisplayProductName(name: string): string {
     .replace(/\b(\d+(?:[,.]\d+)?)\s*kw\b/gi, "$1 kW")
     .replace(/\b(\d+(?:[,.]\d+)?)\s*v\b/gi, "$1 V")
     .replace(/\b(\d+(?:[,.]\d+)?)\s*w\b/gi, "$1 W")
-    .replace(/\b(\d+(?:[,.]\d+)?)\s*mm\b/gi, "$1 mm");
+    .replace(/\b(\d+(?:[,.]\d+)?)\s*mm\b/gi, "$1 mm")
+    .replace(/\b12t\b/gi, "12T")
+    .replace(/\bdo łuparka\b/gi, "do łuparki");
   return normalized.replace(/^([^\p{L}]*)(\p{L})/u, (_, prefix: string, first: string) =>
     prefix + first.toLocaleUpperCase("pl-PL"));
 }
