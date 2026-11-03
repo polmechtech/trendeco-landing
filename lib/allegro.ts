@@ -110,6 +110,38 @@ export function classifyProduct(name: string): ProductCategory {
   return "Meblarstwo";
 }
 
+
+/** Title presentation only: keeps original Allegro names and product URLs unchanged. */
+export function getDisplayProductName(name: string): string {
+  const normalized = name.toLocaleLowerCase("pl-PL")
+    .replace(/\bpolmech\.tech\b/gi, "POLMECH.TECH")
+    .replace(/\bwidia\.tech\b/gi, "WIDIA.TECH")
+    .replace(/\btrendeco\b/gi, "TrendEco")
+    .replace(/\bjzq\s*250\b/gi, "JZQ250")
+    .replace(/\bpromotor\b/gi, "PROMOTOR")
+    .replace(/\bcnc\b/gi, "CNC")
+    .replace(/\bmdf\b/gi, "MDF")
+    .replace(/\bled\b/gi, "LED")
+    .replace(/\bgyro\b/gi, "GYRO")
+    .replace(/\bauto off\b/gi, "AUTO OFF")
+    .replace(/\bip(\d+)\b/gi, "IP$1")
+    .replace(/\b(\d+(?:[,.]\d+)?)\s*kw\b/gi, "$1 kW")
+    .replace(/\b(\d+(?:[,.]\d+)?)\s*v\b/gi, "$1 V")
+    .replace(/\b(\d+(?:[,.]\d+)?)\s*w\b/gi, "$1 W")
+    .replace(/\b(\d+(?:[,.]\d+)?)\s*mm\b/gi, "$1 mm");
+  return normalized.replace(/^([^\p{L}]*)(\p{L})/u, (_, prefix: string, first: string) =>
+    prefix + first.toLocaleUpperCase("pl-PL"));
+}
+
+export function getAllegroDescriptionImages(product: AllegroProduct): string[] {
+  const sections = Array.isArray(product.descriptionSections) ? product.descriptionSections : [];
+  const urls = sections.flatMap((section: any) => Array.isArray(section?.items) ? section.items : [])
+    .filter((item: any) => item?.type === "IMAGE" && typeof item.url === "string")
+    .map((item: any) => item.url.trim())
+    .filter((url: string) => /^https:\/\//i.test(url) && url !== product.image);
+  return [...new Set(urls)] as string[];
+}
+
 export function slugifyOfferName(name: string): string {
   return name
     .toLowerCase()
