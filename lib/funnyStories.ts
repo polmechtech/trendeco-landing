@@ -1,6 +1,23 @@
 export type FunnyStory={slug:string;hero:string;character:string;product:string;href:string;story:string};
 export const funnyStories:FunnyStory[]=[
   {
+    "slug": "bartek-i-drewno-na-dwie-pory-roku-2026-11-09",
+    "hero": "Bartek i drewno na dwie pory roku",
+    "character": "Bartek ze Śląska",
+    "product": "Łuparki do drewna",
+    "href": "/kategoria/luparka-przekladniowa",
+    "story": "Bartek ze Śląska przygotowywał drewno opałowe dla sąsiadki, która poprosiła o dwa osobne stosy: „Na zimę i na bardzo zimę”. Bartek pociął kłody, rozłupał drewno i ułożył szczapy pod zadaszeniem, żeby mogły schnąć. Na pierwszym stosie zawiesił kartkę „Zima”, na drugim „Bardzo zima”. Sąsiadka obejrzała zapasy i spytała: „A skąd będę wiedziała, kiedy zacząć drugi?”. Bartek wskazał okno: „Kiedy pani kot przestanie wychodzić na dwór”. W grudniu kot nadal spacerował, więc oba stosy stały nietknięte. Sąsiadka pochwaliła Bartka za oszczędność opału, a kot dostał awans na kierownika ogrzewania."
+  },
+  {
+    "slug": "leszek-i-szafa-na-goscia-2026-11-09",
+    "hero": "Leszek i szafa na gościa",
+    "character": "Leszek z Lubelskiego",
+    "product": "Piły formatowe",
+    "href": "/kategoria/pila-formatowa",
+    "story": "Leszek z Lubelskiego montował szafę wnękową u państwa Nowaków. Gospodyni poprosiła o dodatkowy drążek „na ubrania gości”. Leszek dokładnie wymierzył wnękę, przygotował płyty meblowe na pile formatowej i zamontował półki oraz drążki. Przy odbiorze gospodarz spytał: „A gdzie miejsce na gościa?”. „W salonie” — odparł Leszek. „Nie, bo teściowa mówi, że przyjeżdża tylko na chwilę, a zostaje na tydzień”. Leszek wskazał pojemną szafę: „To przynajmniej walizka nie będzie stała w przejściu”. Tydzień później gospodyni zadzwoniła z podziękowaniem. Teściowa zachwyciła się porządkiem i wyjechała dzień wcześniej, żeby zamówić podobną szafę u siebie."
+  },
+
+  {
     "slug": "bartek-i-stos-na-fotografie-2026-11-02",
     "hero": "Bartek i stos na fotografię",
     "character": "Bartek ze Śląska",
