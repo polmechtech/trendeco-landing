@@ -312,7 +312,7 @@ async function enrichProductsWithGpsr(accessToken: string, products: AllegroProd
 function applyCurrentCategories(products: AllegroProduct[]): AllegroProduct[] {
   return products.map((product) => ({
     ...product,
-    category: classifyProduct(product.name),
+    category: classifyProduct(product.name, product.id),
   }));
 }
 
