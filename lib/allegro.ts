@@ -67,7 +67,9 @@ export type ProductGpsr = {
 
 export const TRENDECO_UI_VERSION = "pobranie-whatsapp-tiktok-v1";
 
-export function classifyProduct(name: string): ProductCategory {
+export function classifyProduct(name: string, offerId?: string): ProductCategory {
+  // TC-58T belongs to accessories regardless of its current Allegro title.
+  if (offerId === "19109540248") return "Akcesoria";
   const n = name.toLowerCase();
   if (n.includes("wyłącznik elektromagnetyczny 400v") || n.includes("wylacznik elektromagnetyczny 400v")) return "Łuparki";
   if (n.includes("lamelownica cnc frezarka połączeń zawias chowany") || n.includes("lamelownica cnc frezarka polaczen zawias chowany")) return "Meblarstwo";
@@ -177,7 +179,7 @@ export function mapAllegroOffers(data: any): AllegroProduct[] {
       currency: offer.sellingMode?.price?.currency ?? "PLN",
       stock: Number(offer.stock?.available ?? 0),
       url: `https://allegro.pl/oferta/${offer.id}`,
-      category: classifyProduct(String(offer.name ?? "")),
+      category: classifyProduct(String(offer.name ?? ""), String(offer.id)),
       parameters: [],
       sku: offer.external?.id ? String(offer.external.id) : undefined,
     }))
